@@ -2,7 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      Welcome to Aaron's kit! With this, the world of (insert field) journals are open to you to change the world with!
+      Welcome to Aaron's kit! With this, the world of (insert field) journals
+      are open to you to change the world with! Refer to any of the pages above for additional information. 
     </p>
     <h3>Installed CLI Plugins</h3>
     <ul>
