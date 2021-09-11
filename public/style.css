@@ -1,0 +1,23 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+}
+.container {
+    display: flex; /* or inline-flex */
+    flex-direction: column;
+  }
+
+/*can be copied to App.vue scoped css */
+nav{
+    position: absolute; /*change depending on behaviour required. may need as sticky*/
+    top: 0;
+}
