@@ -6,7 +6,7 @@
     </nav>
     <div id="main">
       <!--<router-view />-->
-      <home-page/>
+      <home-page />
     </div>
     <footer>
       <h1>Placeholder for footer</h1>
@@ -20,7 +20,7 @@ import HomePage from './components/Home.vue'
 export default {
   name: 'app',
   components: {
-    HomePage
+    HomePage,
   },
 }
 </script>
