@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <!--<router-link to="/">-->
-      <img id="homelogo" alt="Vue logo" src="../assets/logo_green.png" />
+    <img id="homelogo" alt="Vue logo" src="../assets/logo_green.png" />
     <!--</router-link>-->
-    <search-bar/>
+    <search-bar />
   </div>
 </template>
 <script>
@@ -17,8 +17,8 @@ export default {
     Search: String,
   },
   components: {
-    SearchBar
-  }
+    SearchBar,
+  },
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
