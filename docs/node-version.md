@@ -19,6 +19,9 @@ The Node version for this project is automatically managed by:
    npm install -g avn avn-nvm avn-n
    avn setup
    ```
+### Windows users
+
+AVN is not compatible with windows. A possible work-around is to install NVM for windows and switch manually. However there is some advice on this [thread](https://github.com/wbyoung/avn/issues/46) to make AVN compatible if you use [CMDER](https://cmder.net/) as an console emulator. 
 
 ## Usage
 
