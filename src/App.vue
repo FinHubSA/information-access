@@ -2,12 +2,8 @@
   <div>
     <nav id="navbar">
       <h1>Placeholder for navbar</h1>
-      <!--possible approach: use same navbar for homepage as others and hide search bar when detected as home route-->
     </nav>
-    <div id="main">
-      <!--<router-view />-->
-      <home-page />
-    </div>
+    <home-page />
     <footer>
       <h1>Placeholder for footer</h1>
     </footer>

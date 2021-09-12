@@ -5,9 +5,6 @@
   </div>
 </template>
 <script>
-//since using router need to make a search component
-console.log('Searchbar loaded')
-
 export default {
   name: 'SearchBar',
   props: {
@@ -15,7 +12,6 @@ export default {
   },
 }
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #search {
   height: 30px;
@@ -34,7 +30,6 @@ export default {
 }
 
 .input-icons {
-  /*display: inline-block;*/
   width: 50%;
   margin-bottom: 10px;
   position: relative;
