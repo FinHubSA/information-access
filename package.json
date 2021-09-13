@@ -42,7 +42,7 @@
     "node-sass": "^5.0.0",
     "package-json-help": "^0.0.11",
     "prettier": "^2.4.0",
-    "sass-loader": "^10",
+    "sass-loader": "^12",
     "vue-jest": "^5.0.0-0",
     "vue-router-mock": "0.0.3"
   },
