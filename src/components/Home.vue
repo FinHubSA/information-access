@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img id="homelogo" alt="Vue logo" src="../assets/logo_green.png" />
+    <img class="logo" alt="Vue logo" src="../assets/logo_green.png" />
     <search-bar />
   </div>
 </template>
@@ -17,13 +17,14 @@ export default {
 }
 </script>
 <style scoped>
-#main {
-  min-height: 100%;
-}
-#homelogo {
-  justify-self: center;
+.logo {
   align-self: center;
-  padding-bottom: 3%;
-  padding-top: 10%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding-top: 2rem;
 }
 </style>

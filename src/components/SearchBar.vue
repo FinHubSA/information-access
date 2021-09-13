@@ -1,7 +1,9 @@
 <template>
-  <div class="input-icons">
-    <input id="search" type="text" placeholder="Search" />
-    <i class="fa fa-search icon"></i>
+  <div class="wrapper">
+    <div class="input-container">
+      <input class="search" type="text" placeholder="Search" />
+      <i class="fa fa-search icon"></i>
+    </div>
   </div>
 </template>
 <script>
@@ -13,34 +15,39 @@ export default {
 }
 </script>
 <style scoped>
-#search {
-  height: 30px;
-  width: 90%;
-  position: relative;
+.wrapper {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+}
+.input-container:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 5px grey;
+}
+.input-container:focus {
+  box-shadow: 1px 1px 5px grey;
+}
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  height: 32px;
   border: 1px solid rgba(0, 0, 0, 0.151);
   border-radius: 30px;
-  padding-left: 15px;
+  flex: 0 5 600px;
+  min-width: 250px;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-top: 2rem;
 }
-#search:focus {
-  box-shadow: 1px 1px 5px grey;
+.input-container > input {
+  flex-grow: 8;
+  border: none;
   outline: none;
+  margin-left: 10px;
+  border-radius: 30px;
 }
-#search:hover {
-  box-shadow: 1px 1px 5px grey;
-}
-
-.input-icons {
-  width: 50%;
-  margin-bottom: 10px;
-  position: relative;
-  align-self: center;
-  height: 30px;
-}
-
 i {
-  position: absolute;
-  padding-top: 10px;
+  padding-top: 8px;
   min-width: 40px;
-  right: 30px;
 }
 </style>

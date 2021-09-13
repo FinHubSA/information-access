@@ -11,13 +11,7 @@ footer{
     position: absolute;
     bottom: 0;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-  }
-
-/*can be copied to App.vue scoped css */
 nav{
-    position: absolute; /*change depending on behaviour required. may need as sticky*/
+    position: absolute;
     top: 0;
 }
