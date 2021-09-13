@@ -7,12 +7,6 @@ const routes = [
     name: 'Home',
     component: HelloWorld,
   },
-  //Can add this in once search results is merged
-  //{
-  //path: '/search-results',
-  //name: 'Search Results',
-  //component: SearchBar, SearchResults,
-  //},
 ]
 
 const router = createRouter({
