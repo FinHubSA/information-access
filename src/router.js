@@ -11,7 +11,7 @@ const routes = [
   //{
   //path: '/search-results',
   //name: 'Search Results',
-  //component: SearchResults,
+  //component: SearchBar, SearchResults,
   //},
 ]
 
