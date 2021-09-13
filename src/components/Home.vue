@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <img class="logo" alt="Vue logo" src="../assets/logo_green.png" />
-    <search-bar />
+    <div class="wrapper">
+      <search-bar />
+    </div>
   </div>
 </template>
 <script>
@@ -26,5 +28,10 @@ export default {
   justify-items: center;
   align-items: center;
   padding-top: 2rem;
+}
+.wrapper {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
 }
 </style>
