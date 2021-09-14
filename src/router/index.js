@@ -22,15 +22,15 @@ const routes = [
     component: HelloWorld,
   },
   {
-  path: '/About',
-  name: 'About',
-  component: About,
-},
-{
-  path: '/FAQ',
-  name: 'FAQ',
-  component: FAQ,
-}
+    path: '/About',
+    name: 'About',
+    component: About,
+  },
+  {
+    path: '/FAQ',
+    name: 'FAQ',
+    component: FAQ,
+  },
 ]
 
 const router = createRouter({
