@@ -2,7 +2,7 @@
   <div>
     <h1>Search Results</h1>
     <p>
-      Short description of what you are looking at and possibly a summary bar.
+      Short description of what you are looking at, the search term, and possibly a summary bar. 
     </p>
   </div>
   <div class="flex-container">
