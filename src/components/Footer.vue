@@ -4,10 +4,7 @@
       <h4>Arrons kit</h4>
       <p>Making research accessible</p>
 
-      <p>
-        © 2021 
-
-      </p>
+      <p>© 2021</p>
     </footer>
   </div>
 </template>
