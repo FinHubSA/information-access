@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav id="navbar">
-      <h1>Placeholder for navbar</h1>
+      <NavBar />
     </nav>
     <router-view />
     <footer>
@@ -11,9 +11,11 @@
 </template>
 
 <script>
+import NavBar from './components/NavBar.vue'
+
 export default {
   name: 'app',
-  components: {},
+  components: { NavBar },
 }
 </script>
 
