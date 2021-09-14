@@ -10,6 +10,12 @@
       <h6>
         <router-link to="/SearchResults">SearchResults</router-link>
       </h6>
+        <h6>
+        <router-link to="/About">About</router-link>
+      </h6>
+              <h6>
+        <router-link to="/FAQ">FAQ</router-link>
+      </h6>
     </ul>
   </div>
 </template>
