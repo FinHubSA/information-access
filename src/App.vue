@@ -1,7 +1,13 @@
 <template>
-  <NavBar />
-  <router-view />
-  <Footer />
+  <div>
+    <nav>
+      <NavBar />
+    </nav>
+    <router-view />
+    <footer>
+        <Footer />
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -10,10 +16,10 @@ import Footer from './components/Footer.vue'
 
 export default {
   name: 'app',
-  components: {
-    NavBar,
-    Footer,
-  },
+  components: { 
+  NavBar,
+  Footer,
+   },
 }
 </script>
 
@@ -162,3 +168,4 @@ table th {
   color: rgb(99, 206, 99);
 }
 </style>
+
