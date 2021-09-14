@@ -34,4 +34,7 @@ export default {
   width: 100vw;
   justify-content: space-around;
 }
+img {
+  height: 250px;
+}
 </style>

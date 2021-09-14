@@ -1,5 +1,5 @@
 <template>
-  <nav :class="{ mobile: isMobile }">
+  <nav>
     <div class="nav-container">
       <ul class="links-container">
         <h6>
