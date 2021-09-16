@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <p>'''Brief history of Aaron Schwartz'''</p>
     <br />
     <p>
@@ -12,3 +12,9 @@
     </p>
   </div>
 </template>
+<style scoped>
+.container {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+</style>

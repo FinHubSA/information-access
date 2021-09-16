@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Search Results</h1>
     <p>
       Short description of what you are looking at, the search term, and
@@ -37,6 +37,10 @@ export default {
 </script>
 
 <style scoped>
+.container{
+  flex-grow: 1;
+  flex-shrink: 0;
+}
 .flex-container {
   display: flex;
   padding: 1rem 5%;
