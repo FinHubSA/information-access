@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import NavBar from './NavBar.vue'
+import NavBar from '../NavBar/NavBar.vue'
 
 describe('NavBar.vue', () => {
   it('renders the page', () => {

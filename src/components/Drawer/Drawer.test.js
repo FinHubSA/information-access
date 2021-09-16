@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import Drawer from './Drawer.vue'
+import Drawer from '../Drawer/Drawer.vue'
 
 describe('Drawer.vue', () => {
   it('renders the page', () => {
