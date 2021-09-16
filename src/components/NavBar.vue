@@ -1,14 +1,10 @@
 <template>
   <nav>
     <div class="nav-container">
-        <h6>
-        <router-link to="/"
-          ><img src="@/assets/logo_green.png"
-        /></router-link>
-        </h6>
-        <ul class="links-container">
-
-
+      <h6>
+        <router-link to="/"><img src="@/assets/logo_green.png" /></router-link>
+      </h6>
+      <ul class="links-container">
         <h6>
           <router-link to="/HelloWorld">HelloWorld</router-link>
         </h6>
