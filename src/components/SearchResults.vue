@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style scoped>
-.container{
+.container {
   flex-grow: 1;
   flex-shrink: 0;
 }
