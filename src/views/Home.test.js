@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import HomePage from './Home.vue'
+import HomePage from '../views/Home.vue'
 
 describe('Home.vue', () => {
   it('renders the  page', () => {

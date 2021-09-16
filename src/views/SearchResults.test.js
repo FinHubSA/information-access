@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import SearchResults from './SearchResults.vue'
+import SearchResults from '../views/SearchResults.vue'
 
 describe('SearchResults.vue', () => {
   it('renders the  page', () => {

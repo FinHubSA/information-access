@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import SearchBar from './SearchBar.vue'
+import SearchBar from '../components/SearchBar.vue'
 export default {
   name: 'HomePage',
   props: {
