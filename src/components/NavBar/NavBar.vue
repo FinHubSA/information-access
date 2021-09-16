@@ -6,9 +6,6 @@
       </h6>
       <ul class="links-container">
         <h6>
-          <router-link to="/HelloWorld">HelloWorld</router-link>
-        </h6>
-        <h6>
           <router-link to="/SearchResults">SearchResults</router-link>
         </h6>
         <h6>

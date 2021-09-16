@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <img class="logo" alt="Vue logo" src="../assets/logo_green.png" />
+    <img class="logo" alt="Vue logo" src="../../assets/logo_green.png" />
     <div class="wrapper">
       <search-bar />
     </div>
   </div>
 </template>
 <script>
-import SearchBar from './SearchBar.vue'
+import SearchBar from '../../components/SearchBar/SearchBar.vue'
 export default {
   name: 'HomePage',
   props: {
