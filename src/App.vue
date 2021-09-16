@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id='app'>
     <NavBar />
     <router-view />
     <Footer />
@@ -12,10 +12,10 @@ import Footer from './components/Footer.vue'
 
 export default {
   name: 'app',
-  components: { 
-  NavBar,
-  Footer,
-   },
+  components: {
+    NavBar,
+    Footer,
+  },
 }
 </script>
 
@@ -31,7 +31,4 @@ export default {
   flex-direction: column;
   height: 100vh;
 }
-
-
 </style>
-
