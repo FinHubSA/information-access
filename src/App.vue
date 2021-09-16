@@ -1,29 +1,34 @@
 <template>
-  <div>
-    <nav id="navbar">
-      <h1>Placeholder for navbar</h1>
-    </nav>
+  <div id="app">
+    <NavBar />
     <router-view />
-    <footer>
-      <h1>Placeholder for footer</h1>
-    </footer>
+    <Footer />
   </div>
 </template>
 
 <script>
+import NavBar from './components/NavBar.vue'
+import Footer from './components/Footer.vue'
+
 export default {
   name: 'app',
-  components: {},
+  components: {
+    NavBar,
+    Footer,
+  },
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 </style>
