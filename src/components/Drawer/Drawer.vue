@@ -18,7 +18,9 @@
       <ul class="links-container">
         <h1>Menu</h1>
         <router-link class="routerLink" to="/"><h2>Home</h2></router-link>
-        <router-link class="routerLink" to="/SearchResults"><h2>SearchResults</h2></router-link>
+        <router-link class="routerLink" to="/SearchResults"
+          ><h2>SearchResults</h2></router-link
+        >
         <router-link class="routerLink" to="/About"><h2>About</h2></router-link>
         <router-link class="routerLink" to="/FAQ"><h2>FAQ</h2></router-link>
       </ul>
