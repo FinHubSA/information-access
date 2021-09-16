@@ -6,7 +6,7 @@
       </h6>
       <ul class="links-container">
         <h6>
-          <router-link to="/SearchResults">SearchResults</router-link>
+          <router-link class="routerLink" to="/SearchResults">SearchResults</router-link>
         </h6>
         <h6>
           <router-link to="/About">About</router-link>
@@ -29,4 +29,7 @@ img {
   justify-content: space-between;
   align-items: center;
 }
+.routerLink{
+     text-decoration: none;
+ }
 </style>
