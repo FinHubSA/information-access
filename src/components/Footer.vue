@@ -1,9 +1,8 @@
 <template>
   <div class="footer-container">
     <footer>
-      <h4>Arrons kit</h4>
+      <h4>Aarons kit</h4>
       <p>Making research accessible</p>
-
       <p>© 2021</p>
     </footer>
   </div>
@@ -11,10 +10,8 @@
 
 <style lang="scss" scoped>
 .footer-container {
-  margin-top: auto;
-
   footer {
-    margin-top: 5%;
+    height: 4rem;
     background-color: #2c3e50;
     color: white;
     display: flex;
@@ -24,10 +21,6 @@
 
     p {
       margin: 6px;
-    }
-
-    a {
-      color: green;
     }
   }
 }

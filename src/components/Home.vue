@@ -24,6 +24,8 @@ export default {
 }
 .container {
   display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
   flex-direction: column;
   justify-items: center;
   align-items: center;

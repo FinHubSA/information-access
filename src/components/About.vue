@@ -1,4 +1,5 @@
 <template>
+<div>
   <p>'''Brief history of Aaron Schwartz'''</p>
   <br />
   <p>
@@ -9,4 +10,5 @@
     Too long have journal giants put articles and research that was origianlly
     freely provided by academics behind a paywall
   </p>
+  </div>
 </template>
