@@ -4,6 +4,7 @@
       <h6>
         <router-link to="/"><img src="@/assets/logo_green.png" /></router-link>
       </h6>
+      <search-bar />
       <Drawer />
     </div>
   </nav>
@@ -11,9 +12,11 @@
 
 <script>
 import Drawer from '../Drawer/Drawer.vue'
+import SearchBar from '../../components/SearchBar/SearchBar.vue'
 export default {
   components: {
     Drawer,
+    SearchBar,
   },
 }
 </script>
