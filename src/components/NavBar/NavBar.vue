@@ -1,12 +1,12 @@
 <template>
   <nav>
-    <div class="nav-container">
-      <h6>
-        <router-link to="/"><img src="@/assets/logo_green.png" /></router-link>
-      </h6>
-      <search-bar />
-      <Drawer />
-    </div>
+    <h6 class="img-container">
+      <router-link to="/" v-if="currentRouteName"
+        ><img src="@/assets/logo_green.png"
+      /></router-link>
+    </h6>
+    <search-bar v-if="currentRouteName" />
+    <Drawer />
   </nav>
 </template>
 
@@ -18,18 +18,25 @@ export default {
     Drawer,
     SearchBar,
   },
+  computed: {
+    currentRouteName() {
+      return this.$route.name != 'HomePage'
+    },
+  },
 }
 </script>
-
 <style scoped>
 img {
+  height: 80px;
+}
+.img-container {
   height: 50px;
 }
-.nav-container {
+nav {
   margin: 0 10px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 .routerLink {
   text-decoration: none;

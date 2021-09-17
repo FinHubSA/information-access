@@ -6,7 +6,7 @@
     <div
       class="right-drawer"
       :style="{
-        width: drawerVisible ? '25vw' : '0',
+        width: drawerVisible ? '350px' : '0',
         paddingLeft: drawerVisible ? '10px' : '0',
       }"
     >
@@ -14,7 +14,9 @@
         <button class="close" @click="drawerVisible = false">&#9587;</button>
       </div>
       <ul class="links-container">
-        <router-link class="routerLink" to="/SearchResults"><h2>SearchResults</h2></router-link>
+        <router-link class="routerLink" to="/SearchResults"
+          ><h2>SearchResults</h2></router-link
+        >
         <router-link class="routerLink" to="/About"><h2>About</h2></router-link>
         <router-link class="routerLink" to="/FAQ"><h2>FAQ</h2></router-link>
       </ul>
@@ -39,7 +41,7 @@ export default {
 }
 </script>
 <style scoped>
-h1,h2,h3,h4,h5 {
+h2 {
   font-weight: 400;
   color: black;
 }
@@ -86,11 +88,11 @@ h1,h2,h3,h4,h5 {
 .routerLink {
   text-decoration: none;
 }
-.links-container{
+.links-container {
   margin-top: 40px;
   text-align: left;
 }
-.alignment{
+.alignment {
   text-align: right;
 }
 </style>
