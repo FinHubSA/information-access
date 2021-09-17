@@ -4,22 +4,19 @@
       <h6>
         <router-link to="/"><img src="@/assets/logo_green.png" /></router-link>
       </h6>
-      <ul class="links-container">
-        <h6>
-          <router-link class="routerLink" to="/SearchResults"
-            >SearchResults</router-link
-          >
-        </h6>
-        <h6>
-          <router-link to="/About">About</router-link>
-        </h6>
-        <h6>
-          <router-link to="/FAQ">FAQ</router-link>
-        </h6>
-      </ul>
+      <Drawer />
     </div>
   </nav>
 </template>
+
+<script>
+import Drawer from '../Drawer/Drawer.vue'
+export default {
+  components: {
+    Drawer,
+  },
+}
+</script>
 
 <style scoped>
 img {
