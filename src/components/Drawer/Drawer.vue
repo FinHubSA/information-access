@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="text-align: right">
+    <div class="alignment">
       <i class="toggle fa fa-bars" @click="drawerVisible = true"></i>
     </div>
     <div
@@ -10,11 +10,10 @@
         paddingLeft: drawerVisible ? '10px' : '0',
       }"
     >
-      <div style="text-align: right; margin: 5px">
+      <div class="alignment">
         <button class="close" @click="drawerVisible = false">&#9587;</button>
       </div>
       <ul class="links-container">
-        <router-link class="routerLink" to="/"><h2>Home</h2></router-link>
         <router-link class="routerLink" to="/SearchResults"><h2>SearchResults</h2></router-link>
         <router-link class="routerLink" to="/About"><h2>About</h2></router-link>
         <router-link class="routerLink" to="/FAQ"><h2>FAQ</h2></router-link>
@@ -40,9 +39,6 @@ export default {
 }
 </script>
 <style scoped>
-#app {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 h1,h2,h3,h4,h5 {
   font-weight: 400;
   color: black;
@@ -60,15 +56,17 @@ h1,h2,h3,h4,h5 {
   background: white;
   border: 0;
   cursor: pointer;
+  width: 40px;
+  margin-top: 40px;
 }
 .right-drawer {
   position: absolute;
   top: 0;
   right: 0;
-  width: 0; /* initially */
+  width: 0;
   overflow: hidden;
   height: 100vh;
-  padding-left: 0; /* initially */
+  padding-left: 0;
   border-left: 1px solid whitesmoke;
   background: white;
   z-index: 200;
@@ -78,7 +76,7 @@ h1,h2,h3,h4,h5 {
   position: absolute;
   left: 0;
   top: 0;
-  width: 0; /* initially */
+  width: 0;
   height: 100vh;
   background: #000;
   opacity: 0.3;
@@ -87,5 +85,12 @@ h1,h2,h3,h4,h5 {
 }
 .routerLink {
   text-decoration: none;
+}
+.links-container{
+  margin-top: 40px;
+  text-align: left;
+}
+.alignment{
+  text-align: right;
 }
 </style>
