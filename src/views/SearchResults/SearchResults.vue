@@ -1,38 +1,61 @@
 <template>
-  <div class="container">
-    <h1>Search Results</h1>
-    <p>
-      Short description of what you are looking at, the search term, and
-      possibly a summary bar.
-    </p>
-  </div>
-  <div class="flex-container">
-    <div class="vertical-flex-container">
-      <div class="option-select">
-        <div class="selected-option">All time</div>
-        <div>Since 2021</div>
-        <div>Since 2020</div>
-        <div>Since 2017</div>
-        <div>Custom range</div>
-      </div>
-
-      <div class="option-select">
-        <div class="selected-option">Sort by journal</div>
-        <div>Sort by date</div>
-      </div>
+  <div>
+    <div class="container">
+      <h1>Search Results</h1>
+      <button @click="retrieveArticles()">testing retrieval</button>
+      <p>
+        Short description of what you are looking at, the search term, and
+        possibly a summary bar.
+      </p>
     </div>
+    <div class="flex-container">
+      <div class="vertical-flex-container">
+        <div class="option-select">
+          <div class="selected-option">All time</div>
+          <div>Since 2021</div>
+          <div>Since 2020</div>
+          <div>Since 2017</div>
+          <div>Custom range</div>
+        </div>
 
-    <div class="vertical-flex-container">
-      <div class="placeholder-result-boxes">Result 1</div>
-      <div class="placeholder-result-boxes">Result 2</div>
-      <div class="placeholder-result-boxes">Result 3</div>
+        <div class="option-select">
+          <div class="selected-option">Sort by journal</div>
+          <div>Sort by date</div>
+        </div>
+      </div>
+      <div class="vertical-flex-container">
+        <div
+          class="placeholder-result-boxes"
+          v-for="item in articles"
+          :key="item"
+        >
+          {{ item.Title }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
-
 <script>
+import DataService from '../../services/DataService.js'
 export default {
   name: 'SearchResults',
+  data() {
+    return {
+      articles: [],
+    }
+  },
+  methods: {
+    retrieveArticles() {
+      DataService.getAll()
+        .then((response) => {
+          this.articles = response.data
+          console.log(response.data)
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+    },
+  },
 }
 </script>
 
