@@ -16,17 +16,20 @@
           >
             All time
           </div>
-          <div v-bind:class="[year == 2021 ? 'selected-option' : '']"
+          <div
+            v-bind:class="[year == 2021 ? 'selected-option' : '']"
             v-on:click="year = 2021"
           >
             since 2021
           </div>
-          <div v-bind:class="[year == 2020 ? 'selected-option' : '']"
+          <div
+            v-bind:class="[year == 2020 ? 'selected-option' : '']"
             v-on:click="year = 2020"
           >
             since 2020
           </div>
-          <div v-bind:class="[year == 2017 ? 'selected-option' : '']"
+          <div
+            v-bind:class="[year == 2017 ? 'selected-option' : '']"
             v-on:click="year = 2017"
           >
             since 2017
@@ -63,7 +66,7 @@ export default {
   },
   computed: {
     ArticlesSinceYear() {
-      if (this.year==0){
+      if (this.year == 0) {
         return this.$store.getters.articles
       }
       return this.$store.getters.articlesSinceYear(this.year)

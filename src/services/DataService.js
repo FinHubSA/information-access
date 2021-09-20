@@ -1,7 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 
-
 const http = axios.create({
   baseURL: 'http://localhost:5000',
   headers: {
@@ -17,10 +16,10 @@ const state = {
 
 //to handle state
 const getters = {
-    articles: state => state.articles,
-    articlesSinceYear: (state) => (year) => {
-        return state.articles.filter((element) => element.YearPublished>=year)
-    }
+  articles: (state) => state.articles,
+  articlesSinceYear: (state) => (year) => {
+    return state.articles.filter((element) => element.YearPublished >= year)
+  },
 }
 
 //to handle actions
