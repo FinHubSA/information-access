@@ -2,7 +2,6 @@
   <div>
     <div class="container">
       <h1>Search Results</h1>
-      <button @click="retrieveArticles()">testing retrieval</button>
       <p>
         Short description of what you are looking at, the search term, and
         possibly a summary bar.
@@ -11,10 +10,27 @@
     <div class="flex-container">
       <div class="vertical-flex-container">
         <div class="option-select">
-          <div class="selected-option">All time</div>
-          <div>Since 2021</div>
-          <div>Since 2020</div>
-          <div>Since 2017</div>
+          <div
+            v-bind:class="[year == 0 ? 'selected-option' : '']"
+            v-on:click="year = 0"
+          >
+            All time
+          </div>
+          <div v-bind:class="[year == 2021 ? 'selected-option' : '']"
+            v-on:click="year = 2021"
+          >
+            since 2021
+          </div>
+          <div v-bind:class="[year == 2020 ? 'selected-option' : '']"
+            v-on:click="year = 2020"
+          >
+            since 2020
+          </div>
+          <div v-bind:class="[year == 2017 ? 'selected-option' : '']"
+            v-on:click="year = 2017"
+          >
+            since 2017
+          </div>
           <div>Custom range</div>
         </div>
 
@@ -26,35 +42,35 @@
       <div class="vertical-flex-container">
         <div
           class="placeholder-result-boxes"
-          v-for="item in articles"
+          v-for="item in ArticlesSinceYear"
           :key="item"
         >
           {{ item.Title }}
+          {{ item.YearPublished }}
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import DataService from '../../services/DataService.js'
 export default {
   name: 'SearchResults',
   data() {
     return {
       articles: [],
+      year: 0,
     }
   },
-  methods: {
-    retrieveArticles() {
-      DataService.getAll()
-        .then((response) => {
-          this.articles = response.data
-          console.log(response.data)
-        })
-        .catch((e) => {
-          console.log(e)
-        })
+  computed: {
+    ArticlesSinceYear() {
+      if (this.year==0){
+        return this.$store.getters.articles
+      }
+      return this.$store.getters.articlesSinceYear(this.year)
     },
+  },
+  mounted() {
+    this.$store.dispatch('getArticles')
   },
 }
 </script>
