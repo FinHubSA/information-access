@@ -8,13 +8,11 @@ const http = axios.create({
   },
 })
 
-//to handle state
 const state = {
   SearchString: '',
   articles: [1, 2, 3],
 }
 
-//to handle state
 const getters = {
   articles: (state) => state.articles,
   articlesSinceYear: (state) => (year) => {
@@ -22,7 +20,6 @@ const getters = {
   },
 }
 
-//to handle actions
 const actions = {
   getArticles({ commit }) {
     http.get('/articles').then((response) => {
@@ -31,19 +28,15 @@ const actions = {
   },
 }
 
-//to handle mutations
 const mutations = {
   SET_ARTICLES(state, articles) {
     state.articles = articles
   },
 }
 
-//export store module
 export default createStore({
   state,
   getters,
   actions,
   mutations,
 })
-
-/** we have just created a boiler plate for our vuex store module**/
