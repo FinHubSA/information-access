@@ -42,7 +42,7 @@
     "jest-serializer-vue": "^2.0.2",
     "node-sass": "^6.0.1",
     "package-json-help": "^0.0.11",
-    "prettier": "^2.4.0",
+    "prettier": "^2.4.1",
     "sass-loader": "^10",
     "vue-jest": "^5.0.0-0",
     "vue-router-mock": "0.0.3"
