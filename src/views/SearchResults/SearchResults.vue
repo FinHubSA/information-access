@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="flex-container">
-      <div class="vertical-flex-container">
+      <div class="options-flex-container">
         <div class="option-select">
           <div
             v-bind:class="[year == 0 ? 'selected-option' : '']"
@@ -42,22 +42,23 @@
           <div>Sort by date</div>
         </div>
       </div>
-      <div class="vertical-flex-container">
-        <div
-          class="placeholder-result-boxes"
+      <div class="results-cards-flex-container">
+        <ResultCard
           v-for="item in ArticlesSinceYear"
           :key="item"
-        >
-          {{ item.Title }}
-          {{ item.YearPublished }}
-        </div>
+          v-bind="item"
+        />
       </div>
     </div>
   </div>
 </template>
 <script>
+import ResultCard from '../../components/ResultCard/ResultCard.vue'
 export default {
   name: 'SearchResults',
+  components: {
+    ResultCard,
+  },
   data() {
     return {
       articles: [],
@@ -88,30 +89,26 @@ export default {
   padding: 1rem 5%;
   justify-content: center;
   align-items: center;
+
   background-color: lightgrey;
 }
-.vertical-flex-container {
+.options-flex-container {
   display: flex;
   flex-direction: column;
   padding: 1rem 5%;
+  justify-content: flex-end;
 }
-.boxes {
-  border: 2px black;
-  border-style: solid;
+
+.results-cards-flex-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 5%;
+  width: 80%;
 }
-.placeholder-result-boxes {
-  border: 0px white;
-  border-style: solid;
-  border-radius: 15px;
-  width: 400px;
-  height: 50px;
-  color: blue;
-  background-color: white;
-  padding: 1rem;
-  margin: 1rem;
-}
+
 .option-select {
   padding: 1rem;
+  text-align: left;
 }
 .selected-option {
   color: darkorange;
