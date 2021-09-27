@@ -86,7 +86,7 @@ export default {
 }
 .flex-container {
   display: flex;
-  padding: 1rem 5%;
+  padding: 1rem;
   justify-content: center;
   align-items: center;
 
