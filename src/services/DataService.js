@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 
 const http = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'http://134.209.134.50:5000/api',
   headers: {
     'Content-type': 'application/json',
   },
