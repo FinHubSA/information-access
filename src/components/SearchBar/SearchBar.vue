@@ -1,11 +1,8 @@
 <template>
   <div class="input-container">
-    <input
-      class="search"
-      type="text"
-      v-model="SearchString"
-    />
-    <router-link to="/searchresults"><i class="fa fa-search icon"></i>
+    <input class="search" type="text" v-model="SearchString" />
+    <router-link to="/searchresults"
+      ><i class="fa fa-search icon"></i>
     </router-link>
   </div>
 </template>
@@ -23,7 +20,7 @@ export default {
     },
   },
   methods: {
-   /* checkForSearch() {
+    /* checkForSearch() {
       this.SearchString=="" ? "/" : "/searchresults"
     }*/
   },
