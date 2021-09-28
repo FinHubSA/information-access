@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <img class="logo" alt="Vue logo" src="../../assets/logo_green.png" />
+    <router-link to="/">
+      <img class="logo" alt="Vue logo" src="../../assets/logo_green.png" />
+    </router-link>
     <div class="wrapper">
       <search-bar />
     </div>

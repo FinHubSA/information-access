@@ -1,12 +1,32 @@
 <template>
   <div class="input-container">
-    <input class="search" type="text" placeholder="Search" />
-    <i class="fa fa-search icon"></i>
+    <input
+      class="search"
+      type="text"
+      v-model="SearchString"
+    />
+    <router-link to="/searchresults"><i class="fa fa-search icon"></i>
+    </router-link>
   </div>
 </template>
 <script>
 export default {
   name: 'SearchBar',
+  computed: {
+    SearchString: {
+      get() {
+        return this.$store.getters.SearchString
+      },
+      set(value) {
+        this.$store.commit('updateSearchString', value)
+      },
+    },
+  },
+  methods: {
+   /* checkForSearch() {
+      this.SearchString=="" ? "/" : "/searchresults"
+    }*/
+  },
   props: {
     Search: String,
   },
@@ -42,5 +62,9 @@ export default {
 i {
   padding-top: 8px;
   min-width: 40px;
+  color: black;
+}
+.routerLink {
+  text-decoration: none;
 }
 </style>

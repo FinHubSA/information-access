@@ -78,7 +78,6 @@ export default {
   },
 }
 </script>
-
 <style scoped>
 .container {
   flex-grow: 1;
@@ -89,7 +88,6 @@ export default {
   padding: 1rem;
   justify-content: center;
   align-items: center;
-
   background-color: lightgrey;
 }
 .options-flex-container {
@@ -98,14 +96,12 @@ export default {
   padding: 1rem 5%;
   justify-content: flex-end;
 }
-
 .results-cards-flex-container {
   display: flex;
   flex-direction: column;
   padding: 1rem 5%;
   width: 80%;
 }
-
 .option-select {
   padding: 1rem;
   text-align: left;
