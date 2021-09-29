@@ -25,9 +25,11 @@ const getters = {
 
 const actions = {
   async getArticles({ commit }) {
-    await http.get('articles/search?'+state.Field+'='+state.SearchString).then((response) => {
-      commit('SET_ARTICLES', response.data)
-    })
+    await http
+      .get('articles/search?' + state.Field + '=' + state.SearchString)
+      .then((response) => {
+        commit('SET_ARTICLES', response.data)
+      })
   },
 }
 
@@ -40,7 +42,7 @@ const mutations = {
   },
   updateField(state, Field) {
     state.Field = Field
-  }
+  },
 }
 
 export default createStore({

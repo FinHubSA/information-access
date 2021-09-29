@@ -67,8 +67,8 @@ export default {
       },
       set(value) {
         this.$store.commit('updateField', value)
-      }
-    }
+      },
+    },
   },
   methods: {
     checkForSearch() {
