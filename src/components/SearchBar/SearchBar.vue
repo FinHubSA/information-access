@@ -21,10 +21,10 @@
           class="radio"
           type="radio"
           id="author"
-          value="author"
+          value="AuthorSurname"
           v-model="Field"
         />
-        <label for="author">Author</label>
+        <label for="author">Author Surname</label>
       </div>
       <div class="radio-container">
         <input
@@ -76,7 +76,7 @@ export default {
         this.$store.getters.SearchString == '' &&
         this.$router.name !== 'SearchResults'
       ) {
-        this.$router.push('/')
+        this.$router.push(this.$route)
       } else {
         this.$router.push('/searchresults')
         this.$store.dispatch('getArticles')

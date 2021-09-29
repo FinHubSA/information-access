@@ -7,7 +7,7 @@ const http = axios.create({
     'Content-type': 'application/json',
   },
 })
-//http://localhost:5000/api/articles/search?title=in
+
 const state = {
   SearchString: '',
   Field: 'title',
@@ -25,12 +25,24 @@ const getters = {
 
 const actions = {
   async getArticles({ commit }) {
-    await http
+    if (state.Field==='AuthorSurname'){
+      await http
+        .get('authors/search?' + state.Field + '=' + state.SearchString)
+        .then((response) => {
+          commit('SET_ARTICLES', response.data)
+        })
+    }
+    else if (state.Field==="title"){
+      await http
       .get('articles/search?' + state.Field + '=' + state.SearchString)
       .then((response) => {
         commit('SET_ARTICLES', response.data)
       })
+    }
   },
+  clearAll({ commit }){
+    commit('CLEAR_ALL')
+  }
 }
 
 const mutations = {
@@ -42,7 +54,12 @@ const mutations = {
   },
   updateField(state, Field) {
     state.Field = Field
+    console.log(Field)
   },
+  CLEAR_ALL(state){
+    state.SearchString = ''
+    state.articles = []
+  }
 }
 
 export default createStore({
