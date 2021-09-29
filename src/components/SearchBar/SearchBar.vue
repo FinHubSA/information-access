@@ -1,14 +1,62 @@
 <template>
-  <div class="input-container">
-    <input class="search" type="text" v-model="SearchString" />
-    <router-link to="/searchresults"
-      ><i class="fa fa-search icon"></i>
-    </router-link>
+  <div>
+    <div class="wrapper">
+      <div class="input-container">
+        <input
+          class="search"
+          type="text"
+          v-model="SearchString"
+          v-on:keyup.enter="checkForSearch"
+        />
+        <router-link to="/searchresults" v-on:click="checkForSearch"
+          ><i class="fa fa-search icon"></i>
+        </router-link>
+      </div>
+    </div>
+    <br />
+    <div class="container">
+      <p>Search on:</p>
+      <div class="radio-container">
+        <input
+          class="radio"
+          type="radio"
+          id="author"
+          value="Author"
+          v-model="picked"
+        />
+        <label for="author">Author</label>
+      </div>
+      <div class="radio-container">
+        <input
+          class="radio"
+          type="radio"
+          id="title"
+          value="Title"
+          v-model="picked"
+        />
+        <label for="title">Title</label>
+      </div>
+      <div class="radio-container">
+        <input
+          class="radio"
+          type="radio"
+          id="journal"
+          value="Journal"
+          v-model="picked"
+        />
+        <label for="journal">Journal</label>
+      </div>
+    </div>
   </div>
 </template>
 <script>
 export default {
   name: 'SearchBar',
+  data() {
+    return {
+      picked: 'Author',
+    }
+  },
   computed: {
     SearchString: {
       get() {
@@ -20,9 +68,16 @@ export default {
     },
   },
   methods: {
-    /* checkForSearch() {
-      this.SearchString=="" ? "/" : "/searchresults"
-    }*/
+    checkForSearch() {
+      if (
+        this.$store.getters.SearchString == '' &&
+        this.$router.name !== 'SearchResults'
+      ) {
+        this.$router.push('/')
+      } else {
+        this.$router.push('/searchresults')
+      }
+    },
   },
   props: {
     Search: String,
@@ -30,6 +85,18 @@ export default {
 }
 </script>
 <style scoped>
+.container,
+.radio-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.radio-container {
+  column-gap: 3px;
+}
+.container {
+  column-gap: 1.5rem;
+}
 .input-container:hover {
   cursor: pointer;
   box-shadow: 1px 1px 5px grey;
@@ -61,7 +128,21 @@ i {
   min-width: 40px;
   color: black;
 }
+label {
+  vertical-align: baseline;
+}
+.radio {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  margin: 0;
+}
 .routerLink {
   text-decoration: none;
+}
+.wrapper {
+  display: flex;
+  width: 80vw;
+  justify-content: space-around;
 }
 </style>

@@ -33,11 +33,6 @@ export default {
   align-items: center;
   padding-top: 2rem;
 }
-.wrapper {
-  display: flex;
-  width: 100vw;
-  justify-content: space-around;
-}
 img {
   height: 250px;
 }
