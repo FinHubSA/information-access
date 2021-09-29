@@ -1,11 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <h1>Search Results</h1>
-      <p>
-        Short description of what you are looking at, the search term, and
-        possibly a summary bar.
-      </p>
+      <p>Status bar placeholder</p>
     </div>
     <div class="flex-container">
       <div class="options-flex-container">
@@ -78,7 +74,6 @@ export default {
   },
 }
 </script>
-
 <style scoped>
 .container {
   flex-grow: 1;
@@ -89,7 +84,6 @@ export default {
   padding: 1rem;
   justify-content: center;
   align-items: center;
-
   background-color: lightgrey;
 }
 .options-flex-container {
@@ -98,14 +92,12 @@ export default {
   padding: 1rem 5%;
   justify-content: flex-end;
 }
-
 .results-cards-flex-container {
   display: flex;
   flex-direction: column;
   padding: 1rem 5%;
   width: 80%;
 }
-
 .option-select {
   padding: 1rem;
   text-align: left;
