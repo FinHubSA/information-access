@@ -2,14 +2,15 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 
 const http = axios.create({
-  baseURL: 'http://134.209.134.50:5000/api',
+  baseURL: 'http://localhost:5000/api',
   headers: {
     'Content-type': 'application/json',
   },
 })
-
+//http://localhost:5000/api/articles/search?title=in
 const state = {
   SearchString: '',
+  Field: 'title',
   articles: [],
 }
 
@@ -19,11 +20,12 @@ const getters = {
     return state.articles.filter((element) => element.YearPublished >= year)
   },
   SearchString: (state) => state.SearchString,
+  Field: (state) => state.Field,
 }
 
 const actions = {
-  getArticles({ commit }) {
-    http.get('/articles').then((response) => {
+  async getArticles({ commit }) {
+    await http.get('articles/search?'+state.Field+'='+state.SearchString).then((response) => {
       commit('SET_ARTICLES', response.data)
     })
   },
@@ -36,6 +38,9 @@ const mutations = {
   updateSearchString(state, SearchString) {
     state.SearchString = SearchString
   },
+  updateField(state, Field) {
+    state.Field = Field
+  }
 }
 
 export default createStore({
