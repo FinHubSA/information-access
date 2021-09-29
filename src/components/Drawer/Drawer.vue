@@ -14,9 +14,6 @@
         <button class="close" @click="drawerVisible = false">&#9587;</button>
       </div>
       <ul class="links-container">
-        <router-link class="routerLink" to="/SearchResults"
-          ><h2>SearchResults</h2></router-link
-        >
         <router-link class="routerLink" to="/About"><h2>About</h2></router-link>
         <router-link class="routerLink" to="/FAQ"><h2>FAQ</h2></router-link>
       </ul>

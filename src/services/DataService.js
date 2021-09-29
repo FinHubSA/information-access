@@ -10,7 +10,7 @@ const http = axios.create({
 
 const state = {
   SearchString: '',
-  articles: [1, 2, 3],
+  articles: [],
 }
 
 const getters = {
@@ -18,6 +18,7 @@ const getters = {
   articlesSinceYear: (state) => (year) => {
     return state.articles.filter((element) => element.YearPublished >= year)
   },
+  SearchString: (state) => state.SearchString,
 }
 
 const actions = {
@@ -31,6 +32,9 @@ const actions = {
 const mutations = {
   SET_ARTICLES(state, articles) {
     state.articles = articles
+  },
+  updateSearchString(state, SearchString) {
+    state.SearchString = SearchString
   },
 }
 

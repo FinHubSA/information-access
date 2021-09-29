@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <img class="logo" alt="Vue logo" src="../../assets/logo_green.png" />
+    <router-link to="/">
+      <img class="logo" alt="Vue logo" src="../../assets/logo_green.png" />
+    </router-link>
     <div class="wrapper">
       <search-bar />
     </div>
@@ -30,11 +32,6 @@ export default {
   justify-items: center;
   align-items: center;
   padding-top: 2rem;
-}
-.wrapper {
-  display: flex;
-  width: 100vw;
-  justify-content: space-around;
 }
 img {
   height: 250px;

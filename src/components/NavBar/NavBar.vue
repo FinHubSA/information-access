@@ -1,7 +1,7 @@
 <template>
   <nav>
     <h6 class="img-container">
-      <router-link to="/" v-if="currentRouteName"
+      <router-link to="/" v-if="currentRouteName" v-on:click="clearSearch"
         ><img src="@/assets/logo_green.png"
       /></router-link>
     </h6>
@@ -21,6 +21,11 @@ export default {
   computed: {
     currentRouteName() {
       return this.$route.name != 'HomePage'
+    },
+  },
+  methods: {
+    clearSearch() {
+      this.$store.commit('updateSearchString', '')
     },
   },
 }
