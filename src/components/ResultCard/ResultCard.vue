@@ -6,7 +6,15 @@
     <p class="yearPublished">
       Author Placeholder, {{ YearPublished }}, Journal Placeholder
     </p>
-    <p class="description">Description/excerpt placeholder</p>
+    <div class="container">
+      <p class="description">Description/excerpt placeholder</p>
+      <router-link
+        class="previewbutton"
+        :to="{ name: 'Preview', params: { url: URL, title: Title } }"
+      >
+        <img class="previewbutton" src="../../assets/preview.jpg" />
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -54,5 +62,19 @@ export default {
   padding-left: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+}
+
+.previewbutton {
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: auto;
+  cursor: pointer;
 }
 </style>
