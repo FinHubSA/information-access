@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import axios from 'axios'
 
 const http = axios.create({
-  baseURL: 'http://134.209.134.50:5000/api',
+  baseURL: 'http://localhost:5000',
   headers: {
     'Content-type': 'application/json',
   },
@@ -23,7 +23,7 @@ const getters = {
 
 const actions = {
   getArticles({ commit }) {
-    http.get('/articles').then((response) => {
+    http.get('/api/articles').then((response) => {
       commit('SET_ARTICLES', response.data)
     })
   },
