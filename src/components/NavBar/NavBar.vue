@@ -40,10 +40,17 @@ img {
 nav {
   margin: 0 10px;
   display: flex;
+
   align-items: center;
   justify-content: space-between;
 }
 .routerLink {
   text-decoration: none;
+}
+@media screen and (max-width: 900px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
