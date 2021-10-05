@@ -6,7 +6,7 @@
     <div
       class="right-drawer"
       :style="{
-        width: drawerVisible ? '350px' : '0',
+        width: drawerVisible ? '150px' : '0',
         paddingLeft: drawerVisible ? '10px' : '0',
       }"
     >
