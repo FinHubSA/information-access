@@ -21,7 +21,7 @@
           class="radio"
           type="radio"
           id="author"
-          value="AuthorSurname"
+          value="author"
           v-model="Field"
         />
         <label for="author">Author Surname</label>

@@ -1,8 +1,14 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 
+const Endings = {
+  title: 'title',
+  author: 'authorSurname',
+  journal: 'journalName',
+}
+
 const http = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'http://localhost:5000/api/',
   headers: {
     'Content-type': 'application/json',
   },
@@ -25,24 +31,22 @@ const getters = {
 
 const actions = {
   async getArticles({ commit }) {
-    if (state.Field==='AuthorSurname'){
-      await http
-        .get('authors/search?' + state.Field + '=' + state.SearchString)
-        .then((response) => {
-          commit('SET_ARTICLES', response.data)
-        })
-    }
-    else if (state.Field==="title"){
-      await http
-      .get('articles/search?' + state.Field + '=' + state.SearchString)
+    await http
+      .get(
+        'articles/' +
+          state.Field +
+          '?' +
+          Endings[state.Field] +
+          '=' +
+          state.SearchString,
+      )
       .then((response) => {
         commit('SET_ARTICLES', response.data)
       })
-    }
   },
-  clearAll({ commit }){
+  clearAll({ commit }) {
     commit('CLEAR_ALL')
-  }
+  },
 }
 
 const mutations = {
@@ -56,10 +60,10 @@ const mutations = {
     state.Field = Field
     console.log(Field)
   },
-  CLEAR_ALL(state){
+  CLEAR_ALL(state) {
     state.SearchString = ''
     state.articles = []
-  }
+  },
 }
 
 export default createStore({

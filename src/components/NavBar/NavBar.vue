@@ -28,7 +28,6 @@ export default {
       this.$store.commit('updateSearchString', '')
     },
   },
-  
 }
 </script>
 <style scoped>
