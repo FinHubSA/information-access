@@ -20,21 +20,21 @@
         <input
           class="radio"
           type="radio"
-          id="author"
-          value="author"
-          v-model="Field"
-        />
-        <label for="author">Author Surname</label>
-      </div>
-      <div class="radio-container">
-        <input
-          class="radio"
-          type="radio"
           id="title"
           value="title"
           v-model="Field"
         />
         <label for="title">Title</label>
+      </div>
+      <div class="radio-container">
+        <input
+          class="radio"
+          type="radio"
+          id="author"
+          value="author"
+          v-model="Field"
+        />
+        <label for="author">Author Surname</label>
       </div>
       <div class="radio-container">
         <input
