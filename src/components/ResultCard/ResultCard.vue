@@ -1,19 +1,16 @@
 <template>
   <div class="result-card">
-    <p class="title">
-      <a :href="URL"> {{ Title }} </a>
-    </p>
+    <router-link
+        :to="{ name: 'Preview', params: { url: URL, title: Title } }">
+        <p class="title"> {{Title}}</p>
+    </router-link>
+    
     <p class="yearPublished">
       Author Placeholder, {{ YearPublished }}, Journal Placeholder
     </p>
     <div class="container">
       <p class="description">Description/excerpt placeholder</p>
-      <router-link
-        class="previewbutton"
-        :to="{ name: 'Preview', params: { url: URL, title: Title } }"
-      >
-        <img class="previewbutton" src="../../assets/preview.jpg" />
-      </router-link>
+      
     </div>
   </div>
 </template>
