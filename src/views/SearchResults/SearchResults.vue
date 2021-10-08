@@ -69,9 +69,6 @@ export default {
       return this.$store.getters.articlesSinceYear(this.year)
     },
   },
-  mounted() {
-    this.$store.dispatch('getArticles')
-  },
 }
 </script>
 <style scoped>
