@@ -1,8 +1,14 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
 
+const Endings = {
+  title: 'title',
+  author: 'authorSurname',
+  journal: 'journalName',
+}
+
 const http = axios.create({
-  baseURL: 'http://134.209.134.50:5000/api',
+  baseURL: 'http://localhost:5000/api/',
   headers: {
     'Content-type': 'application/json',
   },
@@ -10,6 +16,7 @@ const http = axios.create({
 
 const state = {
   SearchString: '',
+  Field: 'title',
   articles: [],
 }
 
@@ -19,13 +26,26 @@ const getters = {
     return state.articles.filter((element) => element.YearPublished >= year)
   },
   SearchString: (state) => state.SearchString,
+  Field: (state) => state.Field,
 }
 
 const actions = {
-  getArticles({ commit }) {
-    http.get('/articles').then((response) => {
-      commit('SET_ARTICLES', response.data)
-    })
+  async getArticles({ commit }) {
+    await http
+      .get(
+        'articles/' +
+          state.Field +
+          '?' +
+          Endings[state.Field] +
+          '=' +
+          state.SearchString,
+      )
+      .then((response) => {
+        commit('SET_ARTICLES', response.data)
+      })
+  },
+  clearAll({ commit }) {
+    commit('CLEAR_ALL')
   },
 }
 
@@ -35,6 +55,14 @@ const mutations = {
   },
   updateSearchString(state, SearchString) {
     state.SearchString = SearchString
+  },
+  updateField(state, Field) {
+    state.Field = Field
+    console.log(Field)
+  },
+  CLEAR_ALL(state) {
+    state.SearchString = ''
+    state.articles = []
   },
 }
 
