@@ -20,19 +20,9 @@
         <input
           class="radio"
           type="radio"
-          id="author"
-          value="Author"
-          v-model="picked"
-        />
-        <label for="author">Author</label>
-      </div>
-      <div class="radio-container">
-        <input
-          class="radio"
-          type="radio"
           id="title"
-          value="Title"
-          v-model="picked"
+          value="title"
+          v-model="Field"
         />
         <label for="title">Title</label>
       </div>
@@ -40,9 +30,19 @@
         <input
           class="radio"
           type="radio"
+          id="author"
+          value="author"
+          v-model="Field"
+        />
+        <label for="author">Author Surname</label>
+      </div>
+      <div class="radio-container">
+        <input
+          class="radio"
+          type="radio"
           id="journal"
-          value="Journal"
-          v-model="picked"
+          value="journal"
+          v-model="Field"
         />
         <label for="journal">Journal</label>
       </div>
@@ -52,11 +52,6 @@
 <script>
 export default {
   name: 'SearchBar',
-  data() {
-    return {
-      picked: 'Author',
-    }
-  },
   computed: {
     SearchString: {
       get() {
@@ -66,6 +61,14 @@ export default {
         this.$store.commit('updateSearchString', value)
       },
     },
+    Field: {
+      get() {
+        return this.$store.getters.Field
+      },
+      set(value) {
+        this.$store.commit('updateField', value)
+      },
+    },
   },
   methods: {
     checkForSearch() {
@@ -73,9 +76,10 @@ export default {
         this.$store.getters.SearchString == '' &&
         this.$router.name !== 'SearchResults'
       ) {
-        this.$router.push('/')
+        this.$router.push(this.$route)
       } else {
         this.$router.push('/searchresults')
+        this.$store.dispatch('getArticles')
       }
     },
   },
