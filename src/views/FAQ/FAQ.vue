@@ -2,8 +2,8 @@
   <div class="container">
     <h2>Frequently asked questions</h2>
 
-    <button class="accordion">How can I contribute?</button>
-    <div class="panel">
+    <button class="accordion" @click= "openAccordion1()">How can I contribute?</button>
+    <div class="panel" id="panel1">
       <p>
         Text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -12,8 +12,8 @@
       </p>
     </div>
 
-    <button class="accordion">Section 2</button>
-    <div class="panel">
+    <button class="accordion" @click= "openAccordion2()">Section 2</button>
+    <div class="panel" id="panel2">
       <p>
         Text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -22,8 +22,8 @@
       </p>
     </div>
 
-    <button class="accordion">Section 3</button>
-    <div class="panel">
+    <button class="accordion" @click= "openAccordion3()">Section 3</button>
+    <div class="panel" id="panel3">
       <p>
         Text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -35,19 +35,45 @@
 </template>
 
 <script>
-var acc = document.getElementsByClassName('accordion')
-var i
+export default {
+  name: 'FAQ',
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener('click', function () {
-    this.classList.toggle('active')
-    var panel = this.nextElementSibling
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + 'px'
+  methods: {
+    openAccordion1() {
+      var panel = document.getElementById("panel1");
+      if (panel.style.display == "block") {
+        panel.style.maxHeight = null
+        panel.style.display = "none"
+      } else {
+        panel.style.display = "block"
+        panel.style.maxHeight = panel.scrollHeight + 'px'
+      }
+    },
+
+    openAccordion2() {
+      var panel = document.getElementById("panel2");
+      if (panel.style.display == "block") {
+        panel.style.maxHeight = null
+        panel.style.display = "none"
+      } else {
+        panel.style.display = "block"
+        panel.style.maxHeight = panel.scrollHeight + 'px'
+      }
+    },
+
+    openAccordion3() {
+      var panel = document.getElementById("panel3");
+      if (panel.style.display == "block") {
+        panel.style.maxHeight = null
+        panel.style.display = "none"
+      } else {
+        panel.style.display = "block"
+        panel.style.maxHeight = panel.scrollHeight + 'px'
+      }
     }
-  })
+
+  },
+
 }
 </script>
 
@@ -72,9 +98,21 @@ for (i = 0; i < acc.length; i++) {
 
 .panel {
   padding: 0 18px;
-  display: true;
   background-color: white;
   overflow: hidden;
+  display: "block";
+}
+
+#panel1 {
+  display: none;
+}
+
+#panel2 {
+  display: none;
+}
+
+#panel3 {
+  display: none;
 }
 
 .container {
