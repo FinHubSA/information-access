@@ -1,16 +1,23 @@
 <template>
   <div class="result-card">
-    <p class="title">
-      <a :href="URL"> {{ Title }} </a>
-    </p>
+    <router-link
+        :to="{ name: 'Preview', params: { url: URL, title: Title } }">
+        <p class="title"> {{Title}}</p>
+    </router-link>
+    
     <p class="yearPublished">
       Author Placeholder, {{ YearPublished }}, Journal Placeholder
     </p>
-    <p class="description">Description/excerpt placeholder</p>
+    <div class="container" >
+      <p class="description">Description/excerpt placeholder</p>
+      <img class="downloadbutton"  src="../../assets/download.png" @click="downloadPaper()" />
+    </div>
   </div>
+
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'ResultCard',
   props: {
@@ -18,6 +25,24 @@ export default {
     YearPublished: Number,
     URL: String,
   },
+  methods: {
+    downloadPaper(){
+      axios({
+        url:"https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=dayton1311087124&disposition=attachment",
+        method:'GET',
+        responseType:'blob'
+      }).then((response) => {
+        var fileUrl = window.URL.createObjectURL(new Blob([response.data]))
+        var fileLink = document.createElement('a')
+        fileLink.href = fileUrl
+
+        fileLink.setAttribute('download','download.pdf')
+        document.body.appendChild(fileLink)
+
+        fileLink.click()
+      })
+    }
+  }
 }
 </script>
 
@@ -54,5 +79,30 @@ export default {
   padding-left: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.container {
+  display: flex;
+}
+
+.previewbutton {
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+
+.downloadbutton {
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: auto;
+  cursor: pointer;
 }
 </style>
