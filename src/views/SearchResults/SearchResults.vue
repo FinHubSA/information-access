@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <div class="container">
-      <p>Status bar placeholder</p>
-    </div>
+  <div class="container">
     <div class="flex-container">
       <div class="options-flex-container">
         <div class="option-select">
@@ -73,11 +70,11 @@ export default {
 </script>
 <style scoped>
 .container {
-  flex-grow: 1;
-  flex-shrink: 0;
+  display: flex;
 }
 .flex-container {
   display: flex;
+  flex-grow: 1;
   padding: 1rem;
   justify-content: center;
   align-items: center;
