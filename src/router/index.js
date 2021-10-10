@@ -3,6 +3,7 @@ import HomePage from '@/views/Home/Home.vue'
 import SearchResults from '@/views/SearchResults/SearchResults.vue'
 import About from '@/views/About/About.vue'
 import FAQ from '@/views/FAQ/FAQ.vue'
+import Preview from '@/views/Preview/Preview.vue'
 
 const routes = [
   {
@@ -24,6 +25,12 @@ const routes = [
     path: '/FAQ',
     name: 'FAQ',
     component: FAQ,
+  },
+
+  {
+    path: '/Preview',
+    name: 'Preview',
+    component: Preview,
   },
 ]
 
