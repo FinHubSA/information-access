@@ -71,6 +71,8 @@ export default {
 <style scoped>
 .container {
   display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 .flex-container {
   display: flex;
