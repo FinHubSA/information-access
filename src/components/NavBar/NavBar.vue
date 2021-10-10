@@ -85,7 +85,6 @@ nav {
 @media screen and (max-width: 900px) {
   nav {
     display: flex;
-<<<<<<< HEAD
   }
   .img-container {
     display: none;
@@ -101,9 +100,6 @@ nav {
   }
   .searchfilter {
     display: none;
-=======
-    flex-direction: column;
->>>>>>> faabd797034e4f9d6a235f18f3050188310adccc
   }
 }
 </style>
