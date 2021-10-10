@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="container">
       <p>Status bar placeholder</p>
     </div>
