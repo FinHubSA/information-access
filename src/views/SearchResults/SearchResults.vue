@@ -1,8 +1,5 @@
 <template>
   <div class="container">
-    <!-- <div class="container">
-      <p>Status bar placeholder</p>
-    </div>-->
     <div class="flex-container">
       <div class="options-flex-container">
         <div class="option-select">

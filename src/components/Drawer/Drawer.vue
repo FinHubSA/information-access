@@ -3,7 +3,17 @@
     <div class="alignment">
       <i class="toggle fa fa-bars" @click="drawerVisible = true"></i>
     </div>
+<<<<<<< HEAD
     <div class="right-drawer" v-if="drawerVisible">
+=======
+    <div
+      class="right-drawer"
+      :style="{
+        width: drawerVisible ? '150px' : '0',
+        paddingLeft: drawerVisible ? '10px' : '0',
+      }"
+    >
+>>>>>>> faabd797034e4f9d6a235f18f3050188310adccc
       <div class="alignment">
         <button class="close" @click="drawerVisible = false">&#9587;</button>
       </div>
