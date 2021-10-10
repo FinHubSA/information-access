@@ -3,23 +3,25 @@
     <div class="alignment">
       <i class="toggle fa fa-bars" @click="drawerVisible = true"></i>
     </div>
-    <div
-      class="right-drawer"
-      v-if=drawerVisible
-      >
+    <div class="right-drawer" v-if="drawerVisible">
       <div class="alignment">
         <button class="close" @click="drawerVisible = false">&#9587;</button>
       </div>
       <ul class="links-container">
-        <router-link class="routerLink" to="/" v-if="currentRouteName" v-on:click="clearSearch"
-        ><h2>Home</h2></router-link>
+        <router-link
+          class="routerLink"
+          to="/"
+          v-if="currentRouteName"
+          v-on:click="clearSearch"
+          ><h2>Home</h2></router-link
+        >
         <router-link class="routerLink" to="/About"><h2>About</h2></router-link>
         <router-link class="routerLink" to="/FAQ"><h2>FAQ</h2></router-link>
       </ul>
     </div>
     <div
       class="drawer-mask"
-      v-if= drawerVisible
+      v-if="drawerVisible"
       @click="drawerVisible = false"
     ></div>
   </div>

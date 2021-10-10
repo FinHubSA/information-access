@@ -6,9 +6,9 @@
     <div class="wrapper">
       <search-bar />
     </div>
-    <br>
+    <br />
     <div class="searchfilter">
-      <search-filter/>
+      <search-filter />
     </div>
   </div>
 </template>
@@ -42,11 +42,11 @@ export default {
 img {
   height: 250px;
 }
-.wrapper{
+.wrapper {
   justify-content: center;
 }
-.searchfilter{
- justify-self: baseline;
+.searchfilter {
+  justify-self: baseline;
 }
 @media screen and (max-width: 900px) {
   img {

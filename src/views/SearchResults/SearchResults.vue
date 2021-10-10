@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-   <!-- <div class="container">
+    <!-- <div class="container">
       <p>Status bar placeholder</p>
     </div>-->
     <div class="flex-container">

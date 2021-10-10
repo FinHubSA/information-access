@@ -7,12 +7,12 @@
         /></router-link>
       </div>
       <div class="searchbar" v-if="currentRouteName">
-        <search-bar/>
+        <search-bar />
       </div>
-      <Drawer class="drawer"/>
+      <Drawer class="drawer" />
     </nav>
-    <search-filter class="searchfilter" v-if="currentRouteName"/>
-    <status-bar v-if="currentRouteName"/>
+    <search-filter class="searchfilter" v-if="currentRouteName" />
+    <status-bar v-if="currentRouteName" />
   </div>
 </template>
 <script>
@@ -77,7 +77,7 @@ nav {
   nav {
     display: flex;
   }
-  .img-container{
+  .img-container {
     display: none;
     order: 3;
   }
@@ -89,7 +89,7 @@ nav {
     order: 1;
     padding-top: 0.5rem;
   }
-  .searchfilter{
+  .searchfilter {
     display: none;
   }
 }

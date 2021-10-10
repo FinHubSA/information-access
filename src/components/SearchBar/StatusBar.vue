@@ -1,21 +1,24 @@
 <template>
   <div class="all-container">
-    <img class="img-small" src="@/assets/logo_green.png"/>
-    <select v-model='Field' class="dropdown">
-        <option value='author'>Author</option>
-        <option value='title'>Title</option>
-        <option value='journal'>Journal</option>
+    <div class="side-container">
+      <img class="img-small" src="@/assets/logo_icon.png" />
+      <p class="name"> Aaron's Kit</p>
+    </div>
+    <select v-model="Field" class="dropdown">
+      <option value="author">Author</option>
+      <option value="title">Title</option>
+      <option value="journal">Journal</option>
     </select>
   </div>
 </template>
 <script>
 export default {
   name: 'StatusBar',
-  data () {
-      return {
-        active: false
-      }
-    },
+  data() {
+    return {
+      active: false,
+    }
+  },
   computed: {
     Field: {
       get() {
@@ -24,39 +27,47 @@ export default {
       set(value) {
         this.$store.commit('updateField', value)
       },
-      },
     },
+  },
   method: {
-      toggle () {
-        this.active = !this.active
-      }
+    toggle() {
+      this.active = !this.active
+    },
   },
 }
 </script>
 <style scoped>
 .dropdown {
-    display: none;
+  display: none;
 }
 
-.img-small {
-    visibility: hidden;
-}
 .all-container {
   display: flex;
   width: 100vw;
   height: 2.5rem;
   justify-content: space-between;
-  align-items:  center;
+  align-items: center;
   background-color: white;
   border-top: 1px solid rgb(223, 223, 223);
+  border-bottom: 1px solid rgb(223, 223, 223);
+}
+.side-container {
+  display: none;
 }
 @media screen and (max-width: 900px) {
-  .dropdown .img-small {
+  .name {
+    font-weight: bold;
+  }
+  .dropdown .side-container .img-small {
     display: initial;
+  }
+  .side-container{
+    display: flex;
+    align-items: center;
   }
   .img-small {
     visibility: visible;
-    height: 2rem;
+    width: 4rem;
   }
   .dropdown {
     background-color: white;
@@ -68,7 +79,7 @@ export default {
     right: 0;
     padding-right: 2px;
   }
-  .dropdown{
+  .dropdown {
     position: relative;
     display: inline-block;
   }

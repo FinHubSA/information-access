@@ -46,8 +46,8 @@ export default {
       set(value) {
         this.$store.commit('updateField', value)
       },
-      },
     },
+  },
 }
 </script>
 <style scoped>
@@ -61,7 +61,7 @@ export default {
 .radio-container {
   column-gap: 3px;
 }
-.all-container, 
+.all-container,
 .section-wrapper {
   column-gap: 1.5rem;
 }
