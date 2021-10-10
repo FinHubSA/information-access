@@ -9,10 +9,10 @@
       </div>
       <ul class="links-container">
         <router-link
-          class="routerLink"
+          class="routerLink home"
           to="/"
           v-if="currentRouteName"
-          v-on:click="clearSearch"
+          v-on:click="clearAll"
           ><h2>Home</h2></router-link
         >
         <router-link class="routerLink" to="/About"><h2>About</h2></router-link>
@@ -39,7 +39,8 @@ export default {
     },
   },
   methods: {
-    clearSearch() {
+    clearAll() {
+      this.drawerVisible = false
       this.$store.commit('updateSearchString', '')
     },
   },
@@ -100,7 +101,13 @@ h2 {
 .alignment {
   text-align: right;
 }
+.home {
+  display: none;
+}
 @media screen and (max-width: 900px) {
+  .home {
+    display: initial;
+  }
   nav {
     display: flex;
     flex-direction: column;

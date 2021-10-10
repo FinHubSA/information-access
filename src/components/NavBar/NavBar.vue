@@ -12,7 +12,7 @@
       <Drawer class="drawer" />
     </nav>
     <div class="searchfilter-container">
-      <div class="placeholder"/>
+      <div class="placeholder" />
       <search-filter class="searchfilter" v-if="currentRouteName" />
     </div>
     <status-bar v-if="currentRouteName" />
@@ -77,7 +77,6 @@ export default {
   flex: 5;
   margin-left: 2rem;
   justify-content: left;
-
 }
 .drawer {
   flex: 1;

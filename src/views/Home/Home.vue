@@ -42,8 +42,11 @@ export default {
 img {
   height: 250px;
 }
+
 .wrapper {
+  display: flex;
   justify-content: center;
+  width: 80vw;
 }
 .searchfilter {
   justify-self: baseline;
