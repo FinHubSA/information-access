@@ -7,7 +7,9 @@
       <h2>Articles</h2>
     </div>
     <div class="side-container2">
-      <p class="results-status">About {{this.$store.getters.NumberofArticles}} results</p>
+      <p class="results-status">
+        About {{ this.$store.getters.NumberofArticles }} results
+      </p>
     </div>
     <select v-model="Field" class="dropdown">
       <option value="author">Author</option>
@@ -71,10 +73,10 @@ export default {
   padding-left: 0rem;
 }
 @media screen and (max-width: 900px) {
-  .all-container{
+  .all-container {
     justify-content: space-between;
   }
-  .side-container1{
+  .side-container1 {
     display: none;
   }
   .side-container2 {

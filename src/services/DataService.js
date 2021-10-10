@@ -27,7 +27,7 @@ const getters = {
   },
   SearchString: (state) => state.SearchString,
   Field: (state) => state.Field,
-  NumberofArticles: (state) => state.articles.length
+  NumberofArticles: (state) => state.articles.length,
 }
 
 const actions = {
