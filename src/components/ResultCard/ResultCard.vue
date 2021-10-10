@@ -1,8 +1,10 @@
 <template>
   <div class="result-card">
-    <p class="title">
-      <a :href="URL"> {{ Title }} </a>
-    </p>
+    <router-link
+        :to="{ name: 'Preview', params: { url: URL, title: Title } }">
+        <p class="title"> {{Title}}</p>
+    </router-link>
+    
     <p class="yearPublished">
       Author Placeholder, {{ YearPublished }}, Journal Placeholder
     </p>
@@ -81,7 +83,18 @@ export default {
 
 .container {
   display: flex;
-} 
+}
+
+.previewbutton {
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: auto;
+  cursor: pointer;
+}
+
 
 .downloadbutton {
   width: 25px;
