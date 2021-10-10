@@ -6,10 +6,15 @@
     <div class="wrapper">
       <search-bar />
     </div>
+    <br>
+    <div class="searchfilter">
+      <search-filter/>
+    </div>
   </div>
 </template>
 <script>
 import SearchBar from '../../components/SearchBar/SearchBar.vue'
+import SearchFilter from '../../components/SearchBar/SearchFilter.vue'
 export default {
   name: 'HomePage',
   props: {
@@ -17,6 +22,7 @@ export default {
   },
   components: {
     SearchBar,
+    SearchFilter,
   },
 }
 </script>
@@ -35,5 +41,16 @@ export default {
 }
 img {
   height: 250px;
+}
+.wrapper{
+  justify-content: center;
+}
+.searchfilter{
+ justify-self: baseline;
+}
+@media screen and (max-width: 900px) {
+  img {
+    height: 180px;
+  }
 }
 </style>
