@@ -75,7 +75,6 @@ export default {
 .flex-container {
   display: flex;
   flex-grow: 1;
-  flex-shrink: 0;
   padding: 1rem;
   justify-content: center;
   align-items: center;

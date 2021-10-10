@@ -12,12 +12,12 @@
       </p>
     </div>
     <div class="side-container3">
-        <p>Search on: </p>
-        <select v-model="Field" class="dropdown">
+      <p>Search on:</p>
+      <select v-model="Field" class="dropdown">
         <option value="author">Author</option>
         <option value="title">Title</option>
         <option value="journal">Journal</option>
-        </select>
+      </select>
     </div>
   </div>
 </template>
@@ -94,7 +94,8 @@ export default {
   .dropdown .side-container .side-container3 .img-small {
     display: initial;
   }
-  .side-container, .side-container3 {
+  .side-container,
+  .side-container3 {
     display: flex;
     align-items: center;
   }

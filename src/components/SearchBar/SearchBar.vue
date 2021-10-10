@@ -1,17 +1,15 @@
 <template>
-
-    <div class="input-container">
-      <input
-        class="search"
-        type="text"
-        v-model="SearchString"
-        v-on:keyup.enter="checkForSearch"
-      />
-      <router-link to="/searchresults" v-on:click="checkForSearch"
-        ><i class="fa fa-search icon"></i>
-      </router-link>
-    </div>
-
+  <div class="input-container">
+    <input
+      class="search"
+      type="text"
+      v-model="SearchString"
+      v-on:keyup.enter="checkForSearch"
+    />
+    <router-link to="/searchresults" v-on:click="checkForSearch"
+      ><i class="fa fa-search icon"></i>
+    </router-link>
+  </div>
 </template>
 <script>
 export default {
