@@ -40,8 +40,11 @@ export default {
 }
 </script>
 <style scoped>
+.wrapper {
+  justify-content: left;
+}
 .img-nav {
-  height: 80px;
+  height: 100px;
 }
 .img-container {
   flex: 2;
@@ -57,6 +60,12 @@ export default {
   order: 2;
   align-items: center;
   justify-content: center;
+  padding-left: 4rem;
+}
+.searchfilter {
+  padding-left: 15.5rem;
+  margin: 0;
+  justify-content: left;
 }
 .drawer {
   flex: 1;
@@ -68,7 +77,6 @@ nav {
   margin: 0 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 .routerLink {
   text-decoration: none;

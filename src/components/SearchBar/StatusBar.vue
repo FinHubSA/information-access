@@ -1,8 +1,13 @@
 <template>
   <div class="all-container">
     <div class="side-container">
-      <img class="img-small" src="@/assets/logo_icon.png" />
-      <p class="name"> Aaron's Kit</p>
+      <img class="img-small" src="@/assets/logo_no_byline.png" />
+    </div>
+    <div class="side-container1">
+      <h2>Articles</h2>
+    </div>
+    <div class="side-container2">
+      <p class="results-status">About {{this.$store.getters.NumberofArticles}} results</p>
     </div>
     <select v-model="Field" class="dropdown">
       <option value="author">Author</option>
@@ -40,12 +45,15 @@ export default {
 .dropdown {
   display: none;
 }
-
+.results-status {
+  color: grey;
+  font-size: 14px;
+}
 .all-container {
   display: flex;
   width: 100vw;
+  column-gap: 8rem;
   height: 2.5rem;
-  justify-content: space-between;
   align-items: center;
   background-color: white;
   border-top: 1px solid rgb(223, 223, 223);
@@ -54,14 +62,31 @@ export default {
 .side-container {
   display: none;
 }
+.side-container1 {
+  display: initial;
+  padding-left: 2rem;
+}
+.side-container2 {
+  display: initial;
+  padding-left: 0rem;
+}
 @media screen and (max-width: 900px) {
+  .all-container{
+    justify-content: space-between;
+  }
+  .side-container1{
+    display: none;
+  }
+  .side-container2 {
+    display: none;
+  }
   .name {
     font-weight: bold;
   }
   .dropdown .side-container .img-small {
     display: initial;
   }
-  .side-container{
+  .side-container {
     display: flex;
     align-items: center;
   }
@@ -78,16 +103,15 @@ export default {
     cursor: pointer;
     right: 0;
     padding-right: 2px;
-  }
-  .dropdown {
     position: relative;
     display: inline-block;
   }
 
-  .dropdown-content option {
+  option {
     color: black;
     padding: 12px 16px;
     display: block;
+    border: none;
   }
   .dropdown:focus {
     outline: 0;

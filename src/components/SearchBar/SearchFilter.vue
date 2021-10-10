@@ -65,9 +65,12 @@ export default {
 .section-wrapper {
   column-gap: 1.5rem;
 }
-label {
+label{
   vertical-align: baseline;
   flex: 1;
+}
+p, label {
+  font-size: 14px;
 }
 .radio {
   width: 1rem;
