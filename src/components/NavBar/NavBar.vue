@@ -11,7 +11,10 @@
       </div>
       <Drawer class="drawer" />
     </nav>
-    <search-filter class="searchfilter" v-if="currentRouteName" />
+    <div class="searchfilter-container">
+      <div class="placeholder"/>
+      <search-filter class="searchfilter" v-if="currentRouteName" />
+    </div>
     <status-bar v-if="currentRouteName" />
   </div>
 </template>
@@ -51,6 +54,9 @@ export default {
   height: 50px;
   order: 1;
 }
+.placeholder {
+  flex: 1;
+}
 .searchbar {
   flex: 4;
   display: flex;
@@ -62,10 +68,16 @@ export default {
   justify-content: left;
   width: 80vw;
 }
+.searchfilter-container {
+  display: flex;
+  margin: 0 10px;
+  justify-items: normal;
+}
 .searchfilter {
-  padding-left: 15.5rem;
-  margin: 0;
+  flex: 5;
+  margin-left: 2rem;
   justify-content: left;
+
 }
 .drawer {
   flex: 1;

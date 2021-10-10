@@ -7,9 +7,8 @@
       <h2>Articles</h2>
     </div>
     <div class="side-container2">
-      <p class="results-status">
-        About {{ this.$store.getters.NumberofArticles }} results
-      </p>
+      <span class="results-status">About {{ this.$store.getters.NumberofArticles }} results
+      </span>
     </div>
     <div class="side-container3">
       <p>Search on:</p>
@@ -56,36 +55,35 @@ export default {
 }
 .all-container {
   display: flex;
-  width: 100vw;
-  column-gap: 8rem;
   height: 2.5rem;
   align-items: center;
+  justify-content: left;
   background-color: white;
   border-top: 1px solid rgb(223, 223, 223);
   border-bottom: 1px solid rgb(223, 223, 223);
+  margin: 0 10px;
 }
-.side-container {
+.side-container, .side-container3 {
   display: none;
 }
 .side-container1 {
   display: initial;
-  padding-left: 2rem;
+  flex: 1;
+  justify-content: left;
 }
 .side-container2 {
   display: initial;
+  width: 10rem;
   padding-left: 0rem;
-}
-.side-container3 {
-  display: none;
+  flex: 5;
+  text-align: left;
+  margin-left: 2rem;
 }
 @media screen and (max-width: 900px) {
   .all-container {
     justify-content: space-between;
   }
-  .side-container1 {
-    display: none;
-  }
-  .side-container2 {
+  .side-container1, .side-container2 {
     display: none;
   }
   .name {
