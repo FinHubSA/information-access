@@ -40,27 +40,27 @@ export default {
 }
 </script>
 <style scoped>
-.wrapper {
+.input-container {
   justify-content: left;
 }
 .img-nav {
   height: 100px;
 }
 .img-container {
-  flex: 2;
+  flex: 1;
   height: 50px;
   order: 1;
 }
 .searchbar {
-  flex: 2;
+  flex: 4;
   display: flex;
-  flex-direction: column;
+  order: 2;
   padding-top: 2rem;
   padding-bottom: 0.5rem;
-  order: 2;
+  padding-left: 0rem;
   align-items: center;
-  justify-content: center;
-  padding-left: 4rem;
+  justify-content: left;
+  width: 80vw;
 }
 .searchfilter {
   padding-left: 15.5rem;
@@ -76,8 +76,8 @@ export default {
 nav {
   margin: 0 10px;
   display: flex;
-
   align-items: center;
+  justify-items: normal;
 }
 .routerLink {
   text-decoration: none;
@@ -91,8 +91,15 @@ nav {
     order: 3;
   }
   .searchbar {
+    flex: 4;
+    display: flex;
     order: 2;
     padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0rem;
+    align-items: center;
+    justify-content: left;
+    width: 80vw;
   }
   .drawer {
     order: 1;

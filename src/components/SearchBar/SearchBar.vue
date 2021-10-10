@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+
     <div class="input-container">
       <input
         class="search"
@@ -11,7 +11,7 @@
         ><i class="fa fa-search icon"></i>
       </router-link>
     </div>
-  </div>
+
 </template>
 <script>
 export default {

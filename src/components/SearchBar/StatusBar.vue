@@ -11,11 +11,14 @@
         About {{ this.$store.getters.NumberofArticles }} results
       </p>
     </div>
-    <select v-model="Field" class="dropdown">
-      <option value="author">Author</option>
-      <option value="title">Title</option>
-      <option value="journal">Journal</option>
-    </select>
+    <div class="side-container3">
+        <p>Search on: </p>
+        <select v-model="Field" class="dropdown">
+        <option value="author">Author</option>
+        <option value="title">Title</option>
+        <option value="journal">Journal</option>
+        </select>
+    </div>
   </div>
 </template>
 <script>
@@ -72,6 +75,9 @@ export default {
   display: initial;
   padding-left: 0rem;
 }
+.side-container3 {
+  display: none;
+}
 @media screen and (max-width: 900px) {
   .all-container {
     justify-content: space-between;
@@ -85,10 +91,10 @@ export default {
   .name {
     font-weight: bold;
   }
-  .dropdown .side-container .img-small {
+  .dropdown .side-container .side-container3 .img-small {
     display: initial;
   }
-  .side-container {
+  .side-container, .side-container3 {
     display: flex;
     align-items: center;
   }
