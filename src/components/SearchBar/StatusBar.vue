@@ -3,12 +3,12 @@
     <div class="side-container">
       <img class="img-small" src="@/assets/logo_no_byline.png" />
     </div>
-    <div class="side-container1">
+    <div class="side-container1" v-if="currentRouteName">
       <h2>Articles</h2>
     </div>
-    <div class="side-container2">
+    <div class="side-container2" v-if="currentRouteName">
       <span class="results-status"
-        >About {{ this.$store.getters.NumberofArticles }} results
+        >Showing {{ this.$store.getters.NumberofArticles }} results
       </span>
     </div>
     <div class="side-container3">
@@ -37,6 +37,9 @@ export default {
       set(value) {
         this.$store.commit('updateField', value)
       },
+    },
+    currentRouteName() {
+      return this.$route.name == 'SearchResults'
     },
   },
   method: {

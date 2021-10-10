@@ -14,7 +14,9 @@
       </p>
     </div>
 
-    <button class="accordion" @click="displayPanel2 = !displayPanel2">Section 2</button>
+    <button class="accordion" @click="displayPanel2 = !displayPanel2">
+      Section 2
+    </button>
     <div class="panel" v-if="displayPanel2">
       <p>
         Text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -24,7 +26,9 @@
       </p>
     </div>
 
-    <button class="accordion" @click="displayPanel3 = !displayPanel3">Section 3</button>
+    <button class="accordion" @click="displayPanel3 = !displayPanel3">
+      Section 3
+    </button>
     <div class="panel" v-if="displayPanel3">
       <p>
         Text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -45,7 +49,7 @@ export default {
       displayPanel2: false,
       displayPanel3: false,
     }
-  }, 
+  },
 }
 </script>
 
@@ -73,7 +77,6 @@ export default {
   background-color: white;
   overflow: hidden;
 }
-
 
 .container {
   display: flex;

@@ -13,7 +13,6 @@
 </template>
 
 <style scoped>
-
 .container {
   flex-grow: 1;
   flex-shrink: 0;
