@@ -37,13 +37,19 @@
       </div>
       <div class="results-cards-flex-container">
         <ResultCard
-          v-for="item in ArticlesSinceYear"
+          v-for="item in ArticlesSinceYear.slice(numberOfCards * $route.params.Page - numberOfCards,numberOfCards * $route.params.Page)"
           :key="item"
           v-bind="item"
         />
       </div>
     </div>
   </div>
+  <div class="change-page-container">
+      <div> <router-link v-if="$route.params.Page>1" :to="{ name: 'SearchResults', params: { Page: ($route.params.Page -1), } }"> <img class="arrow" src="../../assets/leftarrow.png" > </router-link> </div>
+      <div> <h2 class="page-number"> {{ $route.params.Page }} </h2> </div>
+      <div> <router-link  v-if="$route.params.Page*numberOfCards < ArticlesSinceYear.length" :to="{ name: 'SearchResults', params: { Page: ($route.params.Page - (-1)), } }"> <img class="arrow" src="../../assets/rightarrow.png" > </router-link> </div>
+  </div>
+
 </template>
 <script>
 import ResultCard from '../../components/ResultCard/ResultCard.vue'
@@ -52,10 +58,14 @@ export default {
   components: {
     ResultCard,
   },
+  props: {
+    Page: Number,
+  },
   data() {
     return {
       articles: [],
       year: 0,
+      numberOfCards: 2,
     }
   },
   computed: {
@@ -101,4 +111,31 @@ export default {
 .selected-option {
   color: darkorange;
 }
+
+.change-page-container {
+  display: flex;
+  background-color: lightgray;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.arrow {
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+
+.page-number{
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 2%;
+  margin-left: 2%;
+}
 </style>
+
