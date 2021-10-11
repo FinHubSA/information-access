@@ -6,7 +6,7 @@
       v-model="SearchString"
       v-on:keyup.enter="checkForSearch"
     />
-    <router-link to="/searchresults" v-on:click="checkForSearch"
+    <router-link :to="{ name: 'SearchResults', params: { Page: 1, } }" v-on:click="checkForSearch"
       ><i class="fa fa-search icon"></i>
     </router-link>
   </div>
@@ -32,7 +32,7 @@ export default {
       ) {
         this.$router.push(this.$route)
       } else {
-        this.$router.push('/searchresults')
+        this.$router.push({ name: 'SearchResults', params: { Page: 1, } })
         this.$store.dispatch('getArticles')
       }
     },
