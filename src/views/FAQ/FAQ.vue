@@ -86,5 +86,7 @@ export default {
   justify-items: center;
   align-items: center;
   margin: 5px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 </style>

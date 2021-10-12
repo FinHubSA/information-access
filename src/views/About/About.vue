@@ -61,6 +61,6 @@
   align-items: center;
   margin: 5px;
   padding-left: 10%;
-  padding-right: 10%
+  padding-right: 10%;
 }
 </style>
