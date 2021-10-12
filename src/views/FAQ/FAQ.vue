@@ -89,4 +89,12 @@ export default {
   padding-left: 5%;
   padding-right: 5%;
 }
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
 </style>
