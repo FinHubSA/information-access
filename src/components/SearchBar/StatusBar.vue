@@ -70,7 +70,8 @@ export default {
   background-color: white;
   border-top: 1px solid rgb(223, 223, 223);
   border-bottom: 1px solid rgb(223, 223, 223);
-  margin: 0 10px;
+  padding: 0 10px;
+  margin: 0;
 }
 .side-container,
 .side-container3 {

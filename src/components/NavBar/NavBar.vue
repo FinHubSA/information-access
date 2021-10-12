@@ -70,7 +70,8 @@ export default {
 }
 .searchfilter-container {
   display: flex;
-  margin: 0 10px;
+  padding: 0 10px;
+  margin: 0;
   justify-items: normal;
 }
 .searchfilter {
@@ -85,7 +86,8 @@ export default {
   order: 3;
 }
 nav {
-  margin: 0 10px;
+  padding: 0 10px;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-items: normal;

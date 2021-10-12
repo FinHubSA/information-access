@@ -123,8 +123,11 @@ h2 {
   .alignment {
     text-align: left;
   }
+  .close {
+    margin-top: 0.5rem;
+  }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 450px) {
   .home {
     display: initial;
   }
@@ -138,6 +141,9 @@ h2 {
   }
   .alignment {
     text-align: left;
+  }
+  .close {
+    margin-top: 0.5rem;
   }
 }
 </style>
