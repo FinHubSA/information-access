@@ -104,7 +104,7 @@ nav {
     order: 3;
   }
   .searchbar {
-    flex: 4;
+    flex: 5;
     display: flex;
     order: 2;
     padding-top: 0.5rem;
