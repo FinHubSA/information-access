@@ -57,7 +57,8 @@ export default {
   align-items: center;
   column-gap: 3px;
 }
-.all-container, .section-wrapper {
+.all-container,
+.section-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +79,7 @@ label {
   margin: 0;
 }
 
-@media screen and (max-width: 900px) { 
+@media screen and (max-width: 900px) {
   .all-container {
     display: flex;
     align-items: center;
@@ -97,7 +98,6 @@ label {
     flex: 1;
     align-items: flex-start;
     justify-content: flex-start;
-
   }
   label {
     flex: none;

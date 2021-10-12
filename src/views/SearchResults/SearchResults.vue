@@ -3,25 +3,25 @@
     <div class="options-flex-container">
       <div class="option-select">
         <div
-          v-bind:class="[year == 0 ? 'selected-option' : '']"
+          v-bind:class="[year == 0 ? 'selected-option' : 'selectable']"
           v-on:click="year = 0"
         >
           All time
         </div>
         <div
-          v-bind:class="[year == 2021 ? 'selected-option' : '']"
+          v-bind:class="[year == 2021 ? 'selected-option' : 'selectable']"
           v-on:click="year = 2021"
         >
           since 2021
         </div>
         <div
-          v-bind:class="[year == 2020 ? 'selected-option' : '']"
+          v-bind:class="[year == 2020 ? 'selected-option' : 'selectable']"
           v-on:click="year = 2020"
         >
           since 2020
         </div>
         <div
-          v-bind:class="[year == 2017 ? 'selected-option' : '']"
+          v-bind:class="[year == 2017 ? 'selected-option' : 'selectable']"
           v-on:click="year = 2017"
         >
           since 2017
@@ -130,7 +130,9 @@ export default {
 .selected-option {
   color: darkorange;
 }
-
+.selectable {
+  cursor: pointer;
+}
 .change-page-container {
   display: flex;
   background-color: lightgray;

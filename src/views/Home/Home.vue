@@ -40,7 +40,6 @@ export default {
 img {
   height: 250px;
 }
-
 .wrapper {
   display: flex;
   justify-content: center;
