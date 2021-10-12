@@ -37,7 +37,10 @@
       </div>
       <div class="results-cards-flex-container">
         <ResultCard
-          v-for="item in ArticlesSinceYear.slice(numberOfCards * $route.params.Page - numberOfCards,numberOfCards * $route.params.Page)"
+          v-for="item in ArticlesSinceYear.slice(
+            numberOfCards * $route.params.Page - numberOfCards,
+            numberOfCards * $route.params.Page,
+          )"
           :key="item"
           v-bind="item"
         />
@@ -45,11 +48,32 @@
     </div>
   </div>
   <div class="change-page-container">
-      <div> <router-link v-if="$route.params.Page>1" :to="{ name: 'SearchResults', params: { Page: ($route.params.Page -1), } }"> <img class="arrow" src="../../assets/leftarrow.png" > </router-link> </div>
-      <div> <h2 class="page-number"> {{ $route.params.Page }} </h2> </div>
-      <div> <router-link  v-if="$route.params.Page*numberOfCards < ArticlesSinceYear.length" :to="{ name: 'SearchResults', params: { Page: ($route.params.Page - (-1)), } }"> <img class="arrow" src="../../assets/rightarrow.png" > </router-link> </div>
+    <div>
+      <router-link
+        v-if="$route.params.Page > 1"
+        :to="{
+          name: 'SearchResults',
+          params: { Page: $route.params.Page - 1 },
+        }"
+      >
+        <img class="arrow" src="../../assets/leftarrow.png" />
+      </router-link>
+    </div>
+    <div>
+      <h2 class="page-number">{{ $route.params.Page }}</h2>
+    </div>
+    <div>
+      <router-link
+        v-if="$route.params.Page * numberOfCards < ArticlesSinceYear.length"
+        :to="{
+          name: 'SearchResults',
+          params: { Page: $route.params.Page - -1 },
+        }"
+      >
+        <img class="arrow" src="../../assets/rightarrow.png" />
+      </router-link>
+    </div>
   </div>
-
 </template>
 <script>
 import ResultCard from '../../components/ResultCard/ResultCard.vue'
@@ -129,7 +153,7 @@ export default {
   cursor: pointer;
 }
 
-.page-number{
+.page-number {
   width: 25px;
   height: 25px;
   margin-top: 10px;
@@ -138,4 +162,3 @@ export default {
   margin-left: 2%;
 }
 </style>
-
