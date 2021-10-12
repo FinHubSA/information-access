@@ -42,7 +42,7 @@
         :key="item"
         v-bind="item"
       />
-    </div>   
+    </div>
   </div>
   <div class="change-page-container">
     <div>
