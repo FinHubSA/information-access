@@ -1,7 +1,9 @@
 <template>
   <div class="all-container">
     <div class="side-container">
-      <img class="img-small" src="@/assets/logo_no_byline.png" />
+      <router-link class="img-small" to="/" v-on:click="clearSearch">
+        <img class="img-small" src="@/assets/logo_no_byline.png" />
+      </router-link>
     </div>
     <div class="side-container1" v-if="currentRouteName">
       <h2>Articles</h2>
@@ -42,9 +44,12 @@ export default {
       return this.$route.name == 'SearchResults'
     },
   },
-  method: {
+  methods: {
     toggle() {
       this.active = !this.active
+    },
+    clearSearch() {
+      this.$store.commit('updateSearchString', '')
     },
   },
 }

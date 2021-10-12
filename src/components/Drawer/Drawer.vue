@@ -15,8 +15,12 @@
           v-on:click="clearAll"
           ><h2>Home</h2></router-link
         >
-        <router-link class="routerLink" to="/About"><h2>About</h2></router-link>
-        <router-link class="routerLink" to="/FAQ"><h2>FAQ</h2></router-link>
+        <router-link class="routerLink" to="/About" v-on:click="clearAll"
+          ><h2>About</h2></router-link
+        >
+        <router-link class="routerLink" to="/FAQ" v-on:click="clearAll"
+          ><h2>FAQ</h2></router-link
+        >
       </ul>
     </div>
     <div
@@ -113,17 +117,24 @@ h2 {
     flex-direction: column;
   }
   .right-drawer {
-    width: 100vw;
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-    height: 100vh;
-    padding-left: 0;
-    border-left: 1px solid whitesmoke;
-    background: white;
-    z-index: 200;
-    transition: all 0.2s;
+    width: 300px;
+    left: 0;
+  }
+  .alignment {
+    text-align: left;
+  }
+}
+@media screen and (max-width: 500px) {
+  .home {
+    display: initial;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .right-drawer {
+    width: 200px;
+    left: 0;
   }
   .alignment {
     text-align: left;
