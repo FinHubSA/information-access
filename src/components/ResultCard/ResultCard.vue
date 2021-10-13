@@ -90,7 +90,7 @@ export default {
   cursor: pointer;
 }
 @media screen and (max-width: 900px) {
-  .result-card{
+  .result-card {
     width: 100%;
   }
 }

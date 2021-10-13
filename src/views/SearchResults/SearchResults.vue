@@ -158,7 +158,7 @@ export default {
   margin-left: 2%;
 }
 @media screen and (max-width: 900px) {
-  .results-cards-flex-container{
+  .results-cards-flex-container {
     padding-right: 16px;
   }
 }
