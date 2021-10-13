@@ -12,7 +12,7 @@
       <img
         class="downloadbutton"
         src="../../assets/download.png"
-        @click="downloadPaper()"
+        @click="downloadPaper( Title )"
       />
     </div>
   </div>
@@ -28,7 +28,7 @@ export default {
     URL: String,
   },
   methods: {
-    downloadPaper() {
+    downloadPaper( Title ) {
       axios({
         url: 'https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=dayton1311087124&disposition=attachment',
         method: 'GET',
@@ -38,7 +38,7 @@ export default {
         var fileLink = document.createElement('a')
         fileLink.href = fileUrl
 
-        fileLink.setAttribute('download', 'download.pdf')
+        fileLink.setAttribute('download', Title + ".pdf")
         document.body.appendChild(fileLink)
 
         fileLink.click()
