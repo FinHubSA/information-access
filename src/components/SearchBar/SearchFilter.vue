@@ -79,7 +79,7 @@ label {
   margin: 0;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 600px) {
   .all-container {
     display: flex;
     align-items: center;
