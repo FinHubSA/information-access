@@ -52,9 +52,8 @@ export default {
   border: 0px white;
   border-style: solid;
   border-radius: 20px;
-  width: 80%;
+  width: 100%;
   background-color: white;
-
 }
 .title {
   color: blue;

@@ -123,6 +123,7 @@ export default {
   align-items: flex-start;
   row-gap: 1rem;
   padding-left: 16px;
+  padding-right: 16px;
 }
 .option-select {
   padding: 1rem;
