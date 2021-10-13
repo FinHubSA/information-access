@@ -52,7 +52,7 @@ export default {
   border: 0px white;
   border-style: solid;
   border-radius: 20px;
-  width: 100%;
+  width: 85%;
   background-color: white;
 }
 .title {
@@ -88,5 +88,10 @@ export default {
   margin-right: 2%;
   margin-left: auto;
   cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+  .result-card{
+    width: 100%;
+  }
 }
 </style>

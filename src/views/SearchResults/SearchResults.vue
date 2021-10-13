@@ -123,7 +123,6 @@ export default {
   align-items: flex-start;
   row-gap: 1rem;
   padding-left: 16px;
-  padding-right: 16px;
 }
 .option-select {
   padding: 1rem;
@@ -141,7 +140,6 @@ export default {
   flex-direction: row;
   justify-content: center;
 }
-
 .arrow {
   width: 25px;
   height: 25px;
@@ -151,7 +149,6 @@ export default {
   margin-left: 2%;
   cursor: pointer;
 }
-
 .page-number {
   width: 25px;
   height: 25px;
@@ -159,5 +156,10 @@ export default {
   margin-bottom: 10px;
   margin-right: 2%;
   margin-left: 2%;
+}
+@media screen and (max-width: 900px) {
+  .results-cards-flex-container{
+    padding-right: 16px;
+  }
 }
 </style>
