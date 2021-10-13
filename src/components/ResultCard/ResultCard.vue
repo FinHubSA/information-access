@@ -1,18 +1,18 @@
 <template>
   <div class="result-card">
-    <router-link :to="{ name: 'Preview', params: { url: URL, title: Title } }">
+    <router-link :to="{ name: 'Preview', params: { url: URL, title: Title, authorsurname: AuthorSurname, authorinitial: AuthorInitial, journalname: JournalName, } }">
       <p class="title">{{ Title }}</p>
     </router-link>
 
     <p class="yearPublished">
-      Author Placeholder, {{ YearPublished }}, Journal Placeholder
+      {{AuthorInitial}}. {{ AuthorSurname }}, {{ YearPublished }}, {{JournalName}}
     </p>
     <div class="container">
       <p class="description">Description/excerpt placeholder</p>
       <img
         class="downloadbutton"
         src="../../assets/download.png"
-        @click="downloadPaper( Title )"
+        @click="downloadPaper(Title)"
       />
     </div>
   </div>
@@ -26,9 +26,12 @@ export default {
     Title: String,
     YearPublished: Number,
     URL: String,
+    AuthorSurname: String,
+    AuthorInitial: String,
+    JournalName: String,
   },
   methods: {
-    downloadPaper( Title ) {
+    downloadPaper(Title) {
       axios({
         url: 'https://etd.ohiolink.edu/apexprod/rws_etd/send_file/send?accession=dayton1311087124&disposition=attachment',
         method: 'GET',
@@ -38,7 +41,7 @@ export default {
         var fileLink = document.createElement('a')
         fileLink.href = fileUrl
 
-        fileLink.setAttribute('download', Title + ".pdf")
+        fileLink.setAttribute('download', Title + '.pdf')
         document.body.appendChild(fileLink)
 
         fileLink.click()
