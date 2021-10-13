@@ -106,22 +106,23 @@ export default {
   flex-shrink: 0;
   background-color: #eee;
   padding-top: 2rem;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .options-flex-container {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 0 10px;
   justify-content: left;
 }
 .results-cards-flex-container {
   display: flex;
   flex-direction: column;
   flex: 5;
-  justify-content: left;
-  align-items: left;
-  margin-left: 16px;
-  margin-right: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 1rem;
+  padding-left: 16px;
 }
 .option-select {
   padding: 1rem;
@@ -135,7 +136,7 @@ export default {
 }
 .change-page-container {
   display: flex;
-  background-color: lightgray;
+  background-color: #eee;
   flex-direction: row;
   justify-content: center;
 }
