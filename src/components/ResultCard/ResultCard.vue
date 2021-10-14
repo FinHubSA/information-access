@@ -47,56 +47,39 @@ export default {
   },
 }
 </script>
-
 <style lang="scss" scoped>
 .result-card {
   border: 0px white;
   border-style: solid;
-  border-radius: 15px;
-  width: 100%;
+  border-radius: 20px;
+  width: 85%;
   background-color: white;
-  margin: 5px;
 }
-
 .title {
   color: blue;
   font-size: larger;
   text-align: left;
-  padding-left: 5px;
+  padding-left: 10px;
   margin-bottom: 0px;
   margin-top: 10px;
 }
-
 .yearPublished {
   color: green;
   text-align: left;
-  padding-left: 5px;
+  padding-left: 10px;
   margin-top: 0px;
   margin-bottom: 5px;
 }
-
 .description {
   color: grey;
   text-align: left;
-  padding-left: 5px;
+  padding-left: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
 .container {
   display: flex;
 }
-
-.previewbutton {
-  width: 25px;
-  height: 25px;
-  margin-top: 10px;
-  margin-bottom: 2%;
-  margin-right: 2%;
-  margin-left: auto;
-  cursor: pointer;
-}
-
 .downloadbutton {
   width: 25px;
   height: 25px;
@@ -105,5 +88,10 @@ export default {
   margin-right: 2%;
   margin-left: auto;
   cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+  .result-card {
+    width: 100%;
+  }
 }
 </style>

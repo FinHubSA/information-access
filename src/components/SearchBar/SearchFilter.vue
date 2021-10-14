@@ -51,25 +51,24 @@ export default {
 }
 </script>
 <style scoped>
-.all-container,
-.radio-container,
-.section-wrapper {
+.radio-container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.radio-container {
   column-gap: 3px;
 }
 .all-container,
 .section-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   column-gap: 1.5rem;
 }
 label {
-  vertical-align: baseline;
+  vertical-align: none;
   flex: 1;
 }
-p,
+span,
 label {
   font-size: 14px;
 }
@@ -80,21 +79,28 @@ label {
   margin: 0;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 600px) {
+  .all-container {
+    display: flex;
+    align-items: center;
+    justify-content: none;
+    column-gap: 1.5rem;
+  }
   .section-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: left;
-    align-items: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 0.5rem;
   }
   .radio-container {
     display: flex;
-    justify-content: left;
-    align-items: left;
+    flex: 1;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
   label {
-    vertical-align: baseline;
-    flex: 1;
+    flex: none;
   }
 }
 </style>

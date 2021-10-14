@@ -69,7 +69,7 @@ export default {
 
 .active,
 .accordion:hover {
-  background-color: #ccc;
+  background-color: rgb(204, 204, 204);
 }
 
 .panel {
