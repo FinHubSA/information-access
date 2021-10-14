@@ -61,6 +61,7 @@
       >
         <img class="arrow" src="../../assets/leftarrow.png" />
       </router-link>
+      <div class="arrow" v-if="$route.params.Page == 1"> </div>
     </div>
     <div>
       <h2 class="page-number">{{ $route.params.Page }}</h2>
@@ -75,6 +76,7 @@
       >
         <img class="arrow" src="../../assets/rightarrow.png" />
       </router-link>
+      <div class="arrow" v-if="$route.params.Page != 1"> </div>
     </div>
   </div>
 </template>
@@ -95,6 +97,19 @@ export default {
       numberOfCards: 2,
     }
   },
+  methods: {
+    checkForSearch() {
+      if (
+        this.$store.getters.SearchString == '' &&
+        this.$router.name !== 'SearchResults'
+      ) {
+        this.$router.push(this.$route)
+      } else {
+        this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
+        this.$store.dispatch('getArticles')
+      }
+    },
+  },
   computed: {
     ArticlesSinceYear() {
       if (this.year == 0) {
@@ -103,6 +118,9 @@ export default {
       return this.$store.getters.articlesSinceYear(this.year)
     },
   },
+  mounted() {
+    this.checkForSearch();
+  }
 }
 </script>
 <style scoped>
