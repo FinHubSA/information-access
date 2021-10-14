@@ -26,7 +26,13 @@
         >
           since 2017
         </div>
-        <div>Custom range</div>
+        <div
+          v-bind:class="[year == -1 ? 'selected-option' : 'selectable']"
+          v-on:click="year = -1"
+        >
+          Custom range
+        </div>
+        <div v-if="year == -1"><input /> to <input /> <button>Go</button></div>
       </div>
       <div class="option-select">
         <div class="selected-option">Sort by journal</div>
