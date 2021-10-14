@@ -1,50 +1,47 @@
 <template>
   <div class="container">
-    <div class="flex-container">
-      <div class="options-flex-container">
-        <div class="option-select">
-          <div
-            v-bind:class="[year == 0 ? 'selected-option' : '']"
-            v-on:click="year = 0"
-          >
-            All time
-          </div>
-          <div
-            v-bind:class="[year == 2021 ? 'selected-option' : '']"
-            v-on:click="year = 2021"
-          >
-            since 2021
-          </div>
-          <div
-            v-bind:class="[year == 2020 ? 'selected-option' : '']"
-            v-on:click="year = 2020"
-          >
-            since 2020
-          </div>
-          <div
-            v-bind:class="[year == 2017 ? 'selected-option' : '']"
-            v-on:click="year = 2017"
-          >
-            since 2017
-          </div>
-          <div>Custom range</div>
+    <div class="options-flex-container">
+      <div class="option-select">
+        <div
+          v-bind:class="[year == 0 ? 'selected-option' : 'selectable']"
+          v-on:click="year = 0"
+        >
+          All time
         </div>
-
-        <div class="option-select">
-          <div class="selected-option">Sort by journal</div>
-          <div>Sort by date</div>
+        <div
+          v-bind:class="[year == 2021 ? 'selected-option' : 'selectable']"
+          v-on:click="year = 2021"
+        >
+          since 2021
         </div>
+        <div
+          v-bind:class="[year == 2020 ? 'selected-option' : 'selectable']"
+          v-on:click="year = 2020"
+        >
+          since 2020
+        </div>
+        <div
+          v-bind:class="[year == 2017 ? 'selected-option' : 'selectable']"
+          v-on:click="year = 2017"
+        >
+          since 2017
+        </div>
+        <div>Custom range</div>
       </div>
-      <div class="results-cards-flex-container">
-        <ResultCard
-          v-for="item in ArticlesSinceYear.slice(
-            numberOfCards * $route.params.Page - numberOfCards,
-            numberOfCards * $route.params.Page,
-          )"
-          :key="item"
-          v-bind="item"
-        />
+      <div class="option-select">
+        <div class="selected-option">Sort by journal</div>
+        <div>Sort by date</div>
       </div>
+    </div>
+    <div class="results-cards-flex-container">
+      <ResultCard
+        v-for="item in ArticlesSinceYear.slice(
+          numberOfCards * $route.params.Page - numberOfCards,
+          numberOfCards * $route.params.Page,
+        )"
+        :key="item"
+        v-bind="item"
+      />
     </div>
   </div>
   <div class="change-page-container">
@@ -125,26 +122,25 @@ export default {
   display: flex;
   flex-grow: 1;
   flex-shrink: 0;
-}
-.flex-container {
-  display: flex;
-  flex-grow: 1;
-  padding: 1rem;
-  justify-content: center;
-  align-items: center;
-  background-color: lightgrey;
+  background-color: #eee;
+  padding-top: 2rem;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .options-flex-container {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  padding: 1rem 5%;
-  justify-content: flex-end;
+  justify-content: left;
 }
 .results-cards-flex-container {
   display: flex;
   flex-direction: column;
-  padding: 1rem 5%;
-  width: 80%;
+  flex: 5;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 1rem;
+  padding-left: 16px;
 }
 .option-select {
   padding: 1rem;
@@ -153,14 +149,15 @@ export default {
 .selected-option {
   color: darkorange;
 }
-
+.selectable {
+  cursor: pointer;
+}
 .change-page-container {
   display: flex;
-  background-color: lightgray;
+  background-color: #eee;
   flex-direction: row;
   justify-content: center;
 }
-
 .arrow {
   width: 25px;
   height: 25px;
@@ -170,7 +167,6 @@ export default {
   margin-left: 2%;
   cursor: pointer;
 }
-
 .page-number {
   width: 25px;
   height: 25px;
@@ -178,5 +174,10 @@ export default {
   margin-bottom: 10px;
   margin-right: 2%;
   margin-left: 2%;
+}
+@media screen and (max-width: 900px) {
+  .results-cards-flex-container {
+    padding-right: 16px;
+  }
 }
 </style>

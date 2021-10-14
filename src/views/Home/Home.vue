@@ -7,9 +7,7 @@
       <search-bar />
     </div>
     <br />
-    <div class="searchfilter">
-      <search-filter />
-    </div>
+    <search-filter />
   </div>
 </template>
 <script>
@@ -35,22 +33,19 @@ export default {
   flex-grow: 1;
   flex-shrink: 0;
   flex-direction: column;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
   padding-top: 2rem;
 }
 img {
   height: 250px;
 }
-
 .wrapper {
   display: flex;
   justify-content: center;
   width: 80vw;
 }
-.searchfilter {
-  justify-self: baseline;
-}
+
 @media screen and (max-width: 900px) {
   img {
     height: 180px;
