@@ -10,12 +10,12 @@
     </div>
     <div class="side-container2" v-if="currentRouteName">
       <span class="results-status"
-        >Showing {{ this.$store.getters.NumberofArticles }} results
+        >{{ this.$store.getters.NumberofArticles }} results
       </span>
     </div>
     <div class="sd">
-      <div class="side-container4 ">
-        <Dropdown/>
+      <div class="side-container4">
+        <Dropdown />
       </div>
       <div class="side-container3">
         <p>Search on:</p>
@@ -26,7 +26,7 @@
         </select>
       </div>
     </div>
-    </div>
+  </div>
 </template>
 <script>
 import Dropdown from './Dropdown.vue'
@@ -81,10 +81,10 @@ export default {
   margin: 0;
 }
 .side-container,
-.side-container3, 
+.side-container3,
 .side-container4 {
   display: none;
-  flex: 1
+  flex: 1;
 }
 .side-container1 {
   display: initial;

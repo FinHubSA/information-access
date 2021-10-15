@@ -3,36 +3,62 @@
     <div class="options-flex-container">
       <div class="option-select">
         <div
-          v-bind:class="[this.$store.getters.yearStart == 0 && this.$store.state.custom !=true  ? 'selected-option' : 'selectable']"
+          v-bind:class="[
+            this.$store.getters.yearStart == 0 &&
+            this.$store.state.custom != true
+              ? 'selected-option'
+              : 'selectable',
+          ]"
           v-on:click="updateYear(0)"
         >
           All time
         </div>
         <div
-          v-bind:class="[this.$store.getters.yearStart == 2021 && this.$store.state.custom !=true  ? 'selected-option' : 'selectable']"
+          v-bind:class="[
+            this.$store.getters.yearStart == 2021 &&
+            this.$store.state.custom != true
+              ? 'selected-option'
+              : 'selectable',
+          ]"
           v-on:click="updateYear(2021)"
         >
           since 2021
         </div>
         <div
-          v-bind:class="[this.$store.getters.yearStart == 2020 && this.$store.state.custom !=true ? 'selected-option' : 'selectable']"
+          v-bind:class="[
+            this.$store.getters.yearStart == 2020 &&
+            this.$store.state.custom != true
+              ? 'selected-option'
+              : 'selectable',
+          ]"
           v-on:click="updateYear(2020)"
         >
           since 2020
         </div>
         <div
-          v-bind:class="[this.$store.getters.yearStart == 2017 && this.$store.state.custom !=true ? 'selected-option' : 'selectable']"
+          v-bind:class="[
+            this.$store.getters.yearStart == 2017 &&
+            this.$store.state.custom != true
+              ? 'selected-option'
+              : 'selectable',
+          ]"
           v-on:click="updateYear(2017)"
         >
           since 2017
         </div>
         <div
-          v-bind:class="[this.$store.state.custom ==true ? 'selected-option' : 'selectable']"
-          v-on:click="this.$store.state.custom=true"
+          v-bind:class="[
+            this.$store.state.custom == true ? 'selected-option' : 'selectable',
+          ]"
+          v-on:click="this.$store.state.custom = true"
         >
           Custom range
         </div>
-      <div v-if="this.$store.state.custom == true" class="custom"><input v-model="startYear" class="custom-year" /> to <input v-model="endYear" class="custom-year" /> <button v-on:click="go()" class="go-button">Go</button></div>
+        <div v-if="this.$store.state.custom == true" class="custom">
+          <input v-model="startYear" class="custom-year" /> to
+          <input v-model="endYear" class="custom-year" />
+          <button v-on:click="go()" class="go-button">Go</button>
+        </div>
       </div>
     </div>
     <div class="results-cards-flex-container">
@@ -109,17 +135,16 @@ export default {
     updateYear(year) {
       this.$store.commit('updateYear', year)
     },
-    go(){
-      if (this.startYear>this.endYear){
+    go() {
+      if (this.startYear > this.endYear) {
         return false
       }
-      if (this.startYear <1000 || this.startYear <1000){
+      if (this.startYear < 1000 || this.startYear < 1000) {
         return false
-      }
-      else {
+      } else {
         this.$store.commit('updateCustom', [this.startYear, this.endYear])
       }
-    }
+    },
   },
   computed: {
     ArticlesSinceYear() {
