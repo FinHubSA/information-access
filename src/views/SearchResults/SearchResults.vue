@@ -62,9 +62,25 @@
       </div>
     </div>
     <div class="results-cards-flex-container">
-      <h3 v-if="this.$store.state.yearStart==0" class="temp">{{this.$store.getters.NumberofArticles}} result(s) searching on {{this.$store.getters.Field}} for all time</h3>
-      <h3 v-if="this.$store.state.yearStart!=0 && this.$store.state.custom==false" class="temp">{{this.$store.getters.NumberofArticles}} result(s) searching on {{this.$store.getters.Field}} filtering for articles published since {{this.$store.state.yearStart}}</h3>
-      <h3 v-if="this.$store.state.custom==true" class="temp">{{this.$store.getters.NumberofArticles}} result(s) searching on {{this.$store.getters.Field}} filtering between {{this.$store.state.yearStart}} and {{this.$store.state.yearEnd}}</h3>
+      <h3 v-if="this.$store.state.yearStart == 0" class="temp">
+        {{ this.$store.getters.NumberofArticles }} result(s) searching on
+        {{ this.$store.getters.Field }} for all time
+      </h3>
+      <h3
+        v-if="
+          this.$store.state.yearStart != 0 && this.$store.state.custom == false
+        "
+        class="temp"
+      >
+        {{ this.$store.getters.NumberofArticles }} result(s) searching on
+        {{ this.$store.getters.Field }} filtering for articles published since
+        {{ this.$store.state.yearStart }}
+      </h3>
+      <h3 v-if="this.$store.state.custom == true" class="temp">
+        {{ this.$store.getters.NumberofArticles }} result(s) searching on
+        {{ this.$store.getters.Field }} filtering between
+        {{ this.$store.state.yearStart }} and {{ this.$store.state.yearEnd }}
+      </h3>
       <ResultCard
         v-for="item in ArticlesSinceYear.slice(
           numberOfCards * $route.params.Page - numberOfCards,
