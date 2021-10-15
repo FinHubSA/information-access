@@ -26,7 +26,6 @@ const routes = [
     name: 'FAQ',
     component: FAQ,
   },
-
   {
     path: '/Preview',
     name: 'Preview',
@@ -35,7 +34,6 @@ const routes = [
 ]
 
 const router = createRouter({
-  mode: 'history',
   history: createWebHistory(),
   routes,
 })

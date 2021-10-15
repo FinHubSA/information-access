@@ -13,22 +13,32 @@
         >Showing {{ this.$store.getters.NumberofArticles }} results
       </span>
     </div>
-    <div class="side-container3">
-      <p>Search on:</p>
-      <select v-model="Field" class="dropdown">
-        <option value="author">Author</option>
-        <option value="title">Title</option>
-        <option value="journal">Journal</option>
-      </select>
+    <div class="sd">
+      <div class="side-container4 ">
+        <Dropdown/>
+      </div>
+      <div class="side-container3">
+        <p>Search on:</p>
+        <select v-model="Field" class="dropdown">
+          <option value="author">Author</option>
+          <option value="title">Title</option>
+          <option value="journal">Journal</option>
+        </select>
+      </div>
     </div>
-  </div>
+    </div>
 </template>
 <script>
+import Dropdown from './Dropdown.vue'
 export default {
   name: 'StatusBar',
+  components: {
+    Dropdown,
+  },
   data() {
     return {
       active: false,
+      Show: false,
     }
   },
   computed: {
@@ -55,9 +65,6 @@ export default {
 }
 </script>
 <style scoped>
-.dropdown {
-  display: none;
-}
 .results-status {
   color: grey;
   font-size: 14px;
@@ -74,8 +81,10 @@ export default {
   margin: 0;
 }
 .side-container,
-.side-container3 {
+.side-container3, 
+.side-container4 {
   display: none;
+  flex: 1
 }
 .side-container1 {
   display: initial;
@@ -90,6 +99,10 @@ export default {
   text-align: left;
   margin-left: 2rem;
 }
+p {
+  padding: 0;
+  margin: 0;
+}
 @media screen and (max-width: 900px) {
   .all-container {
     justify-content: space-between;
@@ -98,6 +111,11 @@ export default {
   .side-container2 {
     display: none;
   }
+  .sd {
+    display: flex;
+    justify-content: flex-end;
+    flex: 3;
+  }
   .name {
     font-weight: bold;
   }
@@ -105,9 +123,19 @@ export default {
     display: initial;
   }
   .side-container,
-  .side-container3 {
+  .side-container4 {
     display: flex;
     align-items: center;
+  }
+  .side-container4 {
+    justify-content: flex-end;
+    flex: 1;
+  }
+  .side-container3 {
+    display: flex;
+    flex: 1.5;
+    align-items: center;
+    justify-content: flex-end;
   }
   .img-small {
     visibility: visible;
@@ -115,7 +143,7 @@ export default {
   }
   .dropdown {
     background-color: white;
-    color: rgb(34, 34, 34);
+    color: #2c3e50;
     height: 2.5rem;
     font-size: 16px;
     border: none;
@@ -127,7 +155,7 @@ export default {
   }
 
   option {
-    color: black;
+    color: #2c3e50;
     padding: 12px 16px;
     display: block;
     border: none;
