@@ -18,8 +18,8 @@ const state = {
   SearchString: '',
   Field: 'title',
   articles: [],
-  yearStart: '',
-  yearEnd: '',
+  yearStart: 0,
+  yearEnd: 0,
   custom: false,
 }
 
@@ -42,7 +42,21 @@ const getters = {
   },
   SearchString: (state) => state.SearchString,
   Field: (state) => state.Field,
-  NumberofArticles: (state) => state.articles.length,
+  NumberofArticles: (state) => {
+    if (state.yearStart == 0) {
+      return state.articles.length
+    }
+    if (state.yearEnd == 0) {
+      return state.articles.filter(
+        (element) => element.YearPublished >= state.yearStart,
+      ).length
+    }
+    return state.articles.filter(
+      (element) =>
+        element.YearPublished >= state.yearStart &&
+        element.YearPublished <= state.yearEnd,
+    ).length
+  },
   yearStart: (state) => state.yearStart,
 }
 

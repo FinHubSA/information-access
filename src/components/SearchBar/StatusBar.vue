@@ -13,18 +13,16 @@
         >{{ this.$store.getters.NumberofArticles }} results
       </span>
     </div>
-    <div class="sd">
-      <div class="side-container4">
-        <Dropdown />
-      </div>
-      <div class="side-container3">
-        <p>Search on:</p>
-        <select v-model="Field" class="dropdown">
-          <option value="author">Author</option>
-          <option value="title">Title</option>
-          <option value="journal">Journal</option>
-        </select>
-      </div>
+    <div class="side-container4">
+      <Dropdown />
+    </div>
+    <div class="side-container3">
+      <p>Search on:</p>
+      <select v-model="Field" class="dropdown">
+        <option value="author">Author</option>
+        <option value="title">Title</option>
+        <option value="journal">Journal</option>
+      </select>
     </div>
   </div>
 </template>
@@ -111,11 +109,6 @@ p {
   .side-container2 {
     display: none;
   }
-  .sd {
-    display: flex;
-    justify-content: flex-end;
-    flex: 3;
-  }
   .name {
     font-weight: bold;
   }
@@ -129,11 +122,11 @@ p {
   }
   .side-container4 {
     justify-content: flex-end;
-    flex: 1;
+    flex: 2;
   }
   .side-container3 {
     display: flex;
-    flex: 1.5;
+    flex: 3;
     align-items: center;
     justify-content: flex-end;
   }
