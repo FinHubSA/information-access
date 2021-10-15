@@ -26,7 +26,6 @@ const routes = [
     name: 'FAQ',
     component: FAQ,
   },
-
   {
     path: '/Preview',
     name: 'Preview',

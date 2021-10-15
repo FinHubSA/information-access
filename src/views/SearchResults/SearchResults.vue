@@ -3,37 +3,84 @@
     <div class="options-flex-container">
       <div class="option-select">
         <div
-          v-bind:class="[year == 0 ? 'selected-option' : 'selectable']"
-          v-on:click="year = 0"
+          v-bind:class="[
+            this.$store.getters.yearStart == 0 &&
+            this.$store.state.custom != true
+              ? 'selected-option'
+              : 'selectable',
+          ]"
+          v-on:click="updateYear(0)"
         >
           All time
         </div>
         <div
-          v-bind:class="[year == 2021 ? 'selected-option' : 'selectable']"
-          v-on:click="year = 2021"
+          v-bind:class="[
+            this.$store.getters.yearStart == 2021 &&
+            this.$store.state.custom != true
+              ? 'selected-option'
+              : 'selectable',
+          ]"
+          v-on:click="updateYear(2021)"
         >
           since 2021
         </div>
         <div
-          v-bind:class="[year == 2020 ? 'selected-option' : 'selectable']"
-          v-on:click="year = 2020"
+          v-bind:class="[
+            this.$store.getters.yearStart == 2020 &&
+            this.$store.state.custom != true
+              ? 'selected-option'
+              : 'selectable',
+          ]"
+          v-on:click="updateYear(2020)"
         >
           since 2020
         </div>
         <div
-          v-bind:class="[year == 2017 ? 'selected-option' : 'selectable']"
-          v-on:click="year = 2017"
+          v-bind:class="[
+            this.$store.getters.yearStart == 2017 &&
+            this.$store.state.custom != true
+              ? 'selected-option'
+              : 'selectable',
+          ]"
+          v-on:click="updateYear(2017)"
         >
           since 2017
         </div>
-        <div>Custom range</div>
-      </div>
-      <div class="option-select">
-        <div class="selected-option">Sort by journal</div>
-        <div>Sort by date</div>
+        <div
+          v-bind:class="[
+            this.$store.state.custom == true ? 'selected-option' : 'selectable',
+          ]"
+          v-on:click="this.$store.state.custom = true"
+        >
+          Custom range
+        </div>
+        <div v-if="this.$store.state.custom == true" class="custom">
+          <input v-model="startYear" class="custom-year" /> to
+          <input v-model="endYear" class="custom-year" />
+          <button v-on:click="go()" class="go-button">Go</button>
+        </div>
       </div>
     </div>
     <div class="results-cards-flex-container">
+      <h3 v-if="this.$store.state.yearStart == 0" class="temp">
+        {{ this.$store.getters.NumberofArticles }} result(s) searching on
+        {{ this.$store.getters.Field }} for all time
+      </h3>
+      <h3
+        v-if="
+          this.$store.state.yearStart != 0 && this.$store.state.custom == false
+        "
+        class="temp"
+      >
+        {{ this.$store.getters.NumberofArticles }} result(s) searching on
+        {{ this.$store.getters.Field }} filtering for articles published since
+        {{ this.$store.state.yearStart }}
+      </h3>
+      <h3 v-if="this.$store.state.custom == true" class="temp">
+        {{ this.$store.getters.NumberofArticles }} result(s) searching on
+        {{ this.$store.getters.Field }} filtering between
+        {{ this.$store.state.yearStart }} and {{ this.$store.state.yearEnd }}
+      </h3>
       <ResultCard
         v-for="item in ArticlesSinceYear.slice(
           numberOfCards * $route.params.Page - numberOfCards,
@@ -55,7 +102,7 @@
       >
         <img class="arrow" src="../../assets/leftarrow.png" />
       </router-link>
-      <div class="arrow" v-if="$route.params.Page == 1"> </div>
+      <div class="arrow" v-if="$route.params.Page == 1"></div>
     </div>
     <div>
       <h2 class="page-number">{{ $route.params.Page }}</h2>
@@ -70,7 +117,7 @@
       >
         <img class="arrow" src="../../assets/rightarrow.png" />
       </router-link>
-      <div class="arrow" v-if="$route.params.Page != 1"> </div>
+      <div class="arrow" v-if="$route.params.Page != 1"></div>
     </div>
   </div>
 </template>
@@ -87,7 +134,8 @@ export default {
   data() {
     return {
       articles: [],
-      year: 0,
+      startYear: 0,
+      endYear: 0,
       numberOfCards: 2,
     }
   },
@@ -103,21 +151,45 @@ export default {
         this.$store.dispatch('getArticles')
       }
     },
+    updateYear(year) {
+      this.$store.commit('updateYear', year)
+    },
+    go() {
+      if (this.startYear > this.endYear) {
+        return false
+      }
+      if (this.startYear < 1000 || this.startYear < 1000) {
+        return false
+      } else {
+        this.$store.commit('updateCustom', [this.startYear, this.endYear])
+      }
+    },
   },
   computed: {
     ArticlesSinceYear() {
-      if (this.year == 0) {
-        return this.$store.getters.articles
-      }
-      return this.$store.getters.articlesSinceYear(this.year)
+      return this.$store.getters.articlesSinceYear
     },
   },
   mounted() {
-    this.checkForSearch();
-  }
+    this.checkForSearch()
+  },
 }
 </script>
 <style scoped>
+.temp {
+  display: none;
+}
+.custom {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+}
+.go-button {
+  width: 2rem;
+}
+.custom-year {
+  width: 4rem;
+}
 .container {
   display: flex;
   flex-grow: 1;
@@ -131,7 +203,8 @@ export default {
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: left;
+  justify-content: flex-start;
+  align-items: center;
 }
 .results-cards-flex-container {
   display: flex;
@@ -178,6 +251,13 @@ export default {
 @media screen and (max-width: 900px) {
   .results-cards-flex-container {
     padding-right: 16px;
+  }
+  .options-flex-container {
+    display: none;
+  }
+  .temp {
+    display: initial;
+    padding-left: 16px;
   }
 }
 </style>

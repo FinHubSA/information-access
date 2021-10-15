@@ -1,11 +1,23 @@
 <template>
   <div class="result-card">
-    <router-link :to="{ name: 'Preview', params: { url: URL, title: Title, authorsurname: AuthorSurname, authorinitial: AuthorInitial, journalname: JournalName, } }">
+    <router-link
+      :to="{
+        name: 'Preview',
+        params: {
+          url: URL,
+          title: Title,
+          authorsurname: AuthorSurname,
+          authorinitial: AuthorInitial,
+          journalname: JournalName,
+        },
+      }"
+    >
       <p class="title">{{ Title }}</p>
     </router-link>
 
     <p class="yearPublished">
-      {{AuthorInitial}}. {{ AuthorSurname }}, {{ YearPublished }}, {{JournalName}}
+      {{ AuthorInitial }}. {{ AuthorSurname }}, {{ YearPublished }},
+      {{ JournalName }}
     </p>
     <div class="container">
       <p class="description">Description/excerpt placeholder</p>

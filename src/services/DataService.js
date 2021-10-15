@@ -18,16 +18,46 @@ const state = {
   SearchString: '',
   Field: 'title',
   articles: [],
+  yearStart: 0,
+  yearEnd: 0,
+  custom: false,
 }
 
 const getters = {
   articles: (state) => state.articles,
-  articlesSinceYear: (state) => (year) => {
-    return state.articles.filter((element) => element.YearPublished >= year)
+  articlesSinceYear: (state) => {
+    if (state.yearStart == 0) {
+      return state.articles
+    }
+    if (state.yearEnd == 0) {
+      return state.articles.filter(
+        (element) => element.YearPublished >= state.yearStart,
+      )
+    }
+    return state.articles.filter(
+      (element) =>
+        element.YearPublished >= state.yearStart &&
+        element.YearPublished <= state.yearEnd,
+    )
   },
   SearchString: (state) => state.SearchString,
   Field: (state) => state.Field,
-  NumberofArticles: (state) => state.articles.length,
+  NumberofArticles: (state) => {
+    if (state.yearStart == 0) {
+      return state.articles.length
+    }
+    if (state.yearEnd == 0) {
+      return state.articles.filter(
+        (element) => element.YearPublished >= state.yearStart,
+      ).length
+    }
+    return state.articles.filter(
+      (element) =>
+        element.YearPublished >= state.yearStart &&
+        element.YearPublished <= state.yearEnd,
+    ).length
+  },
+  yearStart: (state) => state.yearStart,
 }
 
 const actions = {
@@ -60,6 +90,16 @@ const mutations = {
   updateField(state, Field) {
     state.Field = Field
     console.log(Field)
+  },
+  updateYear(state, year) {
+    console.log(year)
+    state.yearStart = year
+    state.custom = false
+  },
+  updateCustom(state, year) {
+    state.yearStart = year[0]
+    state.yearEnd = year[1]
+    state.custom = true
   },
   CLEAR_ALL(state) {
     state.SearchString = ''

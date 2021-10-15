@@ -3,7 +3,10 @@
     <h3>
       This is a preview of {{ $route.params.title }} by (Author Placeholder).
     </h3>
-    <p>This is the URL of the document: <a :href="$route.params.url" > {{ $route.params.url }} </a> </p>
+    <p>
+      This is the URL of the document:
+      <a :href="$route.params.url"> {{ $route.params.url }} </a>
+    </p>
     <div class="container">
       <iframe class="iframe" :src="$route.params.url">
         Sorry, your browser does not support Iframes.
