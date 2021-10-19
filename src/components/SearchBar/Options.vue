@@ -21,9 +21,9 @@
     Custom range
   </div>
   <div v-if="this.$store.state.custom == true" class="custom">
-    <input v-model="this.$store.state.customStartYear" class="custom-year" /> to
-    <input v-model="this.$store.state.customEndYear" class="custom-year" />
-    <button v-on:click="go()" class="go-button">Go</button>
+    <input v-model="this.$store.state.customStartYear" v-on:keyup.enter="go" class="custom-year" /> to
+    <input v-model="this.$store.state.customEndYear" v-on:keyup.enter="go" class="custom-year" />
+    <button v-on:click="go" class="go-button">Go</button>
   </div>
 </template>
 <script>
