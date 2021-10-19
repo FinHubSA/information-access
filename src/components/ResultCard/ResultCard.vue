@@ -19,14 +19,6 @@
       {{ AuthorInitial }}. {{ AuthorSurname }}, {{ YearPublished }},
       {{ JournalName }}
     </p>
-    <div class="container">
-      <p class="description">Description/excerpt placeholder</p>
-      <img
-        class="downloadbutton"
-        src="../../assets/download.png"
-        @click="downloadPaper(Title)"
-      />
-    </div>
   </div>
 </template>
 
@@ -76,6 +68,7 @@ export default {
   text-align: left;
   padding-left: 10px;
   margin-bottom: 0px;
+  padding-top: 5px;
   margin-top: 10px;
 }
 .yearPublished {
@@ -84,6 +77,7 @@ export default {
   padding-left: 10px;
   margin-top: 0px;
   margin-bottom: 5px;
+  padding-bottom: 10px;
 }
 .description {
   color: grey;

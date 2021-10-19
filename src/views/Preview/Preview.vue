@@ -1,7 +1,7 @@
 <template>
   <div class="welcome">
     <h3>
-      This is a preview of {{ $route.params.title }} by (Author Placeholder).
+      This is a preview of {{ $route.params.title }} by {{ $route.params.authorinitial }}. {{ $route.params.authorsurname }}.
     </h3>
     <p>
       This is the URL of the document:
