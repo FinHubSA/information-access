@@ -26,11 +26,11 @@ export default {
   methods: {
     UpdateState() {
       this.$store.state.active = false
-      if (this.$store.state.custom == true && this.$store.state.go != true){
+      if (this.$store.state.custom == true && this.$store.state.go != true) {
         this.$store.commit('updateYear', this.$store.state.yearStart)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 <style scoped>

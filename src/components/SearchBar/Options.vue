@@ -60,13 +60,21 @@ export default {
       this.$store.commit('updateYear', year)
     },
     go() {
-      if (this.$store.state.customStartYear > this.$store.state.custromEndYear) {
+      if (
+        this.$store.state.customStartYear > this.$store.state.custromEndYear
+      ) {
         return false
       }
-      if (this.$store.state.customStartYear < 0 || this.$store.state.customEndYear < 0) {
+      if (
+        this.$store.state.customStartYear < 0 ||
+        this.$store.state.customEndYear < 0
+      ) {
         return false
       } else {
-        this.$store.commit('updateCustom', [this.$store.state.customStartYear, this.$store.state.customEndYear])
+        this.$store.commit('updateCustom', [
+          this.$store.state.customStartYear,
+          this.$store.state.customEndYear,
+        ])
       }
     },
   },
