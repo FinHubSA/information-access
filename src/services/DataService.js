@@ -33,7 +33,7 @@ const getters = {
     if (state.yearStart == 0) {
       return state.articles
     }
-    if (state.yearStart > 0) {
+    if (state.yearEnd == 0) {
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       )
@@ -50,7 +50,7 @@ const getters = {
     if (state.yearStart == 0) {
       return state.articles.length
     }
-    if (state.yearStart > 0) {
+    if (state.yearEnd == 0) {
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       ).length

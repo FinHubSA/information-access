@@ -21,8 +21,17 @@
     Custom range
   </div>
   <div v-if="this.$store.state.custom == true" class="custom">
-    <input v-model="this.$store.state.customStartYear" v-on:keyup.enter="go" class="custom-year" /> to
-    <input v-model="this.$store.state.customEndYear" v-on:keyup.enter="go" class="custom-year" />
+    <input
+      v-model="this.$store.state.customStartYear"
+      v-on:keyup.enter="go"
+      class="custom-year"
+    />
+    to
+    <input
+      v-model="this.$store.state.customEndYear"
+      v-on:keyup.enter="go"
+      class="custom-year"
+    />
     <button v-on:click="go" class="go-button">Go</button>
   </div>
 </template>
@@ -61,14 +70,16 @@ export default {
     },
     go() {
       if (
-        this.$store.state.customStartYear > this.$store.state.custromEndYear
+        this.$store.state.customStartYear > this.$store.state.customEndYear
       ) {
+        alert("The start year must be less than or equal to the end year")
         return false
       }
       if (
         this.$store.state.customStartYear < 0 ||
         this.$store.state.customEndYear < 0
       ) {
+        alert("Years cannot be negative")
         return false
       } else {
         this.$store.commit('updateCustom', [
