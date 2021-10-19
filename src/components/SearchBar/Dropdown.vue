@@ -1,13 +1,20 @@
 <template>
   <div class="menu-item">
-    <p class="title" @click="this.$store.state.active = !this.$store.state.active">
+    <p
+      class="title"
+      @click="this.$store.state.active = !this.$store.state.active"
+    >
       Year<i class="fa fa-chevron-down down"></i>
     </p>
     <div class="sub-menu" v-if="this.$store.state.active">
-      <Options/>
+      <Options />
     </div>
   </div>
-  <div class="drawer-mask" v-if="this.$store.state.active" @click="this.$store.state.active = false"></div>
+  <div
+    class="drawer-mask"
+    v-if="this.$store.state.active"
+    @click="UpdateState()"
+  ></div>
 </template>
 <script>
 import Options from './Options.vue'
@@ -16,6 +23,14 @@ export default {
   components: {
     Options,
   },
+  methods: {
+    UpdateState() {
+      this.$store.state.active = false
+      if (this.$store.state.custom == true && this.$store.state.go != true){
+        this.$store.commit('updateYear', this.$store.state.yearStart)
+      }
+    }
+  }
 }
 </script>
 <style scoped>

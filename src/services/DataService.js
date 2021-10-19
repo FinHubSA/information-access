@@ -19,10 +19,10 @@ const state = {
   Field: 'title',
   articles: [],
   yearStart: 0,
-  yearEnd: 0,
+  yearEnd: 2021,
   custom: false,
-  customstartYear: '',
-  customendYear: '',
+  customStartYear: '',
+  customEndYear: '',
   active: false,
   go: false,
 }
@@ -33,7 +33,7 @@ const getters = {
     if (state.yearStart == 0) {
       return state.articles
     }
-    if (state.yearEnd == 0) {
+    if (state.yearStart > 0) {
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       )
@@ -77,6 +77,7 @@ const actions = {
       )
       .then((response) => {
         commit('SET_ARTICLES', response.data)
+        commit('updateYear', 0)
       })
   },
   clearAll({ commit }) {
@@ -95,12 +96,13 @@ const mutations = {
     state.Field = Field
   },
   updateYear(state, year) {
-    console.log(year)
     state.yearStart = year
     state.yearEnd = 0
     state.active = false
     state.custom = false
     state.go = false
+    state.customStartYear = ''
+    state.customEndYear = ''
   },
   updateCustom(state, year) {
     state.yearStart = year[0]

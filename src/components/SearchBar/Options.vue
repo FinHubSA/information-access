@@ -1,39 +1,36 @@
 <template>
-    <div
-        v-for="(item, i) in years"
-        :key="i"
-        :class="[
-          this.$store.getters.yearStart == item.value &&
-          this.$store.state.custom != true
-            ? 'selected-option'
-            : 'selectable',
-        ]"
-        v-on:click="closeMenu(item.value)"
-      >
-        {{ item.title }}
-    </div>
-    <div
+  <div
+    v-for="(item, i) in years"
+    :key="i"
+    :class="[
+      this.$store.getters.yearStart == item.value &&
+      this.$store.state.custom != true
+        ? 'selected-option'
+        : 'selectable',
+    ]"
+    v-on:click="closeMenu(item.value)"
+  >
+    {{ item.title }}
+  </div>
+  <div
     v-bind:class="[
-        this.$store.state.custom == true ? 'selected-option' : 'selectable',
+      this.$store.state.custom == true ? 'selected-option' : 'selectable',
     ]"
     v-on:click="showCustom()"
-    >
+  >
     Custom range
-    </div>
-    <div v-if="this.$store.state.custom == true" class="custom">
-    <input v-model="startYear" class="custom-year" /> to
-    <input v-model="endYear" class="custom-year" />
+  </div>
+  <div v-if="this.$store.state.custom == true" class="custom">
+    <input v-model="this.$store.state.customStartYear" class="custom-year" /> to
+    <input v-model="this.$store.state.customEndYear" class="custom-year" />
     <button v-on:click="go()" class="go-button">Go</button>
-    </div>
+  </div>
 </template>
 <script>
 export default {
   name: 'Options',
   data() {
     return {
-      year: 0,
-      startYear: '',
-      endYear: '',
       years: [
         {
           title: 'Any time',
@@ -61,17 +58,15 @@ export default {
     },
     closeMenu(year) {
       this.$store.commit('updateYear', year)
-      this.startYear=''
-      this.endYear=''
     },
     go() {
-      if (this.startYear > this.endYear) {
+      if (this.$store.state.customStartYear > this.$store.state.custromEndYear) {
         return false
       }
-      if (this.startYear < 1000 || this.startYear < 1000) {
+      if (this.$store.state.customStartYear < 0 || this.$store.state.customEndYear < 0) {
         return false
       } else {
-        this.$store.commit('updateCustom', [this.startYear, this.endYear])
+        this.$store.commit('updateCustom', [this.$store.state.customStartYear, this.$store.state.customEndYear])
       }
     },
   },

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="options-flex-container">
       <div class="option-select">
-        <Options/>
+        <Options />
       </div>
     </div>
     <div class="results-cards-flex-container">
@@ -11,16 +11,17 @@
         {{ this.$store.getters.Field }} for all time
       </h3>
       <h3
-        v-if="
-          this.$store.state.yearStart != 0 && this.$store.state.go == false
-        "
+        v-if="this.$store.state.yearStart != 0 && this.$store.state.go == false"
         class="temp"
       >
         {{ this.$store.getters.NumberofArticles }} result(s) searching on
         {{ this.$store.getters.Field }} filtering for articles published since
         {{ this.$store.state.yearStart }}
       </h3>
-      <h3 v-if="this.$store.state.custom == true && this.$store.state.go == true" class="temp">
+      <h3
+        v-if="this.$store.state.custom == true && this.$store.state.go == true"
+        class="temp"
+      >
         {{ this.$store.getters.NumberofArticles }} result(s) searching on
         {{ this.$store.getters.Field }} filtering between
         {{ this.$store.state.yearStart }} and {{ this.$store.state.yearEnd }}
