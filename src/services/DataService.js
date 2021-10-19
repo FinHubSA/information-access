@@ -21,6 +21,10 @@ const state = {
   yearStart: 0,
   yearEnd: 0,
   custom: false,
+  customstartYear: '',
+  customendYear: '',
+  active: false,
+  go: false,
 }
 
 const getters = {
@@ -89,17 +93,20 @@ const mutations = {
   },
   updateField(state, Field) {
     state.Field = Field
-    console.log(Field)
   },
   updateYear(state, year) {
     console.log(year)
     state.yearStart = year
+    state.yearEnd = 0
+    state.active = false
     state.custom = false
+    state.go = false
   },
   updateCustom(state, year) {
     state.yearStart = year[0]
     state.yearEnd = year[1]
-    state.custom = true
+    state.go = true
+    state.active = false
   },
   CLEAR_ALL(state) {
     state.SearchString = ''
