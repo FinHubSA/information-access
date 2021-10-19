@@ -97,6 +97,19 @@ export default {
         this.$store.dispatch('getArticles')
       }
     },
+    updateYear(year) {
+      this.$store.commit('updateYear', year)
+    },
+    go() {
+      if (this.startYear > this.endYear) {
+        return false
+      }
+      if (this.startYear < 1000 || this.startYear < 1000) {
+        return false
+      } else {
+        this.$store.commit('updateCustom', [this.startYear, this.endYear])
+      }
+    },
   },
   computed: {
     ArticlesSinceYear() {
