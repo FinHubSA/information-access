@@ -69,16 +69,20 @@ export default {
       this.$store.commit('updateYear', year)
     },
     go() {
-      if (this.$store.state.customStartYear > this.$store.state.customEndYear) {
-        alert('The start year must be less than or equal to the end year')
-        return false
-      }
       if (
+        isNaN(this.$store.state.customStartYear) ||
+        isNaN(this.$store.state.customEndYear)
+      ) {
+        alert('Years need to be numbers')
+      } else if (
+        this.$store.state.customStartYear > this.$store.state.customEndYear
+      ) {
+        alert('The start year must be less than or equal to the end year')
+      } else if (
         this.$store.state.customStartYear < 0 ||
         this.$store.state.customEndYear < 0
       ) {
         alert('Years cannot be negative')
-        return false
       } else {
         this.$store.commit('updateCustom', [
           this.$store.state.customStartYear,
