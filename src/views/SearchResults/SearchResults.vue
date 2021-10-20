@@ -57,7 +57,7 @@
         v-if="$route.params.Page * numberOfCards < ArticlesSinceYear.length"
         :to="{
           name: 'SearchResults',
-          params: { Page: $route.params.Page - -1 },
+          params: { Page: $route.params.Page + 1 },
         }"
       >
         <img class="arrow" src="../../assets/rightarrow.png" />
