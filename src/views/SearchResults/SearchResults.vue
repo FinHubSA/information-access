@@ -81,7 +81,7 @@ export default {
   data() {
     return {
       articles: [],
-      numberOfCards: 2,
+      numberOfCards: 8,
     }
   },
   methods: {
