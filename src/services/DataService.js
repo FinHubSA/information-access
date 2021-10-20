@@ -19,8 +19,12 @@ const state = {
   Field: 'title',
   articles: [],
   yearStart: 0,
-  yearEnd: 0,
+  yearEnd: 2021,
   custom: false,
+  customStartYear: '',
+  customEndYear: '',
+  active: false,
+  go: false,
 }
 
 const getters = {
@@ -73,6 +77,7 @@ const actions = {
       )
       .then((response) => {
         commit('SET_ARTICLES', response.data)
+        commit('updateYear', 0)
       })
   },
   clearAll({ commit }) {
@@ -89,17 +94,21 @@ const mutations = {
   },
   updateField(state, Field) {
     state.Field = Field
-    console.log(Field)
   },
   updateYear(state, year) {
-    console.log(year)
     state.yearStart = year
+    state.yearEnd = 0
+    state.active = false
     state.custom = false
+    state.go = false
+    state.customStartYear = ''
+    state.customEndYear = ''
   },
   updateCustom(state, year) {
     state.yearStart = year[0]
     state.yearEnd = year[1]
-    state.custom = true
+    state.go = true
+    state.active = false
   },
   CLEAR_ALL(state) {
     state.SearchString = ''

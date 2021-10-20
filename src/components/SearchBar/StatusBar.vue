@@ -58,6 +58,7 @@ export default {
     },
     clearSearch() {
       this.$store.commit('updateSearchString', '')
+      this.$store.commit('updateYear', 0)
     },
   },
 }

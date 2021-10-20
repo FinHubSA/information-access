@@ -2,63 +2,7 @@
   <div class="container">
     <div class="options-flex-container">
       <div class="option-select">
-        <div
-          v-bind:class="[
-            this.$store.getters.yearStart == 0 &&
-            this.$store.state.custom != true
-              ? 'selected-option'
-              : 'selectable',
-          ]"
-          v-on:click="updateYear(0)"
-        >
-          All time
-        </div>
-        <div
-          v-bind:class="[
-            this.$store.getters.yearStart == 2021 &&
-            this.$store.state.custom != true
-              ? 'selected-option'
-              : 'selectable',
-          ]"
-          v-on:click="updateYear(2021)"
-        >
-          since 2021
-        </div>
-        <div
-          v-bind:class="[
-            this.$store.getters.yearStart == 2020 &&
-            this.$store.state.custom != true
-              ? 'selected-option'
-              : 'selectable',
-          ]"
-          v-on:click="updateYear(2020)"
-        >
-          since 2020
-        </div>
-        <div
-          v-bind:class="[
-            this.$store.getters.yearStart == 2017 &&
-            this.$store.state.custom != true
-              ? 'selected-option'
-              : 'selectable',
-          ]"
-          v-on:click="updateYear(2017)"
-        >
-          since 2017
-        </div>
-        <div
-          v-bind:class="[
-            this.$store.state.custom == true ? 'selected-option' : 'selectable',
-          ]"
-          v-on:click="this.$store.state.custom = true"
-        >
-          Custom range
-        </div>
-        <div v-if="this.$store.state.custom == true" class="custom">
-          <input v-model="startYear" class="custom-year" /> to
-          <input v-model="endYear" class="custom-year" />
-          <button v-on:click="go()" class="go-button">Go</button>
-        </div>
+        <Options />
       </div>
     </div>
     <div class="results-cards-flex-container">
@@ -67,16 +11,17 @@
         {{ this.$store.getters.Field }} for all time
       </h3>
       <h3
-        v-if="
-          this.$store.state.yearStart != 0 && this.$store.state.custom == false
-        "
+        v-if="this.$store.state.yearStart != 0 && this.$store.state.go == false"
         class="temp"
       >
         {{ this.$store.getters.NumberofArticles }} result(s) searching on
         {{ this.$store.getters.Field }} filtering for articles published since
         {{ this.$store.state.yearStart }}
       </h3>
-      <h3 v-if="this.$store.state.custom == true" class="temp">
+      <h3
+        v-if="this.$store.state.custom == true && this.$store.state.go == true"
+        class="temp"
+      >
         {{ this.$store.getters.NumberofArticles }} result(s) searching on
         {{ this.$store.getters.Field }} filtering between
         {{ this.$store.state.yearStart }} and {{ this.$store.state.yearEnd }}
@@ -123,10 +68,12 @@
 </template>
 <script>
 import ResultCard from '../../components/ResultCard/ResultCard.vue'
+import Options from '../../components/SearchBar/Options.vue'
 export default {
   name: 'SearchResults',
   components: {
     ResultCard,
+    Options,
   },
   props: {
     Page: Number,
@@ -134,8 +81,6 @@ export default {
   data() {
     return {
       articles: [],
-      startYear: 0,
-      endYear: 0,
       numberOfCards: 2,
     }
   },
@@ -148,6 +93,7 @@ export default {
         this.$router.push(this.$route)
       } else {
         this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
+        this.$store.commit('updateYear', 0)
         this.$store.dispatch('getArticles')
       }
     },
@@ -184,12 +130,6 @@ export default {
   flex-direction: column;
   row-gap: 3px;
 }
-.go-button {
-  width: 2rem;
-}
-.custom-year {
-  width: 4rem;
-}
 .container {
   display: flex;
   flex-grow: 1;
@@ -218,12 +158,6 @@ export default {
 .option-select {
   padding: 1rem;
   text-align: left;
-}
-.selected-option {
-  color: darkorange;
-}
-.selectable {
-  cursor: pointer;
 }
 .change-page-container {
   display: flex;
