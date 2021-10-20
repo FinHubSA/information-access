@@ -12,7 +12,7 @@ const routes = [
     component: HomePage,
   },
   {
-    path: '/searchresults/:Page', ///search?[:q,:q1,:q2]
+    path: '/searchresults/:Page',
     name: 'SearchResults',
     component: SearchResults,
   },
