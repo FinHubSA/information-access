@@ -12,7 +12,7 @@ const routes = [
     component: HomePage,
   },
   {
-    path: '/searchresults',
+    path: '/searchresults/:Page',
     name: 'SearchResults',
     component: SearchResults,
   },
@@ -27,7 +27,7 @@ const routes = [
     component: FAQ,
   },
   {
-    path: '/Preview',
+    path: '/Preview/:title/:authorsurname/:authorinitial/:journalname/:url',
     name: 'Preview',
     component: Preview,
   },

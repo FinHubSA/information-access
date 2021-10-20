@@ -67,6 +67,7 @@ export default {
     },
     closeMenu(year) {
       this.$store.commit('updateYear', year)
+      this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
     },
     go() {
       if (
@@ -88,6 +89,7 @@ export default {
           this.$store.state.customStartYear,
           this.$store.state.customEndYear,
         ])
+        this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
       }
     },
   },

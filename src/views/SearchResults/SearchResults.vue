@@ -95,19 +95,7 @@ export default {
         this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
         this.$store.commit('updateYear', 0)
         this.$store.dispatch('getArticles')
-      }
-    },
-    updateYear(year) {
-      this.$store.commit('updateYear', year)
-    },
-    go() {
-      if (this.startYear > this.endYear) {
-        return false
-      }
-      if (this.startYear < 1000 || this.startYear < 1000) {
-        return false
-      } else {
-        this.$store.commit('updateCustom', [this.startYear, this.endYear])
+        console.log('called')
       }
     },
   },
