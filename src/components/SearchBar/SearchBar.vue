@@ -33,9 +33,11 @@ export default {
         this.$router.name !== 'SearchResults'
       ) {
         this.$router.push(this.$route)
+        this.$store.commit('updatePage', this.$store.state.currentPage = 1)
       } else {
         this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
         this.$store.dispatch('getArticles')
+        this.$store.commit('updatePage', this.$store.state.currentPage = 1)
         console.log('called 2')
       }
     },

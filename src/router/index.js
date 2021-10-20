@@ -27,7 +27,7 @@ const routes = [
     component: FAQ,
   },
   {
-    path: '/Preview/:title/:authorsurname/:authorinitial/:journalname/:url',
+    path: '/Preview/:title/:authorsurname/:authorinitial/:journalname/:url/:previouspage',
     name: 'Preview',
     component: Preview,
   },
