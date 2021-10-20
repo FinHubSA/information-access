@@ -34,7 +34,7 @@ const routes = [
   {
     path: '/*',
     component: 404,
-    },
+  },
 ]
 
 const router = createRouter({
