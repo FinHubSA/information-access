@@ -95,7 +95,7 @@ export default {
         this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
         this.$store.commit('updateYear', 0)
         this.$store.dispatch('getArticles')
-        console.log("called")
+        console.log('called')
       }
     },
   },

@@ -36,7 +36,7 @@ export default {
       } else {
         this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
         this.$store.dispatch('getArticles')
-        console.log("called 2")
+        console.log('called 2')
       }
     },
   },
