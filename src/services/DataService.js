@@ -33,7 +33,7 @@ const getters = {
   articlesSinceYear: (state) => {
     if (state.yearStart == 0) {
       return state.articles
-    } else if (state.yearEnd == 0) {
+    } else if (state.yearEnd == 0 && state.yearStart > 0) {
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       )
@@ -115,6 +115,7 @@ const mutations = {
   CLEAR_ALL(state) {
     state.SearchString = ''
     state.articles = []
+    state.Field = 'title'
   },
 }
 
