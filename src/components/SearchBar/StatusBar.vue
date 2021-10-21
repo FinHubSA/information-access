@@ -5,18 +5,17 @@
         <img class="img-small" src="@/assets/logo_no_byline.png" />
       </router-link>
     </div>-->
-    <div v-if="this.$route.name=='Preview'" class ="side-container">
-      <router-link
-        class="routerLink"
-        :to="this.$route.params.from"
-      >
+    <div v-if="this.$route.name == 'Preview'" class="side-container">
+      <router-link class="routerLink" :to="this.$route.params.from">
         <div class="return">
           <img class="arrow" src="../../assets/leftarrow.png" />
-          <p class='not-mobile'>Return to Results page {{ $route.params.previouspage }}</p>
-          <p class='mobile'>Return</p>
+          <p class="not-mobile">
+            Return to Results page {{ $route.params.previouspage }}
+          </p>
+          <p class="mobile">Return</p>
         </div>
       </router-link>
-    </div>  
+    </div>
     <div class="side-container1" v-if="currentRouteName">
       <h2>Articles</h2>
     </div>
