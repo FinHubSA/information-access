@@ -1,11 +1,12 @@
 <template>
 <div class="header">
-  <router-link
-      :to="{ name: 'SearchResults', params: { Page: this.$store.state.currentPage } }"
+  <router-link class="routerLink"
+      @click="this.$store.commit('updatePage', $route.params.previouspage)"
+      :to="{ name: 'SearchResults', params: { Page: $route.params.previouspage  } }"
   >
   <div class="return">
       <img class="arrow" src="../../assets/leftarrow.png" />
-      <p> Return to Results Page {{this.$store.state.currentPage}}</p>  
+      <p> Return to Results Page {{this.$store.state.currentPage}} {{ $route.params.previouspage }}</p>  
   </div>
   </router-link>
   <div class="welcome">
@@ -14,7 +15,7 @@
     {{ $route.params.authorinitial }}. {{ $route.params.authorsurname }}.
     </h3>
     <p>
-      {{ $route.params.previouspage }}This is the URL of the document:
+      This is the URL of the document:
       <a :href="$route.params.url"> {{ $route.params.url }} </a>
     </p>
   </div>
@@ -63,6 +64,11 @@
   margin-right: 2%;
   margin-left: 10%;
   cursor: pointer;
+}
+
+.routerLink {
+  text-decoration: none;
+  color: black;
 }
 
 </style>
