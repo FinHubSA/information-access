@@ -18,7 +18,7 @@
       open to the public. He was an early leader in the development of Reddit, a
       giant online activist hub, as well as the co-founder of Demand Progress
       which was an effective advocacy group that led the United States Congress
-      to back down from controversial antipiracy legislation.
+      to back down from controversial anti-piracy legislation.
     </p>
     <p>
       Swartz was adamant that information, particularly that which may benefit
@@ -30,7 +30,7 @@
       carrying a cumulative maximum penalty of $1 million in fines, 35 years in
       prison, asset forfeiture, restitution, and supervised release. Swartz
       committed suicide on the 11 January 2013 while awaiting his trial. Swartz
-      was posthumously awarded the Madison Award for being an
+      was posthumously awarded the Madison Award for being 
       <i
         >“an outspoken advocate for public participation in government and
         unrestricted access to peer-reviewed scholarly articles.”

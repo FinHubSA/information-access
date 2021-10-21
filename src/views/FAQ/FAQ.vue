@@ -6,7 +6,7 @@
       How can I contribute?
     </button>
     <div class="panel" v-if="displayPanel1">
-      <p>
+      <p> 
         You can contribute to the cache of journal articles on Aaron's Kit by
         running a automated web-scraper tool which automatically downloads and
         uploads journal articles to Aaron's Kit. This software is open-source
@@ -15,8 +15,8 @@
         contribute to Aaron's Kit. <br />
         <br />
         <em
-          >Note: institional or personal access to an online journal is required
-          in order to scrape the articles.</em
+          >Note: institional or personal access to an online journal is necessary
+          to download journal articles via the program.</em
         >
       </p>
     </div>
