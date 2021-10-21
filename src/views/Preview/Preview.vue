@@ -5,7 +5,7 @@
       {{ $route.params.authorinitial }}. {{ $route.params.authorsurname }}.
     </h3>
     <p>
-      This is the URL of the document:
+      The URL of the document:
       <a :href="$route.params.url"> {{ $route.params.url }} </a>
     </p>
     <div class="container">
@@ -21,17 +21,19 @@
   flex-grow: 1;
   flex-shrink: 0;
   background-color: grey;
-  padding: 5% 0;
 }
-
+a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
 .welcome {
   flex-grow: 1;
   flex-shrink: 0;
   background-color: white;
 }
-
 .iframe {
   height: 1000px;
-  width: 80%;
+  width: 90%;
 }
 </style>

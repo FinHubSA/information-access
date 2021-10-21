@@ -2,7 +2,12 @@
   <div>
     <nav>
       <div class="img-container">
-        <img class="img-nav" src="@/assets/logo_green.png" v-if="currentRouteName" v-on:click="clearSearch"/>
+        <img
+          class="img-nav"
+          src="@/assets/logo_green.png"
+          v-if="currentRouteName"
+          v-on:click="clearSearch"
+        />
       </div>
       <div class="searchbar" v-if="currentRouteName">
         <search-bar />
@@ -36,7 +41,7 @@ export default {
   methods: {
     clearSearch() {
       this.$store.dispatch('clearAll')
-      this.$router.push({name: 'HomePage'})
+      this.$router.push({ name: 'HomePage' })
     },
   },
 }
