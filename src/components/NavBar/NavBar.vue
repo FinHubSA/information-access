@@ -2,9 +2,7 @@
   <div>
     <nav>
       <div class="img-container">
-        <router-link to="/" v-if="currentRouteName" v-on:click="clearSearch"
-          ><img class="img-nav" src="@/assets/logo_green.png"
-        /></router-link>
+        <img class="img-nav" src="@/assets/logo_green.png" v-if="currentRouteName" v-on:click="clearSearch"/>
       </div>
       <div class="searchbar" v-if="currentRouteName">
         <search-bar />
@@ -37,7 +35,8 @@ export default {
   },
   methods: {
     clearSearch() {
-      this.$store.commit('updateSearchString', '')
+      this.$store.dispatch('clearAll')
+      this.$router.push({name: 'HomePage'})
     },
   },
 }
@@ -48,11 +47,13 @@ export default {
 }
 .img-nav {
   height: 100px;
+  cursor: pointer;
 }
 .img-container {
   flex: 1;
   height: 50px;
   order: 1;
+  z-index: 200;
 }
 .placeholder {
   flex: 1;
@@ -73,6 +74,7 @@ export default {
   padding: 0 10px;
   margin: 0;
   justify-items: flex-start;
+  z-index: 199;
 }
 .searchfilter {
   flex: 5;
@@ -91,9 +93,6 @@ nav {
   display: flex;
   align-items: center;
   justify-items: flex-start;
-}
-.routerLink {
-  text-decoration: none;
 }
 @media screen and (max-width: 900px) {
   nav {
