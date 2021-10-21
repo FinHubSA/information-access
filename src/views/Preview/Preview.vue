@@ -10,7 +10,7 @@
     >
       <div class="return">
         <img class="arrow" src="../../assets/leftarrow.png" />
-        <p>
+        <p class="returnText">
           Return to Results Page {{ $route.params.previouspage }}
         </p>
       </div>
@@ -76,4 +76,11 @@
   text-decoration: none;
   color: black;
 }
+
+@media (max-width: 900px) {
+  .returnText{
+    display: none;
+    }
+}
+
 </style>
