@@ -7,9 +7,17 @@
     </button>
     <div class="panel" v-if="displayPanel1">
       <p>
-        You can contribute to the cache of journal articles on Aaron's Kit by running a automated web-scraper tool which automatically downloads and uploads journal articles to Aaron's Kit. This software is open-source and can be found at this <a href='/'>link</a> with detailed installation instructions. After installation, simply leave the program running to contribute to Aaron's Kit. 
-        <br/> <br/>
-        <em>Note: institional or personal access to an online journal is required in order to scrape the articles.</em>
+        You can contribute to the cache of journal articles on Aaron's Kit by
+        running a automated web-scraper tool which automatically downloads and
+        uploads journal articles to Aaron's Kit. This software is open-source
+        and can be found at this <a href="/">link</a> with detailed installation
+        instructions. After installation, simply leave the program running to
+        contribute to Aaron's Kit. <br />
+        <br />
+        <em
+          >Note: institional or personal access to an online journal is required
+          in order to scrape the articles.</em
+        >
       </p>
     </div>
 
@@ -18,7 +26,11 @@
     </button>
     <div class="panel" v-if="displayPanel2">
       <p>
-        Articles can be searched via three fields: by article title, an author's last name or the journal name. Currently, articles can only be searched on each of these fields separately. The default search field selected is 'title'. To search by a author's last name or journal name please select the appropriate search field before hitting the search button. 
+        Articles can be searched via three fields: by article title, an author's
+        last name or the journal name. Currently, articles can only be searched
+        on each of these fields separately. The default search field selected is
+        'title'. To search by a author's last name or journal name please select
+        the appropriate search field before hitting the search button.
       </p>
     </div>
 
@@ -27,7 +39,11 @@
     </button>
     <div class="panel" v-if="displayPanel3">
       <p>
-        In order to be truly censorship resistant, Aaron's Kit is moving towards decentralizing both it's website and it's cache of journal acticles. For scalability, we will also be looking to develop advanced filtering and search functionalities to improve user experience. Stay tuned for more updates!
+        In order to be truly censorship resistant, Aaron's Kit is moving towards
+        decentralizing both it's website and it's cache of journal acticles. For
+        scalability, we will also be looking to develop advanced filtering and
+        search functionalities to improve user experience. Stay tuned for more
+        updates!
       </p>
     </div>
   </div>
