@@ -28,8 +28,8 @@
       </h3>
       <ResultCard
         v-for="item in ArticlesSinceYear.slice(
-          numberOfCards * $route.query.page - numberOfCards,
-          numberOfCards * $route.query.page,
+          numberOfCards * this.$store.state.currentPage - numberOfCards,
+          numberOfCards * this.$store.state.currentPage,
         )"
         :key="item"
         v-bind="item"
@@ -39,7 +39,8 @@
   <div class="change-page-container">
     <div>
       <router-link
-        v-if="$route.query.page > 1"
+        v-if="this.$store.state.currentPage > 1"
+        @click="this.$store.commit('updatePage', this.$route.query.page - 1)"
         :to="{
           name: 'SearchResults',
           query: {
@@ -54,14 +55,15 @@
       >
         <img class="arrow" src="../../assets/leftarrow.png" />
       </router-link>
-      <div class="arrow" v-if="this.$route.query.page == 1"></div>
+      <div class="arrow" v-if="this.$store.state.currentPage == 1"></div>
     </div>
     <div>
-      <h2 class="page-number">{{ this.$route.query.page }}</h2>
+      <h2 class="page-number">{{ this.$store.state.currentPage }} </h2>
     </div>
     <div>
       <router-link
-        v-if="$route.query.page * numberOfCards < ArticlesSinceYear.length"
+        v-if="this.$store.state.currentPage * numberOfCards < ArticlesSinceYear.length"
+        @click="this.$store.commit('updatePage', this.$store.state.currentPage - - 1)"
         :to="{
           name: 'SearchResults',
           query: {
@@ -70,13 +72,13 @@
             custom: this.$store.state.custom,
             yearStart: this.$store.state.yearStart,
             yearEnd: this.$store.state.yearEnd,
-            page: this.$route.query.page - -1,
+            page: this.$store.state.currentPage - -1,
           },
         }"
       >
         <img class="arrow" src="../../assets/rightarrow.png" />
       </router-link>
-      <div class="arrow" v-if="this.$route.query.page != 1"></div>
+      <div class="arrow" v-if="this.$store.state.currentPage * numberOfCards > ArticlesSinceYear.length"></div>
     </div>
   </div>
 </template>
@@ -95,7 +97,7 @@ export default {
   data() {
     return {
       articles: [],
-      numberOfCards: 2,
+      numberOfCards: 8,
     }
   },
   methods: {
@@ -108,6 +110,7 @@ export default {
       ) {
         this.$store.commit('updateSearchString', this.$route.query.q1)
         this.$store.commit('updateField', this.$route.query.type)
+        this.$store.commit('updatePage', this.$route.query.page)
         if (this.$route.query.custom == 'true') {
           this.$store.state.custom = true
           this.$store.commit('updateCustom', [
@@ -126,12 +129,13 @@ export default {
             custom: this.$store.state.custom,
             yearStart: this.$store.state.yearStart,
             yearEnd: this.$store.state.yearEnd,
-            page: this.$route.query.page,
+            page: this.$store.state.currentPage,
           },
         })
         this.$store.dispatch('getArticles')
       } else {
         this.$store.commit('updateYear', 0)
+        this.$store.commit('updatePage', 1)
         this.$router.push({
           name: 'SearchResults',
           query: {

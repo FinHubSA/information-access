@@ -67,6 +67,7 @@ export default {
     },
     closeMenu(year) {
       this.$store.commit('updateYear', year)
+      this.$store.commit('updatePage', this.$store.state.currentPage = 1)
       this.$router.push({
         name: 'SearchResults',
         query: {
@@ -78,6 +79,7 @@ export default {
           page: 1,
         },
       })
+      
     },
     go() {
       if (
@@ -100,6 +102,7 @@ export default {
           this.$store.state.customEndYear,
         ])
         this.$store.commit('updateSearchString', this.$route.query.q1)
+        this.$store.commit('updatePage', this.$store.state.currentPage = 1)
         this.$router.push({
           name: 'SearchResults',
           query: {

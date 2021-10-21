@@ -44,8 +44,10 @@ export default {
           },
         })
         this.$store.commit('updateYear', 0)
+        this.$store.commit('updatePage', 1)
         this.$store.dispatch('getArticles')
       } else {
+        console.log('called 2')
         console.log(this.$store.getters.Field)
         this.$router.push({
           name: 'SearchResults',
@@ -59,8 +61,9 @@ export default {
           },
         })
         this.$store.commit('updateYear', 0)
+        this.$store.commit('updatePage', 1)
         this.$store.dispatch('getArticles')
-        console.log('called 2')
+        console.log(this.$route.fullPath)
       }
     },
   },
