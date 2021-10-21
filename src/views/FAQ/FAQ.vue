@@ -7,15 +7,14 @@
     </button>
     <div class="panel" v-if="displayPanel1">
       <p>
-        You can contribute to the cache of journal articles on Aaron's Kit by
-        running a automated web-scraper tool which automatically downloads and
-        uploads journal articles to Aaron's Kit. This software is open-source
-        and can be found at this <a href="/">link</a> with detailed installation
-        instructions. After installation, simply leave the program running to
+        Soon, you will be able to contribute to the cache of journal articles on Aaron's Kit by
+        running an automated web-scraper tool which automatically downloads and
+        uploads journal articles to Aaron's Kit. This software will be open-source
+        and a link to install it will be published on this website. After installation, you can simply leave the program running to
         contribute to Aaron's Kit. <br />
         <br />
         <em
-          >Note: institional or personal access to an online journal is
+          >Note: institional or personal access to an online journal will be
           necessary to download journal articles via the program.</em
         >
       </p>
