@@ -40,10 +40,10 @@
     <div class="panel" v-if="displayPanel3">
       <p>
         In order to be truly censorship resistant, Aaron's Kit is moving towards
-        decentralizing both it's website and it's cache of journal acticles. For
-        scalability, we will also be looking to develop advanced filtering and
-        search functionalities to improve user experience. Stay tuned for more
-        updates!
+        decentralizing both it's website and it's cache of journal acticles.
+        Additionally, we will be looking to develop advanced filtering and
+        search functionalities and streamline the contributions software to
+        improve user experience. Stay tuned for more updates!
       </p>
     </div>
   </div>
