@@ -6,11 +6,7 @@
       v-model="SearchString"
       v-on:keyup.enter="checkForSearch"
     />
-    <router-link
-      :to="{ name: 'SearchResults', params: { Page: 1 } }"
-      v-on:click="checkForSearch"
-      ><i class="fa fa-search icon"></i>
-    </router-link>
+    <i class="fa fa-search icon" v-on:click="checkForSearch"></i>  
   </div>
 </template>
 <script>
@@ -32,11 +28,24 @@ export default {
         this.$store.getters.SearchString == '' &&
         this.$router.name !== 'SearchResults'
       ) {
+        console.log('prevented')
         this.$router.push(this.$route)
-      } else {
-        this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
+      } else if (this.$router.name=='SearchResults' && this.$store.getters.SearchString=='') {
+        this.$store.commit('updateSearchString', this.$route.query.q1)
+        this.$store.commit('updateField', this.$route.query.type)
+        this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, page: this.$route.query.page } })
+        this.$store.commit('updateYear', 0)
         this.$store.dispatch('getArticles')
-        console.log('called 2')
+        console.log('called11')
+      }
+      else {
+        console.log(this.$store.getters.Field)
+        this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: false, yearStart: 0, yearEnd: 2021, page: 1 } })
+        this.$store.commit('updateYear', 0)
+        this.$store.dispatch('getArticles')
+        console.log('called12')
+        console.log(this.$store.getters.SearchString)
+
       }
     },
   },

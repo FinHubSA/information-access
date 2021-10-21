@@ -28,8 +28,8 @@
       </h3>
       <ResultCard
         v-for="item in ArticlesSinceYear.slice(
-          numberOfCards * $route.params.Page - numberOfCards,
-          numberOfCards * $route.params.Page,
+          numberOfCards * $route.query.page - numberOfCards,
+          numberOfCards * $route.query.page,
         )"
         :key="item"
         v-bind="item"
@@ -39,30 +39,30 @@
   <div class="change-page-container">
     <div>
       <router-link
-        v-if="$route.params.Page > 1"
+        v-if="$route.query.page > 1"
         :to="{
           name: 'SearchResults',
-          params: { Page: $route.params.Page - 1 },
+          query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: this.$store.state.custom, yearStart: this.$store.state.yearStart, yearEnd: this.$store.state.yearEnd, page: this.$route.query.page - 1 },
         }"
       >
         <img class="arrow" src="../../assets/leftarrow.png" />
       </router-link>
-      <div class="arrow" v-if="$route.params.Page == 1"></div>
+      <div class="arrow" v-if="this.$route.query.page == 1"></div>
     </div>
     <div>
-      <h2 class="page-number">{{ $route.params.Page }}</h2>
+      <h2 class="page-number">{{ this.$route.query.page }}</h2>
     </div>
     <div>
       <router-link
-        v-if="$route.params.Page * numberOfCards < ArticlesSinceYear.length"
+        v-if="$route.query.page * numberOfCards < ArticlesSinceYear.length"
         :to="{
           name: 'SearchResults',
-          params: { Page: $route.params.Page - -1 },
+          query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: this.$store.state.custom, yearStart: this.$store.state.yearStart, yearEnd: this.$store.state.yearEnd, page: this.$route.query.page - -1 },
         }"
       >
         <img class="arrow" src="../../assets/rightarrow.png" />
       </router-link>
-      <div class="arrow" v-if="$route.params.Page != 1"></div>
+      <div class="arrow" v-if="this.$route.query.page != 1"></div>
     </div>
   </div>
 </template>
@@ -81,26 +81,48 @@ export default {
   data() {
     return {
       articles: [],
-      numberOfCards: 8,
+      numberOfCards: 2,
     }
   },
   methods: {
     checkForSearch() {
-      if (
-        this.$store.getters.SearchString == '' &&
-        this.$router.name !== 'SearchResults'
-      ) {
-        this.$router.push(this.$route)
-      } else {
-        this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
-        this.$store.commit('updateYear', 0)
+      if (this.$route.query.q1 == null) {
+        this.$router.push({name: 'HomePage'})
+      }
+      else if (this.$route.name=='SearchResults' && this.$store.getters.SearchString=='') {
+        this.$store.commit('updateSearchString', this.$route.query.q1)
+        this.$store.commit('updateField', this.$route.query.type)
+        console.log(this.$route.query.custom)
+        if (this.$route.query.custom=='true') {
+          this.$store.state.custom = true
+          this.$store.commit('updateCustom', [
+            this.$route.query.yearStart,
+            this.$route.query.yearEnd,
+          ])
+          console.log("cus")
+        }
+        else{
+          console.log(this.$route.query.custom)
+          this.$store.state.custom = false
+          this.$store.commit('updateYear',this.$route.query.yearStart)
+          console.log(this.$store.state.yearStart)
+          console.log("not cus")
+        }
+        this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: this.$store.state.custom, yearStart: this.$store.state.yearStart, yearEnd: this.$store.state.yearEnd, page: this.$route.query.page } })
         this.$store.dispatch('getArticles')
-        console.log('called')
+        console.log('called21')
+      }
+      else {
+        this.$store.commit('updateYear', 0)
+        this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: this.$store.state.custom, yearStart: this.$store.state.yearStart, yearEnd: 2021, page: 1 } })
+        this.$store.dispatch('getArticles')
+        console.log('called22')
       }
     },
   },
   computed: {
     ArticlesSinceYear() {
+      console.log("run")
       return this.$store.getters.articlesSinceYear
     },
   },

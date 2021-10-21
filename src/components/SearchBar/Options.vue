@@ -66,8 +66,9 @@ export default {
       this.$store.state.custom = true
     },
     closeMenu(year) {
+      console.log("executes")
       this.$store.commit('updateYear', year)
-      this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
+      this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: false, yearStart: year, yearEnd: 0, page: 1 } })
     },
     go() {
       if (
@@ -89,7 +90,8 @@ export default {
           this.$store.state.customStartYear,
           this.$store.state.customEndYear,
         ])
-        this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
+        this.$store.commit('updateSearchString', this.$route.query.q1)
+        this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: true, yearStart: this.$store.state.customStartYear, yearEnd: this.$store.state.customEndYear, page: 1 } })
       }
     },
   },

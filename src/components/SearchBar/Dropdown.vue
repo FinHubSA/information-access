@@ -27,6 +27,7 @@ export default {
     UpdateState() {
       this.$store.state.active = false
       if (this.$store.state.custom == true && this.$store.state.go != true) {
+        console.log("dropdown")
         this.$store.commit('updateYear', this.$store.state.yearStart)
       }
     },

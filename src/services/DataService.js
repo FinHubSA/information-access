@@ -8,7 +8,8 @@ const Endings = {
 }
 
 const http = axios.create({
-  baseURL: 'https://api-aaronskit.org/api/',
+  //baseURL: 'https://api-aaronskit.org/api/',
+  baseURL: 'http://localhost:5000/api/',
   headers: {
     'Content-type': 'application/json',
   },
@@ -31,18 +32,24 @@ const getters = {
   articles: (state) => state.articles,
   articlesSinceYear: (state) => {
     if (state.yearStart == 0) {
+      console.log(1)
+      console.log(state.yearStart)
+      console.log(state.yearEnd)
       return state.articles
     }
-    if (state.yearEnd == 0) {
+    else if (state.yearEnd == 0) {
+      console.log(2)
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       )
-    }
-    return state.articles.filter(
+    } else{
+      console.log(3)
+      return state.articles.filter(
       (element) =>
         element.YearPublished >= state.yearStart &&
         element.YearPublished <= state.yearEnd,
     )
+    }
   },
   SearchString: (state) => state.SearchString,
   Field: (state) => state.Field,
@@ -50,16 +57,18 @@ const getters = {
     if (state.yearStart == 0) {
       return state.articles.length
     }
-    if (state.yearEnd == 0) {
+    else if (state.yearEnd == 0) {
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       ).length
     }
-    return state.articles.filter(
-      (element) =>
-        element.YearPublished >= state.yearStart &&
-        element.YearPublished <= state.yearEnd,
-    ).length
+    else {
+      return state.articles.filter(
+        (element) =>
+          element.YearPublished >= state.yearStart &&
+          element.YearPublished <= state.yearEnd,
+      ).length
+    }
   },
   yearStart: (state) => state.yearStart,
 }
@@ -77,7 +86,6 @@ const actions = {
       )
       .then((response) => {
         commit('SET_ARTICLES', response.data)
-        commit('updateYear', 0)
       })
   },
   clearAll({ commit }) {
@@ -107,6 +115,8 @@ const mutations = {
   updateCustom(state, year) {
     state.yearStart = year[0]
     state.yearEnd = year[1]
+    state.customStartYear = year[0]
+    state.customEndYear = year[1]
     state.go = true
     state.active = false
   },
