@@ -10,7 +10,7 @@
           authorinitial: AuthorInitial,
           journalname: JournalName,
           previouspage: this.$route.query.page,
-          from: String(this.$route.fullPath)
+          from: String(this.$route.fullPath),
         },
       }"
     >

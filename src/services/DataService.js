@@ -117,10 +117,10 @@ const mutations = {
     state.articles = []
     state.Field = 'title'
   },
-  updatePage(state,page) {
+  updatePage(state, page) {
     state.currentPage = page
     console.log(page)
-  }
+  },
 }
 
 export default createStore({

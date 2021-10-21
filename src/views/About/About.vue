@@ -30,7 +30,7 @@
       carrying a cumulative maximum penalty of $1 million in fines, 35 years in
       prison, asset forfeiture, restitution, and supervised release. Swartz
       committed suicide on the 11 January 2013 while awaiting his trial. Swartz
-      was posthumously awarded the Madison Award for being 
+      was posthumously awarded the Madison Award for being
       <i
         >“an outspoken advocate for public participation in government and
         unrestricted access to peer-reviewed scholarly articles.”

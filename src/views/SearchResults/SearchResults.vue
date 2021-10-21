@@ -58,12 +58,17 @@
       <div class="arrow" v-if="this.$store.state.currentPage == 1"></div>
     </div>
     <div>
-      <h2 class="page-number">{{ this.$store.state.currentPage }} </h2>
+      <h2 class="page-number">{{ this.$store.state.currentPage }}</h2>
     </div>
     <div>
       <router-link
-        v-if="this.$store.state.currentPage * numberOfCards < ArticlesSinceYear.length"
-        @click="this.$store.commit('updatePage', this.$store.state.currentPage - - 1)"
+        v-if="
+          this.$store.state.currentPage * numberOfCards <
+          ArticlesSinceYear.length
+        "
+        @click="
+          this.$store.commit('updatePage', this.$store.state.currentPage - -1)
+        "
         :to="{
           name: 'SearchResults',
           query: {
@@ -78,7 +83,13 @@
       >
         <img class="arrow" src="../../assets/rightarrow.png" />
       </router-link>
-      <div class="arrow" v-if="this.$store.state.currentPage * numberOfCards > ArticlesSinceYear.length"></div>
+      <div
+        class="arrow"
+        v-if="
+          this.$store.state.currentPage * numberOfCards >
+          ArticlesSinceYear.length
+        "
+      ></div>
     </div>
   </div>
 </template>

@@ -30,9 +30,7 @@ const routes = [
     path: '/Preview/:title/:authorsurname/:authorinitial/:journalname/:url/:previouspage/:from',
     name: 'Preview',
     component: Preview,
-    props: {
-      
-    }
+    props: {},
   },
   {
     path: '/*',
