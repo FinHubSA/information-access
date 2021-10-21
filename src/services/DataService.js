@@ -32,23 +32,17 @@ const getters = {
   articles: (state) => state.articles,
   articlesSinceYear: (state) => {
     if (state.yearStart == 0) {
-      console.log(1)
-      console.log(state.yearStart)
-      console.log(state.yearEnd)
       return state.articles
-    }
-    else if (state.yearEnd == 0) {
-      console.log(2)
+    } else if (state.yearEnd == 0) {
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       )
-    } else{
-      console.log(3)
+    } else {
       return state.articles.filter(
-      (element) =>
-        element.YearPublished >= state.yearStart &&
-        element.YearPublished <= state.yearEnd,
-    )
+        (element) =>
+          element.YearPublished >= state.yearStart &&
+          element.YearPublished <= state.yearEnd,
+      )
     }
   },
   SearchString: (state) => state.SearchString,
@@ -56,13 +50,11 @@ const getters = {
   NumberofArticles: (state) => {
     if (state.yearStart == 0) {
       return state.articles.length
-    }
-    else if (state.yearEnd == 0) {
+    } else if (state.yearEnd == 0) {
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       ).length
-    }
-    else {
+    } else {
       return state.articles.filter(
         (element) =>
           element.YearPublished >= state.yearStart &&

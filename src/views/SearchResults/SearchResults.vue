@@ -42,7 +42,14 @@
         v-if="$route.query.page > 1"
         :to="{
           name: 'SearchResults',
-          query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: this.$store.state.custom, yearStart: this.$store.state.yearStart, yearEnd: this.$store.state.yearEnd, page: this.$route.query.page - 1 },
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            custom: this.$store.state.custom,
+            yearStart: this.$store.state.yearStart,
+            yearEnd: this.$store.state.yearEnd,
+            page: this.$route.query.page - 1,
+          },
         }"
       >
         <img class="arrow" src="../../assets/leftarrow.png" />
@@ -57,7 +64,14 @@
         v-if="$route.query.page * numberOfCards < ArticlesSinceYear.length"
         :to="{
           name: 'SearchResults',
-          query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: this.$store.state.custom, yearStart: this.$store.state.yearStart, yearEnd: this.$store.state.yearEnd, page: this.$route.query.page - -1 },
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            custom: this.$store.state.custom,
+            yearStart: this.$store.state.yearStart,
+            yearEnd: this.$store.state.yearEnd,
+            page: this.$route.query.page - -1,
+          },
         }"
       >
         <img class="arrow" src="../../assets/rightarrow.png" />
@@ -87,42 +101,54 @@ export default {
   methods: {
     checkForSearch() {
       if (this.$route.query.q1 == null) {
-        this.$router.push({name: 'HomePage'})
-      }
-      else if (this.$route.name=='SearchResults' && this.$store.getters.SearchString=='') {
+        this.$router.push({ name: 'HomePage' })
+      } else if (
+        this.$route.name == 'SearchResults' &&
+        this.$store.getters.SearchString == ''
+      ) {
         this.$store.commit('updateSearchString', this.$route.query.q1)
         this.$store.commit('updateField', this.$route.query.type)
-        console.log(this.$route.query.custom)
-        if (this.$route.query.custom=='true') {
+        if (this.$route.query.custom == 'true') {
           this.$store.state.custom = true
           this.$store.commit('updateCustom', [
             this.$route.query.yearStart,
             this.$route.query.yearEnd,
           ])
-          console.log("cus")
-        }
-        else{
-          console.log(this.$route.query.custom)
+        } else {
           this.$store.state.custom = false
-          this.$store.commit('updateYear',this.$route.query.yearStart)
-          console.log(this.$store.state.yearStart)
-          console.log("not cus")
+          this.$store.commit('updateYear', this.$route.query.yearStart)
         }
-        this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: this.$store.state.custom, yearStart: this.$store.state.yearStart, yearEnd: this.$store.state.yearEnd, page: this.$route.query.page } })
+        this.$router.push({
+          name: 'SearchResults',
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            custom: this.$store.state.custom,
+            yearStart: this.$store.state.yearStart,
+            yearEnd: this.$store.state.yearEnd,
+            page: this.$route.query.page,
+          },
+        })
         this.$store.dispatch('getArticles')
-        console.log('called21')
-      }
-      else {
+      } else {
         this.$store.commit('updateYear', 0)
-        this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: this.$store.state.custom, yearStart: this.$store.state.yearStart, yearEnd: 2021, page: 1 } })
+        this.$router.push({
+          name: 'SearchResults',
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            custom: this.$store.state.custom,
+            yearStart: this.$store.state.yearStart,
+            yearEnd: 2021,
+            page: 1,
+          },
+        })
         this.$store.dispatch('getArticles')
-        console.log('called22')
       }
     },
   },
   computed: {
     ArticlesSinceYear() {
-      console.log("run")
       return this.$store.getters.articlesSinceYear
     },
   },

@@ -6,7 +6,7 @@
       v-model="SearchString"
       v-on:keyup.enter="checkForSearch"
     />
-    <i class="fa fa-search icon" v-on:click="checkForSearch"></i>  
+    <i class="fa fa-search icon" v-on:click="checkForSearch"></i>
   </div>
 </template>
 <script>
@@ -28,24 +28,38 @@ export default {
         this.$store.getters.SearchString == '' &&
         this.$router.name !== 'SearchResults'
       ) {
-        console.log('prevented')
         this.$router.push(this.$route)
-      } else if (this.$router.name=='SearchResults' && this.$store.getters.SearchString=='') {
+      } else if (
+        this.$router.name == 'SearchResults' &&
+        this.$store.getters.SearchString == ''
+      ) {
         this.$store.commit('updateSearchString', this.$route.query.q1)
         this.$store.commit('updateField', this.$route.query.type)
-        this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, page: this.$route.query.page } })
+        this.$router.push({
+          name: 'SearchResults',
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            page: this.$route.query.page,
+          },
+        })
         this.$store.commit('updateYear', 0)
         this.$store.dispatch('getArticles')
-        console.log('called11')
-      }
-      else {
+      } else {
         console.log(this.$store.getters.Field)
-        this.$router.push({ name: 'SearchResults', query: { q1: this.$store.getters.SearchString, type: this.$store.getters.Field, custom: false, yearStart: 0, yearEnd: 2021, page: 1 } })
+        this.$router.push({
+          name: 'SearchResults',
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            custom: false,
+            yearStart: 0,
+            yearEnd: 2021,
+            page: 1,
+          },
+        })
         this.$store.commit('updateYear', 0)
         this.$store.dispatch('getArticles')
-        console.log('called12')
-        console.log(this.$store.getters.SearchString)
-
       }
     },
   },
