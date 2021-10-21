@@ -119,7 +119,6 @@ const mutations = {
   },
   updatePage(state, page) {
     state.currentPage = page
-    console.log(page)
   },
 }
 
