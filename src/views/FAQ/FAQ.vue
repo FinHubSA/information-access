@@ -7,34 +7,27 @@
     </button>
     <div class="panel" v-if="displayPanel1">
       <p>
-        Text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat.
+        You can contribute to the cache of journal articles on Aaron's Kit by running a automated web-scraper tool which automatically downloads and uploads journal articles to Aaron's Kit. This software is open-source and can be found at this <a href='/'>link</a> with detailed installation instructions. After installation, simply leave the program running to contribute to Aaron's Kit. 
+        <br/> <br/>
+        <em>Note: institional or personal access to an online journal is required in order to scrape the articles.</em>
       </p>
     </div>
 
     <button class="accordion" @click="displayPanel2 = !displayPanel2">
-      Section 2
+      How do I use the search function?
     </button>
     <div class="panel" v-if="displayPanel2">
       <p>
-        Text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat.
+        Articles can be searched via three fields: by article title, an author's last name or the journal name. Currently, articles can only be searched on each of these fields separately. The default search field selected is 'title'. To search by a author's last name or journal name please select the appropriate search field before hitting the search button. 
       </p>
     </div>
 
     <button class="accordion" @click="displayPanel3 = !displayPanel3">
-      Section 3
+      What's next for Aaron's Kit?
     </button>
     <div class="panel" v-if="displayPanel3">
       <p>
-        Text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat.
+        In order to be truly censorship resistant, Aaron's Kit is moving towards decentralizing both it's website and it's cache of journal acticles. For scalability, we will also be looking to develop advanced filtering and search functionalities to improve user experience. Stay tuned for more updates!
       </p>
     </div>
   </div>
@@ -61,7 +54,7 @@ export default {
   padding: 18px;
   width: 100%;
   border: none;
-  text-align: center;
+  text-align: left;
   outline: none;
   font-size: 15px;
   transition: 0.4s;
@@ -76,8 +69,8 @@ export default {
   padding: 0 18px;
   background-color: white;
   overflow: hidden;
+  text-align: left;
 }
-
 .container {
   display: flex;
   flex-grow: 1;
