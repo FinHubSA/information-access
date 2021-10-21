@@ -1,20 +1,5 @@
 <template>
   <div class="header">
-    <router-link
-      class="routerLink"
-      @click="this.$store.commit('updatePage', $route.params.previouspage)"
-      :to="{
-        name: 'SearchResults',
-        params: { Page: $route.params.previouspage },
-      }"
-    >
-      <div class="return">
-        <img class="arrow" src="../../assets/leftarrow.png" />
-        <p>
-          Return to Results Page {{ $route.params.previouspage }}
-        </p>
-      </div>
-    </router-link>
     <div class="welcome">
       <h3>
         This is a preview of {{ $route.params.title }} by
@@ -32,29 +17,40 @@
     </iframe>
   </div>
 </template>
-
+<script>
+export default {
+  name: 'Preview',
+  methods: {
+    returnToPrevious() {
+      this.$store.commit('updatePage', this.$route.params.previouspage)
+      console.log(this.$route.params.from)
+    },
+  },
+}
+</script>
 <style scoped>
 .header {
   display: flex;
-  flex-grow: 1;
-  flex-shrink: 0;
+  justify-content: center;
 }
 .container {
   flex-grow: 1;
   flex-shrink: 0;
   background-color: grey;
-  padding: 5% 0;
 }
-
+.mobile {
+  display: none;
+}
+.not-mobile {
+  display: initial;
+}
 .welcome {
-  flex-grow: 1;
-  flex-shrink: 0;
   background-color: white;
 }
-
 .iframe {
-  height: 1000px;
-  width: 80%;
+  height: 100%;
+  min-height: 600px;
+  width: 100%;
 }
 
 .return {
@@ -75,5 +71,14 @@
 .routerLink {
   text-decoration: none;
   color: black;
+}
+
+@media screen and (max-width: 900px) {
+  .mobile {
+    display: initial;
+  }
+  .not-mobile {
+    display: none;
+  }
 }
 </style>
