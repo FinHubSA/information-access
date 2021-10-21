@@ -60,6 +60,7 @@ export default {
         })
         this.$store.commit('updateYear', 0)
         this.$store.dispatch('getArticles')
+        console.log('called 2')
       }
     },
   },

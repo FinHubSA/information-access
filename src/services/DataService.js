@@ -8,8 +8,7 @@ const Endings = {
 }
 
 const http = axios.create({
-  //baseURL: 'https://api-aaronskit.org/api/',
-  baseURL: 'http://localhost:5000/api/',
+  baseURL: 'https://api-aaronskit.org/api/',
   headers: {
     'Content-type': 'application/json',
   },
