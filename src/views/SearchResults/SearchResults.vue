@@ -28,8 +28,8 @@
       </h3>
       <ResultCard
         v-for="item in ArticlesSinceYear.slice(
-          numberOfCards * $route.params.Page - numberOfCards,
-          numberOfCards * $route.params.Page,
+          numberOfCards * this.$store.state.currentPage - numberOfCards,
+          numberOfCards * this.$store.state.currentPage,
         )"
         :key="item"
         v-bind="item"
@@ -39,30 +39,32 @@
   <div class="change-page-container">
     <div>
       <router-link
-        v-if="$route.params.Page > 1"
+        v-if="this.$store.state.currentPage > 1"
+        @click="this.$store.commit('updatePage', this.$route.params.Page - 1)"
         :to="{
           name: 'SearchResults',
-          params: { Page: $route.params.Page - 1 },
+          params: { Page: this.$store.state.currentPage - 1 },
         }"
       >
         <img class="arrow" src="../../assets/leftarrow.png" />
       </router-link>
-      <div class="arrow" v-if="$route.params.Page == 1"></div>
+      <div class="arrow" v-if="this.$store.state.currentPage == 1"></div>
     </div>
     <div>
-      <h2 class="page-number">{{ $route.params.Page }}</h2>
+      <h2 class="page-number">{{ this.$store.state.currentPage }} </h2>
     </div>
     <div>
       <router-link
-        v-if="$route.params.Page * numberOfCards < ArticlesSinceYear.length"
+        v-if="this.$store.state.currentPage * numberOfCards < ArticlesSinceYear.length"
+        @click="this.$store.commit('updatePage', this.$store.state.currentPage - - 1)"
         :to="{
           name: 'SearchResults',
-          params: { Page: $route.params.Page - -1 },
+          params: { Page: this.$store.state.currentPage - -1 },
         }"
       >
         <img class="arrow" src="../../assets/rightarrow.png" />
       </router-link>
-      <div class="arrow" v-if="$route.params.Page != 1"></div>
+      <div class="arrow" v-if="this.$store.state.currentPage * numberOfCards > ArticlesSinceYear.length"></div>
     </div>
   </div>
 </template>
@@ -92,7 +94,7 @@ export default {
       ) {
         this.$router.push(this.$route)
       } else {
-        this.$router.push({ name: 'SearchResults', params: { Page: 1 } })
+        this.$router.push({ name: 'SearchResults', params: { Page: this.$route.params.Page } })
         this.$store.commit('updateYear', 0)
         this.$store.dispatch('getArticles')
         console.log('called')

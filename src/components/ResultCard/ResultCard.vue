@@ -9,6 +9,7 @@
           authorsurname: AuthorSurname,
           authorinitial: AuthorInitial,
           journalname: JournalName,
+          previouspage: this.$route.params.Page
         },
       }"
     >

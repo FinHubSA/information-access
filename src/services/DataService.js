@@ -25,6 +25,7 @@ const state = {
   customEndYear: '',
   active: false,
   go: false,
+  currentPage: 1,
 }
 
 const getters = {
@@ -114,6 +115,10 @@ const mutations = {
     state.SearchString = ''
     state.articles = []
   },
+  updatePage(state,page) {
+    state.currentPage = page
+    console.log(page)
+  }
 }
 
 export default createStore({
