@@ -1,35 +1,41 @@
 <template>
-<div class="header">
-  <router-link class="routerLink"
+  <div class="header">
+    <router-link
+      class="routerLink"
       @click="this.$store.commit('updatePage', $route.params.previouspage)"
-      :to="{ name: 'SearchResults', params: { Page: $route.params.previouspage  } }"
-  >
-  <div class="return">
-      <img class="arrow" src="../../assets/leftarrow.png" />
-      <p> Return to Results Page {{this.$store.state.currentPage}} {{ $route.params.previouspage }}</p>  
+      :to="{
+        name: 'SearchResults',
+        params: { Page: $route.params.previouspage },
+      }"
+    >
+      <div class="return">
+        <img class="arrow" src="../../assets/leftarrow.png" />
+        <p>
+          Return to Results Page {{ $route.params.previouspage }}
+        </p>
+      </div>
+    </router-link>
+    <div class="welcome">
+      <h3>
+        This is a preview of {{ $route.params.title }} by
+        {{ $route.params.authorinitial }}. {{ $route.params.authorsurname }}.
+      </h3>
+      <p>
+        This is the URL of the document:
+        <a :href="$route.params.url"> {{ $route.params.url }} </a>
+      </p>
+    </div>
   </div>
-  </router-link>
-  <div class="welcome">
-    <h3>
-    This is a preview of {{ $route.params.title }} by
-    {{ $route.params.authorinitial }}. {{ $route.params.authorsurname }}.
-    </h3>
-    <p>
-      This is the URL of the document:
-      <a :href="$route.params.url"> {{ $route.params.url }} </a>
-    </p>
+  <div class="container">
+    <iframe class="iframe" :src="$route.params.url">
+      Sorry, your browser does not support Iframes.
+    </iframe>
   </div>
-</div>
-<div class="container">
-  <iframe class="iframe" :src="$route.params.url">
-    Sorry, your browser does not support Iframes.
-  </iframe>
-</div>
 </template>
 
 <style scoped>
-.header{
-  display:flex;
+.header {
+  display: flex;
   flex-grow: 1;
   flex-shrink: 0;
 }
@@ -51,7 +57,7 @@
   width: 80%;
 }
 
-.return{
+.return {
   display: flex;
   justify-content: left;
 }
@@ -70,5 +76,4 @@
   text-decoration: none;
   color: black;
 }
-
 </style>
