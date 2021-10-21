@@ -36,7 +36,7 @@
         unrestricted access to peer-reviewed scholarly articles.”
       </i>
     </p>
-    <h3>The Vision of Aaron’s Toolkit - An Ecosystem Approach</h3>
+    <h3>The Vision of Aaron’s Kit - An Ecosystem Approach</h3>
     <p>
       A young innovative advocate, an eloquent thinker; Aaron Swartz was a gift
       to the world. Aaron not only spoke about his ideas, but he pursued them
