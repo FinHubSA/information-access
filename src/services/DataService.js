@@ -33,34 +33,34 @@ const getters = {
   articlesSinceYear: (state) => {
     if (state.yearStart == 0) {
       return state.articles
-    }
-    if (state.yearEnd == 0) {
+    } else if (state.yearEnd == 0 && state.yearStart > 0) {
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       )
+    } else {
+      return state.articles.filter(
+        (element) =>
+          element.YearPublished >= state.yearStart &&
+          element.YearPublished <= state.yearEnd,
+      )
     }
-    return state.articles.filter(
-      (element) =>
-        element.YearPublished >= state.yearStart &&
-        element.YearPublished <= state.yearEnd,
-    )
   },
   SearchString: (state) => state.SearchString,
   Field: (state) => state.Field,
   NumberofArticles: (state) => {
     if (state.yearStart == 0) {
       return state.articles.length
-    }
-    if (state.yearEnd == 0) {
+    } else if (state.yearEnd == 0) {
       return state.articles.filter(
         (element) => element.YearPublished >= state.yearStart,
       ).length
+    } else {
+      return state.articles.filter(
+        (element) =>
+          element.YearPublished >= state.yearStart &&
+          element.YearPublished <= state.yearEnd,
+      ).length
     }
-    return state.articles.filter(
-      (element) =>
-        element.YearPublished >= state.yearStart &&
-        element.YearPublished <= state.yearEnd,
-    ).length
   },
   yearStart: (state) => state.yearStart,
 }
@@ -78,7 +78,6 @@ const actions = {
       )
       .then((response) => {
         commit('SET_ARTICLES', response.data)
-        commit('updateYear', 0)
       })
   },
   clearAll({ commit }) {
@@ -108,17 +107,19 @@ const mutations = {
   updateCustom(state, year) {
     state.yearStart = year[0]
     state.yearEnd = year[1]
+    state.customStartYear = year[0]
+    state.customEndYear = year[1]
     state.go = true
     state.active = false
   },
   CLEAR_ALL(state) {
     state.SearchString = ''
     state.articles = []
+    state.Field = 'title'
   },
-  updatePage(state,page) {
+  updatePage(state, page) {
     state.currentPage = page
-    console.log(page)
-  }
+  },
 }
 
 export default createStore({

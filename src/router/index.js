@@ -12,7 +12,7 @@ const routes = [
     component: HomePage,
   },
   {
-    path: '/searchresults/:Page',
+    path: '/searchresults',
     name: 'SearchResults',
     component: SearchResults,
   },
@@ -27,14 +27,13 @@ const routes = [
     component: FAQ,
   },
   {
-    path: '/Preview/:title/:authorsurname/:authorinitial/:journalname/:url/:previouspage',
+    path: '/Preview/:title/:authorsurname/:authorinitial/:journalname/:url/:previouspage/:from',
     name: 'Preview',
     component: Preview,
+    props: {},
   },
-  {
-    path: '/*',
-    component: 404,
-  },
+  { path: '/*', 
+    redirect: '/' },
 ]
 
 const router = createRouter({

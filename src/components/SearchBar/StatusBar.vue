@@ -1,8 +1,19 @@
 <template>
   <div class="all-container">
-    <div class="side-container">
+    <!--<div class="side-container">
       <router-link class="img-small" to="/" v-on:click="clearSearch">
         <img class="img-small" src="@/assets/logo_no_byline.png" />
+      </router-link>
+    </div>-->
+    <div v-if="this.$route.name == 'Preview'" class="side-container">
+      <router-link class="routerLink" :to="this.$route.params.from">
+        <div class="return">
+          <img class="arrow" src="../../assets/leftarrow.png" />
+          <p class="not-mobile">
+            Return to Results page {{ $route.params.previouspage }}
+          </p>
+          <p class="mobile">Return</p>
+        </div>
       </router-link>
     </div>
     <div class="side-container1" v-if="currentRouteName">
@@ -79,12 +90,13 @@ export default {
   padding: 0 10px;
   margin: 0;
 }
-.side-container,
+
 .side-container3,
 .side-container4 {
   display: none;
   flex: 1;
 }
+.side-container,
 .side-container1 {
   display: initial;
   flex: 1;
@@ -101,6 +113,29 @@ export default {
 p {
   padding: 0;
   margin: 0;
+}
+.return {
+  display: flex;
+  justify-content: left;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.routerLink {
+  text-decoration: none;
+  color: black;
+}
+.mobile {
+  display: none;
+}
+.not-mobile {
+  display: initial;
 }
 @media screen and (max-width: 900px) {
   .all-container {
@@ -167,6 +202,12 @@ p {
   }
   .dropdown:hover .dropbtn {
     background-color: rgb(199, 198, 198);
+  }
+  .mobile {
+    display: initial;
+  }
+  .not-mobile {
+    display: none;
   }
 }
 </style>

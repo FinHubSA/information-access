@@ -9,7 +9,8 @@
           authorsurname: AuthorSurname,
           authorinitial: AuthorInitial,
           journalname: JournalName,
-          previouspage: this.$route.params.Page
+          previouspage: this.$route.query.page,
+          from: String(this.$route.fullPath),
         },
       }"
     >

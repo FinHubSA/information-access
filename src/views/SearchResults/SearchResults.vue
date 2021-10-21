@@ -40,10 +40,17 @@
     <div>
       <router-link
         v-if="this.$store.state.currentPage > 1"
-        @click="this.$store.commit('updatePage', this.$route.params.Page - 1)"
+        @click="this.$store.commit('updatePage', this.$route.query.page - 1)"
         :to="{
           name: 'SearchResults',
-          params: { Page: this.$store.state.currentPage - 1 },
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            custom: this.$store.state.custom,
+            yearStart: this.$store.state.yearStart,
+            yearEnd: this.$store.state.yearEnd,
+            page: this.$route.query.page - 1,
+          },
         }"
       >
         <img class="arrow" src="../../assets/leftarrow.png" />
@@ -51,20 +58,38 @@
       <div class="arrow" v-if="this.$store.state.currentPage == 1"></div>
     </div>
     <div>
-      <h2 class="page-number">{{ this.$store.state.currentPage }} </h2>
+      <h2 class="page-number">{{ this.$store.state.currentPage }}</h2>
     </div>
     <div>
       <router-link
-        v-if="this.$store.state.currentPage * numberOfCards < ArticlesSinceYear.length"
-        @click="this.$store.commit('updatePage', this.$store.state.currentPage - - 1)"
+        v-if="
+          this.$store.state.currentPage * numberOfCards <
+          ArticlesSinceYear.length
+        "
+        @click="
+          this.$store.commit('updatePage', this.$store.state.currentPage - -1)
+        "
         :to="{
           name: 'SearchResults',
-          params: { Page: this.$store.state.currentPage - -1 },
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            custom: this.$store.state.custom,
+            yearStart: this.$store.state.yearStart,
+            yearEnd: this.$store.state.yearEnd,
+            page: this.$store.state.currentPage - -1,
+          },
         }"
       >
         <img class="arrow" src="../../assets/rightarrow.png" />
       </router-link>
-      <div class="arrow" v-if="this.$store.state.currentPage * numberOfCards > ArticlesSinceYear.length"></div>
+      <div
+        class="arrow"
+        v-if="
+          this.$store.state.currentPage * numberOfCards >
+          ArticlesSinceYear.length
+        "
+      ></div>
     </div>
   </div>
 </template>
@@ -88,16 +113,52 @@ export default {
   },
   methods: {
     checkForSearch() {
-      if (
-        this.$store.getters.SearchString == '' &&
-        this.$router.name !== 'SearchResults'
+      if (this.$route.query.q1 == '' || Object.values(this.$route.query).length<6) {
+        this.$router.push({ name: 'HomePage' })
+      } else if (
+        this.$route.name == 'SearchResults' &&
+        this.$store.getters.SearchString == ''
       ) {
-        this.$router.push(this.$route)
-      } else {
-        this.$router.push({ name: 'SearchResults', params: { Page: this.$route.params.Page } })
-        this.$store.commit('updateYear', 0)
+        this.$store.commit('updateSearchString', this.$route.query.q1)
+        this.$store.commit('updateField', this.$route.query.type)
+        this.$store.commit('updatePage', this.$route.query.page)
+        if (this.$route.query.custom == 'true') {
+          this.$store.state.custom = true
+          this.$store.commit('updateCustom', [
+            this.$route.query.yearStart,
+            this.$route.query.yearEnd,
+          ])
+        } else {
+          this.$store.state.custom = false
+          this.$store.commit('updateYear', this.$route.query.yearStart)
+        }
+        this.$router.push({
+          name: 'SearchResults',
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            custom: this.$store.state.custom,
+            yearStart: this.$store.state.yearStart,
+            yearEnd: this.$store.state.yearEnd,
+            page: this.$store.state.currentPage,
+          },
+        })
         this.$store.dispatch('getArticles')
-        console.log('called')
+      } else {
+        this.$store.commit('updateYear', 0)
+        this.$store.commit('updatePage', 1)
+        this.$router.push({
+          name: 'SearchResults',
+          query: {
+            q1: this.$store.getters.SearchString,
+            type: this.$store.getters.Field,
+            custom: this.$store.state.custom,
+            yearStart: this.$store.state.yearStart,
+            yearEnd: 2021,
+            page: 1,
+          },
+        })
+        this.$store.dispatch('getArticles')
       }
     },
   },
