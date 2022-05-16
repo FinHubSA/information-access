@@ -7,7 +7,6 @@
           {{ $route.params.authorsurname }}.
         </p>
       </div>
-    </div>
     <iframe class="iframe" :src="$route.params.url">
       Sorry, your browser does not support Iframes.
     </iframe>
@@ -61,17 +60,6 @@ export default {
   flex: 5;
   justify-content: flex-start;
   align-items: flex-start;
-}
-
-.return {
-  display: flex;
-  justify-content: left;
-}
-
-.arrow {
-  width: 25px;
-  height: 25px;
-  margin-top: 20px;
   margin-bottom: 2%;
   margin-right: 2%;
   margin-left: 10%;

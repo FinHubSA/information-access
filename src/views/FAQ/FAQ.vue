@@ -12,7 +12,8 @@
         downloads and uploads journal articles to Aaron's Kit. This software
         will be open-source and a link to install it will be published on this
         website. After installation, you can simply leave the program running to
-        contribute to Aaron's Kit. <br />
+        contribute to Aaron's Kit.
+        <br />
         <br />
         <em
           >Note: institional or personal access to an online journal will be
