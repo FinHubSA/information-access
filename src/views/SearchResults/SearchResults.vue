@@ -58,7 +58,7 @@
       <div class="arrow" v-if="this.$store.state.currentPage == 1"></div>
     </div>
     <div>
-      <h2 class="page-number">{{ this.$store.state.currentPage }}</h2>
+      <p class="page-number">{{ this.$store.state.currentPage }}</p>
     </div>
     <div>
       <router-link
@@ -113,7 +113,10 @@ export default {
   },
   methods: {
     checkForSearch() {
-      if (this.$route.query.q1 == '' || Object.values(this.$route.query).length<6) {
+      if (
+        this.$route.query.q1 == '' ||
+        Object.values(this.$route.query).length < 6
+      ) {
         this.$router.push({ name: 'HomePage' })
       } else if (
         this.$route.name == 'SearchResults' &&
@@ -217,8 +220,8 @@ export default {
   justify-content: center;
 }
 .arrow {
-  width: 25px;
-  height: 25px;
+  width: 10px;
+  height: 10px;
   margin-top: 10px;
   margin-bottom: 2%;
   margin-right: 2%;
@@ -232,6 +235,7 @@ export default {
   margin-bottom: 10px;
   margin-right: 2%;
   margin-left: 2%;
+  font-size: 14px;
 }
 @media screen and (max-width: 900px) {
   .results-cards-flex-container {
