@@ -32,8 +32,7 @@ const routes = [
     component: Preview,
     props: {},
   },
-  { path: '/*', 
-    redirect: '/' },
+  { path: '/*', redirect: '/' },
 ]
 
 const router = createRouter({

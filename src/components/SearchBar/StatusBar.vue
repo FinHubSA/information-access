@@ -10,7 +10,7 @@
         <div class="return">
           <img class="arrow" src="../../assets/leftarrow.png" />
           <p class="not-mobile">
-            Return to Results page {{ $route.params.previouspage }}
+            Return to page {{ $route.params.previouspage }}
           </p>
           <p class="mobile">Return</p>
         </div>
@@ -117,6 +117,7 @@ p {
 .return {
   display: flex;
   justify-content: left;
+  font-size: 14px;
 }
 
 .arrow {
@@ -174,7 +175,7 @@ p {
     background-color: white;
     color: #2c3e50;
     height: 2.5rem;
-    font-size: 16px;
+    font-size: 10px;
     border: none;
     cursor: pointer;
     right: 0;

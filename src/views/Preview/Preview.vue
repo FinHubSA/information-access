@@ -1,17 +1,13 @@
 <template>
-  <div class="header">
-    <div class="welcome">
-      <h3>
-        This is a preview of {{ $route.params.title }} by
-        {{ $route.params.authorinitial }}. {{ $route.params.authorsurname }}.
-      </h3>
-      <p>
-        This is the URL of the document:
-        <a :href="$route.params.url"> {{ $route.params.url }} </a>
-      </p>
-    </div>
-  </div>
   <div class="container">
+    <div class="header">
+      <div class="welcome">
+        <p>
+          {{ $route.params.title }} by {{ $route.params.authorinitial }}.
+          {{ $route.params.authorsurname }}.
+        </p>
+      </div>
+    </div>
     <iframe class="iframe" :src="$route.params.url">
       Sorry, your browser does not support Iframes.
     </iframe>
@@ -31,12 +27,23 @@ export default {
 <style scoped>
 .header {
   display: flex;
-  justify-content: center;
+  flex: 1;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 500px;
+  padding-top: 6rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: left;
 }
 .container {
+  display: flex;
   flex-grow: 1;
   flex-shrink: 0;
-  background-color: grey;
+  background-color: white;
+  height: 500px;
 }
 .mobile {
   display: none;
@@ -46,25 +53,22 @@ export default {
 }
 .welcome {
   background-color: white;
+  align-items: left;
 }
 .iframe {
-  height: 100%;
-  min-height: 600px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .return {
   display: flex;
-  justify-content: left;
-}
-
-.arrow {
-  width: 25px;
-  height: 25px;
-  margin-top: 20px;
-  margin-bottom: 2%;
-  margin-right: 2%;
-  margin-left: 10%;
+  flex-direction: column;
+  flex: 6;
+  justify-content: flex-start;
+  align-items: flex-start;
   cursor: pointer;
 }
 
