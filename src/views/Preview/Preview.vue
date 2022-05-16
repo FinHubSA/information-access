@@ -65,16 +65,10 @@ export default {
 
 .return {
   display: flex;
-  justify-content: left;
-}
-
-.arrow {
-  width: 25px;
-  height: 25px;
-  margin-top: 20px;
-  margin-bottom: 2%;
-  margin-right: 2%;
-  margin-left: 10%;
+  flex-direction: column;
+  flex: 6;
+  justify-content: flex-start;
+  align-items: flex-start;
   cursor: pointer;
 }
 
