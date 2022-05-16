@@ -7,6 +7,7 @@
           {{ $route.params.authorsurname }}.
         </p>
       </div>
+    </div>
     <iframe class="iframe" :src="$route.params.url">
       Sorry, your browser does not support Iframes.
     </iframe>
