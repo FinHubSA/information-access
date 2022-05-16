@@ -58,6 +58,14 @@ export default {
 .iframe {
   display: flex;
   flex-direction: column;
+  flex: 5;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.return {
+  display: flex;
+  flex-direction: column;
   flex: 6;
   justify-content: flex-start;
   align-items: flex-start;

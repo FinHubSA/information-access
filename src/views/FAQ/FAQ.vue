@@ -14,7 +14,6 @@
         website. After installation, you can simply leave the program running to
         contribute to Aaron's Kit.
         <br />
-        <br />
         <em
           >Note: institional or personal access to an online journal will be
           necessary to download journal articles via the program.</em
