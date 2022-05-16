@@ -31,7 +31,7 @@ export default {
   flex-direction: column;
   height: 100vh;
 }
-.Footer{
+.Footer {
   align-self: flex-end;
 }
 </style>

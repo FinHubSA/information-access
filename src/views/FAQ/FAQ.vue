@@ -7,10 +7,11 @@
     </button>
     <div class="panel" v-if="displayPanel1">
       <p>
-        Soon, you will be able to contribute to the cache of journal articles on Aaron's Kit by
-        running an automated web-scraper tool which automatically downloads and
-        uploads journal articles to Aaron's Kit. This software will be open-source
-        and a link to install it will be published on this website. After installation, you can simply leave the program running to
+        Soon, you will be able to contribute to the cache of journal articles on
+        Aaron's Kit by running an automated web-scraper tool which automatically
+        downloads and uploads journal articles to Aaron's Kit. This software
+        will be open-source and a link to install it will be published on this
+        website. After installation, you can simply leave the program running to
         contribute to Aaron's Kit. <br />
         <br />
         <em

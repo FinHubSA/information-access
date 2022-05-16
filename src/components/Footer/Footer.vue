@@ -1,7 +1,7 @@
 <template>
   <div class="footer-container">
     <footer>
-      <h6>Aaron's Kit © 2021   -    Making research accessible</h6>
+      <h6>Aaron's Kit © 2021 - Making research accessible</h6>
     </footer>
   </div>
 </template>

@@ -113,7 +113,10 @@ export default {
   },
   methods: {
     checkForSearch() {
-      if (this.$route.query.q1 == '' || Object.values(this.$route.query).length<6) {
+      if (
+        this.$route.query.q1 == '' ||
+        Object.values(this.$route.query).length < 6
+      ) {
         this.$router.push({ name: 'HomePage' })
       } else if (
         this.$route.name == 'SearchResults' &&
