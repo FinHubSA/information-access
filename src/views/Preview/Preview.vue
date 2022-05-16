@@ -3,7 +3,8 @@
     <div class="header">
       <div class="welcome">
         <p>
-          {{ $route.params.title }} by {{ $route.params.authorinitial}}. {{ $route.params.authorsurname }}.
+          {{ $route.params.title }} by {{ $route.params.authorinitial }}.
+          {{ $route.params.authorsurname }}.
         </p>
       </div>
     </div>
@@ -28,7 +29,6 @@ export default {
   display: flex;
   flex: 1;
   flex-grow: 1;
-  flex-shrink: 0;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
